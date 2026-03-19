@@ -1,0 +1,27 @@
+@use "../abstracts/variables" as *;
+
+.container {
+  width: min(100% - (2 * $container-padding), $container-max-width);
+  margin-inline: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-inline: -0.75rem;
+}
+
+.row > * {
+  width: 100%;
+  padding-inline: 0.75rem;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .col-lg-6 {
+    width: 58%;
+  }
+}

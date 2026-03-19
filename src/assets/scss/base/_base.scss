@@ -1,0 +1,17 @@
+@use "../abstracts/variables" as *;
+
+body {
+  min-width: 320px;
+  background: linear-gradient(115deg, $color-bg-start 15%, $color-bg-end 85%);
+  font-family: $font-body;
+  color: $color-text;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

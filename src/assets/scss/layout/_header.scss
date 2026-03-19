@@ -1,0 +1,78 @@
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 100;
+  padding: 1.5rem 0;
+}
+
+.site-header__content {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.site-header__brand img {
+  display: block;
+  height: 45px;
+  width: auto;
+  padding-right: 10px;
+}
+
+.site-header__nav {
+  margin-left: auto;
+}
+
+.site-header__menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-header__menu-item a {
+  color: rgba(255, 255, 255, 0.88);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  height: 45px;
+}
+
+.site-header__socials {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-header__social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+  transition: background 0.25s ease;
+}
+
+.site-header__social-link:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.site-header__social-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  filter: brightness(0) invert(1);
+}

@@ -1,0 +1,25 @@
+@use "./variables" as *;
+
+@mixin heading-xl {
+  font-family: $font-heading;
+  font-size: $font-size-hero-title;
+  font-weight: $font-weight-bold;
+}
+
+@mixin section-title {
+  font-family: $font-heading;
+  font-size: $font-size-section-title;
+  font-weight: $font-weight-bold;
+}
+
+@mixin section-subtitle {
+  font-family: $font-body;
+  font-size: $font-size-section-subtitle;
+  font-weight: $font-weight-light;
+}
+
+@mixin body-text {
+  font-family: $font-body;
+  font-size: $font-size-body-large;
+  font-weight: $font-weight-semibold;
+}

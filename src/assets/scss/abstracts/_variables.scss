@@ -1,0 +1,26 @@
+$color-bg-start: #02142e;
+$color-bg-end: #071a3b;
+$color-surface: #0c2147;
+$color-text: #ffffff;
+$color-text-muted: rgba(255, 255, 255, 0.82);
+$color-accent: #2caae8;
+$color-accent-strong: #1e88ff;
+$gradient-heading-accent: linear-gradient(
+  112deg,
+  rgba(255, 255, 255, 1) 0%,
+  rgba(44, 170, 232, 1) 100%
+);
+
+$container-max-width: 1200px;
+$container-padding: 1.5rem;
+$font-heading: "Montserrat", sans-serif;
+$font-body: "Inter", sans-serif;
+
+$font-size-hero-title: 74px;
+$font-size-section-title: 40px;
+$font-size-section-subtitle: 20px;
+$font-size-body-large: 18px;
+
+$font-weight-light: 300;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
