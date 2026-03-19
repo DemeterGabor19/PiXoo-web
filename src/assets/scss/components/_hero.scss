@@ -69,7 +69,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
-    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.14);
+    text-shadow: $shadow-heading-soft;
   }
 
   &__text {

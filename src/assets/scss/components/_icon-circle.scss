@@ -1,0 +1,61 @@
+.icon-circle {
+  /* “paraméterek” (állíthatóak példányonként is) */
+  --size: 3.5rem; /* 56px @ 16px root */
+  --stroke: 0.0625rem; /* 1px */
+  --inset: 0.125rem; /* 2px */
+
+  --stroke-color: rgba(130, 220, 255, 0.95);
+  --outer-glow-1: rgba(120, 230, 255, 0.55);
+  --outer-glow-2: rgba(0, 160, 255, 0.35);
+  --outer-glow-blur: 1.125rem; /* 18px */
+  --inner-glow-blur: 1.375rem; /* 22px */
+  --inner-glow-color: rgba(40, 190, 255, 0.35);
+
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: radial-gradient(
+    circle at 50% 55%,
+    rgba(0, 150, 255, 0.65) 0%,
+    rgba(0, 110, 210, 0.55) 18%,
+    rgba(0, 60, 140, 0.55) 36%,
+    rgba(0, 28, 78, 0.85) 68%,
+    rgba(0, 14, 40, 0.98) 100%
+  );
+
+  box-shadow:
+    0 0 var(--outer-glow-blur) rgba(70, 190, 255, 0.55),
+    inset 0 0 var(--inner-glow-blur) var(--inner-glow-color);
+}
+
+.icon-circle::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: var(--stroke) solid var(--stroke-color);
+  box-shadow:
+    0 0 calc(var(--outer-glow-blur) * 0.78) var(--outer-glow-1),
+    0 0 calc(var(--outer-glow-blur) * 1.12) var(--outer-glow-2);
+  pointer-events: none;
+}
+
+.icon-circle::after {
+  content: "";
+  position: absolute;
+  inset: var(--inset);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.04) 18%,
+    rgba(255, 255, 255, 0) 52%
+  );
+  opacity: 0.9;
+  pointer-events: none;
+}

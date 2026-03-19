@@ -27,7 +27,10 @@
 @use "components/cards";
 @use "components/forms";
 @use "components/form-messages";
-@use "components/hero"; // ← EZ KELL MOST NEKED
+@use "components/hero";
+@use "components/icon-circle";
+@use "components/gradients-line";
+@use "components/references-preview";
 
 // pages
 @use "pages/home";

@@ -1,0 +1,159 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.refs {
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+.refs__container {
+  width: min(1100px, 100% - 2rem);
+  margin-inline: auto;
+
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+
+  grid-template-columns: 1fr;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1.05fr 1fr;
+  }
+}
+
+.refs__kicker {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.refs__title {
+  @include section-title;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: $gradient-heading-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #ffffff;
+  text-shadow: $shadow-heading-soft;
+}
+
+.refs__lead,
+.refs__desc {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+.refs__lead {
+  margin-bottom: 1rem;
+}
+
+.refs__actions {
+  margin-top: 1.5rem;
+}
+
+.refs__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.9rem 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.06);
+
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.refs__cta:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.refs__cta:focus-visible {
+  outline: 2px solid rgba(130, 220, 255, 0.9);
+  outline-offset: 3px;
+}
+
+.refs__gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
+.refs__card {
+  display: grid;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  padding: 0.9rem;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.refs__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(130, 220, 255, 0.35);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* image slot */
+.refs__media {
+  display: block;
+  border-radius: 10px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+
+  /* látszódjon akkor is, ha még nincs kép */
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    ),
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(44, 170, 232, 0.22),
+      transparent 60%
+    );
+}
+
+.refs__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: 0; /* amíg nincs src / nem tölt be */
+  transition: opacity 180ms ease;
+}
+
+/* ha kitöltöd a src-t, ez felhúzza a képet (fallback: töröld az opacity-t és kész) */
+.refs__media:has(img[src]:not([src=""])) .refs__img {
+  opacity: 1;
+}
+
+.refs__card-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  opacity: 0.95;
+}
