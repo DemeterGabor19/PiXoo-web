@@ -28,17 +28,9 @@
   opacity: 0.8;
 }
 
-.refs__title {
-  @include section-title;
-  margin: 0 0 1rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  background: $gradient-heading-accent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: #ffffff;
-  text-shadow: $shadow-heading-soft;
+.refs__cta {
+  @include primary-cta;
+  gap: 0.5rem;
 }
 
 .refs__lead,
@@ -98,17 +90,10 @@
   display: grid;
   gap: 0.6rem;
   text-decoration: none;
-
   padding: 0.9rem;
   border-radius: 14px;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.04);
-
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease;
+  @include glass-card;
 }
 
 .refs__card:hover {
