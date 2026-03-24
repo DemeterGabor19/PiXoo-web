@@ -33,6 +33,14 @@
   }
 }
 
+.tech-fixed__icon img,
+.tech-item__icon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
 /* DEV marquee (full width) */
 .tech-marquee {
   --duration: 28s;
@@ -135,12 +143,12 @@
   );
 
   &__icon {
-    --size: 3.25rem;
+    --size: 3.75rem;
   }
 
   &__icon img {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.75rem;
+    height: 1.75rem;
     object-fit: contain;
   }
 
@@ -168,6 +176,7 @@
 /* DESIGN fixed grid */
 .tech-fixed {
   margin-top: 1.5rem;
+  margin-bottom: 4rem;
 
   &__title {
     margin: 0 0 0.85rem;

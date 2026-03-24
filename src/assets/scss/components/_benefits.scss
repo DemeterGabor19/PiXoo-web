@@ -1,0 +1,197 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.benefits {
+  padding-block: 4.25rem;
+
+  &__container {
+    width: min(1120px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+
+  &__header {
+    max-width: 84ch;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.6rem;
+    opacity: 0.85;
+    @include section-subtitle;
+  }
+
+  &__title {
+    margin: 0 0 0.85rem;
+    @include section-title;
+  }
+
+  &__lead {
+    margin: 0;
+    opacity: 0.88;
+    line-height: 1.7;
+    @include body-text;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1.15fr 1fr 0.9fr;
+    grid-template-areas:
+      "strategy strategy design"
+      "technical local local"
+      ". start .";
+    align-items: stretch;
+  }
+
+  &__card {
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: center;
+    min-height: 178px;
+    padding: 1.25rem;
+    border-radius: 18px;
+
+    @include glass-card(
+      rgba(255, 255, 255, 0.04),
+      rgba(255, 255, 255, 0.14),
+      rgba(255, 255, 255, 0.07),
+      rgba(130, 220, 255, 0.35)
+    );
+  }
+
+  &__card--strategy {
+    grid-area: strategy;
+    min-height: 180px;
+  }
+
+  &__card--design {
+    grid-area: design;
+    min-height: 180px;
+  }
+
+  &__card--technical {
+    grid-area: technical;
+    min-height: 172px;
+  }
+
+  &__card--local {
+    grid-area: local;
+    min-height: 172px;
+  }
+
+  &__card--start {
+    grid-area: start;
+    min-height: 120px;
+  }
+
+  &__card--start .benefits__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__content {
+    min-width: 0;
+  }
+
+  &__card-title {
+    margin: 0 0 0.6rem;
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+  }
+
+  &__card-text {
+    margin: 0;
+    opacity: 0.88;
+    line-height: 1.6;
+    font-size: 0.96rem;
+  }
+
+  &__cta {
+    @include primary-cta;
+    margin-top: 1rem;
+  }
+
+  &__media {
+    justify-self: end;
+    align-self: end;
+    max-width: 180px;
+  }
+
+  &__media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 980px) {
+  .benefits {
+    &__grid {
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        "strategy strategy"
+        "design technical"
+        "local local"
+        "start start";
+    }
+
+    &__card,
+    &__card--strategy,
+    &__card--design,
+    &__card--technical,
+    &__card--local {
+      min-height: 160px;
+    }
+
+    &__media {
+      max-width: 140px;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .benefits {
+    &__grid {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "strategy"
+        "design"
+        "technical"
+        "local"
+        "start";
+    }
+
+    &__card,
+    &__card--strategy,
+    &__card--design,
+    &__card--technical,
+    &__card--local,
+    &__card--start {
+      min-height: auto;
+      grid-template-columns: 1fr;
+    }
+
+    &__media {
+      justify-self: center;
+      align-self: center;
+      max-width: 120px;
+    }
+
+    &__header {
+      text-align: left;
+    }
+
+    &__cta {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+}
