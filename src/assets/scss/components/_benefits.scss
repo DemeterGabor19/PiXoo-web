@@ -2,7 +2,7 @@
 @use "../abstracts/variables" as *;
 
 .benefits {
-  padding-block: 4.25rem;
+  padding-block: 4.5rem;
 
   &__container {
     width: min(1120px, calc(100% - 2rem));
@@ -10,39 +10,36 @@
   }
 
   &__header {
-    max-width: 84ch;
+    max-width: 760px;
     margin-inline: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 2.25rem;
     text-align: center;
   }
 
   &__eyebrow {
-    margin: 0 0 0.6rem;
-    opacity: 0.85;
+    margin: 0 0 0.75rem;
+    opacity: 0.82;
     @include section-subtitle;
   }
 
   &__title {
-    margin: 0 0 0.85rem;
+    margin: 0 0 1rem;
+    line-height: 1.2;
     @include section-title;
   }
 
   &__lead {
     margin: 0;
     opacity: 0.88;
-    line-height: 1.7;
+    line-height: 1.65;
     @include body-text;
   }
 
   &__grid {
     display: grid;
-    gap: 1rem;
-    grid-template-columns: 1.15fr 1fr 0.9fr;
-    grid-template-areas:
-      "strategy strategy design"
-      "technical local local"
-      ". start .";
-    align-items: stretch;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(78px, auto));
+    gap: 0.75rem;
   }
 
   &__card {
@@ -51,77 +48,118 @@
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto;
     gap: 1rem;
-    align-items: center;
-    min-height: 178px;
     padding: 1.25rem;
-    border-radius: 18px;
+    border-radius: 16px;
 
     @include glass-card(
       rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.14),
-      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.06),
       rgba(130, 220, 255, 0.35)
     );
   }
 
   &__card--strategy {
-    grid-area: strategy;
+    grid-area: 1 / 1 / 3 / 4;
     min-height: 180px;
+    grid-template-columns: minmax(0, 1fr) 210px;
+    align-items: center;
   }
 
   &__card--design {
-    grid-area: design;
+    grid-area: 1 / 4 / 3 / 6;
     min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 
   &__card--technical {
-    grid-area: technical;
-    min-height: 172px;
+    grid-area: 3 / 1 / 6 / 3;
+    min-height: 240px;
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   &__card--local {
-    grid-area: local;
-    min-height: 172px;
+    grid-area: 3 / 3 / 5 / 6;
+    min-height: 160px;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    align-items: center;
   }
 
   &__card--start {
-    grid-area: start;
-    min-height: 120px;
-  }
-
-  &__card--start .benefits__content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    grid-area: 5 / 3 / 6 / 6;
+    min-height: 110px;
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
 
   &__content {
     min-width: 0;
+    z-index: 1;
   }
 
   &__card-title {
-    margin: 0 0 0.6rem;
-    font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+    margin: 0 0 0.65rem;
+    font-family: $font-heading;
+    font-size: clamp(1rem, 1.25vw, 1.28rem);
     font-weight: $font-weight-bold;
-    line-height: 1.2;
+    line-height: 1.15;
   }
 
   &__card-text {
     margin: 0;
-    opacity: 0.88;
-    line-height: 1.6;
-    font-size: 0.96rem;
-  }
-
-  &__cta {
-    @include primary-cta;
-    margin-top: 1rem;
+    font-family: $font-body;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: $color-text-muted;
   }
 
   &__media {
+    width: 100%;
+  }
+
+  &__card--strategy .benefits__media {
+    align-self: center;
     justify-self: end;
+    max-width: 210px;
+  }
+
+  &__card--design .benefits__media {
+    order: -1;
+    align-self: center;
+    justify-self: center;
+    max-width: 150px;
+    margin-bottom: 0.75rem;
+  }
+
+  &__card--design .benefits__content {
+    text-align: center;
+  }
+
+  &__card--technical .benefits__media {
+    justify-self: start;
+    align-self: start;
+    max-width: 190px;
+    margin-top: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  &__card--technical .benefits__content {
     align-self: end;
-    max-width: 180px;
+  }
+
+  &__card--local .benefits__media {
+    justify-self: end;
+    align-self: center;
+    max-width: 170px;
+  }
+
+  &__card--start .benefits__media {
+    display: none;
   }
 
   &__media img {
@@ -130,68 +168,127 @@
     height: auto;
     object-fit: contain;
   }
+
+  &__cta {
+    @include primary-cta;
+    min-width: 190px;
+    min-height: 48px;
+    margin-left: 1rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 14px;
+    font-size: 0.95rem;
+  }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1100px) {
   .benefits {
     &__grid {
-      grid-template-columns: 1fr 1fr;
-      grid-template-areas:
-        "strategy strategy"
-        "design technical"
-        "local local"
-        "start start";
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: auto;
+      gap: 0.9rem;
     }
 
-    &__card,
     &__card--strategy,
     &__card--design,
     &__card--technical,
-    &__card--local {
-      min-height: 160px;
+    &__card--local,
+    &__card--start {
+      grid-area: auto;
+      min-height: auto;
     }
 
-    &__media {
-      max-width: 140px;
+    &__card--strategy {
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(0, 1fr) 180px;
+    }
+
+    &__card--design {
+      display: flex;
+    }
+
+    &__card--technical {
+      grid-template-columns: 1fr;
+    }
+
+    &__card--local {
+      grid-column: 1 / -1;
+      grid-template-columns: minmax(0, 1fr) 150px;
+    }
+
+    &__card--start {
+      grid-column: 1 / -1;
+    }
+
+    &__card--strategy .benefits__media {
+      max-width: 180px;
+    }
+
+    &__card--design .benefits__media {
+      max-width: 130px;
+    }
+
+    &__card--technical .benefits__media {
+      max-width: 160px;
+    }
+
+    &__card--local .benefits__media {
+      max-width: 150px;
     }
   }
 }
 
 @media (max-width: 680px) {
   .benefits {
-    &__grid {
-      grid-template-columns: 1fr;
-      grid-template-areas:
-        "strategy"
-        "design"
-        "technical"
-        "local"
-        "start";
+    padding-block: 3.5rem;
+
+    &__header {
+      text-align: left;
+      margin-bottom: 1.5rem;
     }
 
-    &__card,
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__card {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+      padding: 1rem;
+    }
+
     &__card--strategy,
     &__card--design,
     &__card--technical,
     &__card--local,
     &__card--start {
-      min-height: auto;
-      grid-template-columns: 1fr;
+      grid-column: auto;
+      display: grid;
     }
 
-    &__media {
+    &__card--design .benefits__content {
+      text-align: left;
+    }
+
+    &__media,
+    &__card--strategy .benefits__media,
+    &__card--design .benefits__media,
+    &__card--technical .benefits__media,
+    &__card--local .benefits__media {
       justify-self: center;
       align-self: center;
       max-width: 120px;
+      margin: 0;
     }
 
-    &__header {
-      text-align: left;
+    &__card--start {
+      grid-template-columns: 1fr;
     }
 
     &__cta {
       width: 100%;
       min-width: 100%;
+      margin-left: 0;
+      margin-top: 1rem;
     }
   }
 }
