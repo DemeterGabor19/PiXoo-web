@@ -3,6 +3,8 @@
 
 .benefits {
   padding-block: 4.5rem;
+  background: #38aaf4;
+  color: #06172d;
 
   &__container {
     width: min(1120px, calc(100% - 2rem));
@@ -12,7 +14,7 @@
   &__header {
     max-width: 760px;
     margin-inline: auto;
-    margin-bottom: 2.25rem;
+    margin-bottom: 2.5rem;
     text-align: center;
   }
 
@@ -38,16 +40,21 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    grid-template-rows: repeat(5, minmax(78px, auto));
+    grid-template-areas:
+      "strategy strategy strategy design design"
+      "strategy strategy strategy design design"
+      "technical technical local local local"
+      "technical technical local local local"
+      "technical technical start start start";
     gap: 0.75rem;
+    align-items: stretch;
   }
 
   &__card {
     position: relative;
     overflow: hidden;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
+    min-width: 0;
+    min-height: 100%;
     padding: 1.25rem;
     border-radius: 16px;
 
@@ -57,44 +64,6 @@
       rgba(255, 255, 255, 0.06),
       rgba(130, 220, 255, 0.35)
     );
-  }
-
-  &__card--strategy {
-    grid-area: 1 / 1 / 3 / 4;
-    min-height: 180px;
-    grid-template-columns: minmax(0, 1fr) 210px;
-    align-items: center;
-  }
-
-  &__card--design {
-    grid-area: 1 / 4 / 3 / 6;
-    min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-
-  &__card--technical {
-    grid-area: 3 / 1 / 6 / 3;
-    min-height: 240px;
-    grid-template-columns: 1fr;
-    align-items: start;
-  }
-
-  &__card--local {
-    grid-area: 3 / 3 / 5 / 6;
-    min-height: 160px;
-    grid-template-columns: minmax(0, 1fr) 170px;
-    align-items: center;
-  }
-
-  &__card--start {
-    grid-area: 5 / 3 / 6 / 6;
-    min-height: 110px;
-    grid-template-columns: 1fr auto;
-    align-items: center;
   }
 
   &__content {
@@ -108,6 +77,7 @@
     font-size: clamp(1rem, 1.25vw, 1.28rem);
     font-weight: $font-weight-bold;
     line-height: 1.15;
+    text-wrap: balance;
   }
 
   &__card-text {
@@ -119,47 +89,8 @@
   }
 
   &__media {
+    min-width: 0;
     width: 100%;
-  }
-
-  &__card--strategy .benefits__media {
-    align-self: center;
-    justify-self: end;
-    max-width: 210px;
-  }
-
-  &__card--design .benefits__media {
-    order: -1;
-    align-self: center;
-    justify-self: center;
-    max-width: 150px;
-    margin-bottom: 0.75rem;
-  }
-
-  &__card--design .benefits__content {
-    text-align: center;
-  }
-
-  &__card--technical .benefits__media {
-    justify-self: start;
-    align-self: start;
-    max-width: 190px;
-    margin-top: 0.25rem;
-    margin-bottom: 1rem;
-  }
-
-  &__card--technical .benefits__content {
-    align-self: end;
-  }
-
-  &__card--local .benefits__media {
-    justify-self: end;
-    align-self: center;
-    max-width: 170px;
-  }
-
-  &__card--start .benefits__media {
-    display: none;
   }
 
   &__media img {
@@ -169,11 +100,108 @@
     object-fit: contain;
   }
 
+  &__card--strategy {
+    grid-area: strategy;
+    min-height: 190px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 220px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__card--strategy .benefits__content {
+    max-width: 360px;
+  }
+
+  &__card--strategy .benefits__media {
+    max-width: 210px;
+    justify-self: end;
+    align-self: center;
+  }
+
+  &__card--design {
+    grid-area: design;
+    min-height: 190px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    padding-inline: 1.5rem;
+  }
+
+  &__card--design .benefits__media {
+    order: -1;
+    max-width: 120px;
+    margin-bottom: 0.75rem;
+  }
+
+  &__card--design .benefits__content {
+    max-width: 320px;
+  }
+
+  &__card--technical {
+    grid-area: technical;
+    min-height: 260px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: space-between;
+  }
+
+  &__card--technical .benefits__content {
+    max-width: 320px;
+  }
+
+  &__card--technical .benefits__media {
+    max-width: 185px;
+    align-self: end;
+    justify-self: start;
+    margin-top: 1rem;
+  }
+
+  &__card--local {
+    grid-area: local;
+    min-height: 165px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 170px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__card--local .benefits__content {
+    max-width: 390px;
+  }
+
+  &__card--local .benefits__media {
+    max-width: 150px;
+    justify-self: end;
+    align-self: center;
+  }
+
+  &__card--start {
+    grid-area: start;
+    min-height: 110px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__card--start .benefits__content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__card--start .benefits__card-text {
+    max-width: 520px;
+  }
+
   &__cta {
     @include primary-cta;
+    flex-shrink: 0;
     min-width: 190px;
     min-height: 48px;
-    margin-left: 1rem;
     padding: 0.8rem 1.2rem;
     border-radius: 14px;
     font-size: 0.95rem;
@@ -184,8 +212,11 @@
   .benefits {
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      grid-template-rows: auto;
-      gap: 0.9rem;
+      grid-template-areas:
+        "strategy strategy"
+        "design technical"
+        "local local"
+        "start start";
     }
 
     &__card--strategy,
@@ -193,46 +224,31 @@
     &__card--technical,
     &__card--local,
     &__card--start {
-      grid-area: auto;
       min-height: auto;
     }
 
     &__card--strategy {
-      grid-column: 1 / -1;
       grid-template-columns: minmax(0, 1fr) 180px;
     }
 
-    &__card--design {
-      display: flex;
-    }
-
-    &__card--technical {
-      grid-template-columns: 1fr;
-    }
-
-    &__card--local {
-      grid-column: 1 / -1;
-      grid-template-columns: minmax(0, 1fr) 150px;
-    }
-
-    &__card--start {
-      grid-column: 1 / -1;
-    }
-
     &__card--strategy .benefits__media {
-      max-width: 180px;
+      max-width: 170px;
     }
 
     &__card--design .benefits__media {
-      max-width: 130px;
+      max-width: 110px;
     }
 
     &__card--technical .benefits__media {
       max-width: 160px;
     }
 
+    &__card--local {
+      grid-template-columns: minmax(0, 1fr) 140px;
+    }
+
     &__card--local .benefits__media {
-      max-width: 150px;
+      max-width: 130px;
     }
   }
 }
@@ -248,25 +264,42 @@
 
     &__grid {
       grid-template-columns: 1fr;
+      grid-template-areas:
+        "strategy"
+        "design"
+        "technical"
+        "local"
+        "start";
     }
 
     &__card {
-      grid-template-columns: 1fr;
-      gap: 0.75rem;
       padding: 1rem;
     }
 
     &__card--strategy,
     &__card--design,
     &__card--technical,
-    &__card--local,
-    &__card--start {
-      grid-column: auto;
+    &__card--local {
       display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
     }
 
-    &__card--design .benefits__content {
+    &__card--strategy .benefits__content,
+    &__card--design .benefits__content,
+    &__card--technical .benefits__content,
+    &__card--local .benefits__content {
+      max-width: none;
+    }
+
+    &__card--design {
       text-align: left;
+      justify-items: start;
+    }
+
+    &__card--design .benefits__media {
+      order: 0;
+      margin-bottom: 0;
     }
 
     &__media,
@@ -274,21 +307,20 @@
     &__card--design .benefits__media,
     &__card--technical .benefits__media,
     &__card--local .benefits__media {
-      justify-self: center;
-      align-self: center;
       max-width: 120px;
+      justify-self: start;
+      align-self: start;
       margin: 0;
     }
 
-    &__card--start {
-      grid-template-columns: 1fr;
+    &__card--start .benefits__content {
+      flex-direction: column;
+      align-items: stretch;
     }
 
     &__cta {
       width: 100%;
       min-width: 100%;
-      margin-left: 0;
-      margin-top: 1rem;
     }
   }
 }
