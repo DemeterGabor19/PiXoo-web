@@ -9,3 +9,11 @@ body {
 p {
   color: $color-text-muted;
 }
+
+@font-face {
+  font-family: "Pulchella";
+  src: url("/assets/fonts/Pulchella - Personal Used.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

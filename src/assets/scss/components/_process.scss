@@ -1,0 +1,311 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.process {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  color: $color-text;
+
+  &__container {
+    width: min(1120px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+
+  &__header {
+    max-width: 720px;
+    margin: 0 auto 4rem;
+    text-align: center;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.75rem;
+    color: $color-text-muted;
+    @include section-subtitle;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    background: $gradient-heading-accent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    @include section-title;
+  }
+
+  &__lead {
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: $color-text-muted;
+    @include body-text;
+  }
+
+  &__timeline {
+    --process-progress: 0;
+
+    position: relative;
+    display: grid;
+    gap: 3.75rem;
+  }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  &__line-progress {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(180deg, #6fd0ff 0%, #1e88ff 100%);
+    box-shadow: 0 0 18px rgba(44, 170, 232, 0.75);
+    transform: scaleY(var(--process-progress));
+    transform-origin: top;
+    transition: transform 0.08s linear;
+  }
+
+  &__step {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 420px) 64px minmax(0, 420px);
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    min-height: 260px;
+  }
+
+  &__point,
+  &__content,
+  &__media {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.45s ease,
+      transform 0.45s ease;
+  }
+
+  &__step.is-active &__point,
+  &__step.is-active &__content,
+  &__step.is-active &__media {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &__media {
+    display: flex;
+  }
+
+  &__step--image-left &__media {
+    justify-content: flex-start;
+  }
+
+  &__step--image-right &__media {
+    justify-content: flex-end;
+  }
+
+  &__image-placeholder {
+    width: min(100%, 360px);
+    aspect-ratio: 16 / 10;
+    border-radius: 42px;
+    clip-path: inset(0 50% 0 50% round 42px);
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(220, 243, 255, 0.9)
+      ),
+      radial-gradient(
+        circle at 25% 20%,
+        rgba(44, 170, 232, 0.28),
+        transparent 42%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 22px 60px rgba(0, 0, 0, 0.24);
+    transition:
+      clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
+  }
+
+  &__step.is-active &__image-placeholder {
+    clip-path: inset(0 0 0 0 round 42px);
+  }
+
+  &__media:hover &__image-placeholder {
+    transform: translateY(-6px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 28px 70px rgba(0, 0, 0, 0.3),
+      0 0 34px rgba(44, 170, 232, 0.18);
+  }
+
+  &__point {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-inline: auto;
+    border-radius: 50%;
+    border: 1px solid rgba(111, 208, 255, 0.7);
+    background: linear-gradient(180deg, #123b72 0%, #071a3b 100%);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.28),
+      0 0 0 6px rgba(44, 170, 232, 0.1),
+      0 0 26px rgba(44, 170, 232, 0.38);
+    color: #ffffff;
+    font-weight: $font-weight-bold;
+  }
+
+  &__point span {
+    line-height: 1;
+  }
+
+  &__content {
+    max-width: 360px;
+  }
+
+  &__step--image-left &__content {
+    justify-self: start;
+  }
+
+  &__step--image-right &__content {
+    justify-self: end;
+    text-align: right;
+  }
+
+  &__step-title {
+    margin: 0 0 0.75rem;
+    font-family: $font-heading;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+    font-weight: $font-weight-bold;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  &__step-text {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: $color-text-muted;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+  }
+
+  &__cta {
+    @include primary-cta;
+  }
+}
+
+@media (max-width: 900px) {
+  .process {
+    padding: 5rem 0;
+
+    &__header {
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    &__lead {
+      margin: 0;
+    }
+
+    &__timeline {
+      gap: 2.5rem;
+    }
+
+    &__line {
+      left: 22px;
+      transform: none;
+    }
+
+    &__step {
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 1.25rem;
+      min-height: auto;
+      align-items: start;
+      justify-content: stretch;
+    }
+
+    &__step--image-left &__media,
+    &__step--image-right &__media {
+      grid-column: 2;
+      grid-row: 2;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+
+    &__step--image-left &__point,
+    &__step--image-right &__point {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    &__step--image-left &__content,
+    &__step--image-right &__content {
+      grid-column: 2;
+      grid-row: 1;
+      justify-self: start;
+      max-width: none;
+      text-align: left;
+    }
+
+    &__image-placeholder {
+      width: min(100%, 320px);
+    }
+
+    &__actions {
+      justify-content: flex-start;
+      margin-top: 3rem;
+      padding-left: calc(44px + 1.25rem);
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .process {
+    padding: 4rem 0;
+
+    &__title {
+      font-size: clamp(1.8rem, 8vw, 2.4rem);
+    }
+
+    &__lead {
+      font-size: 1rem;
+    }
+
+    &__step {
+      gap: 1rem;
+    }
+
+    &__image-placeholder {
+      width: 100%;
+      border-radius: 42px;
+    }
+
+    &__actions {
+      padding-left: 0;
+    }
+
+    &__cta {
+      width: 100%;
+      min-width: 100%;
+    }
+  }
+}

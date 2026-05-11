@@ -1,0 +1,165 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.additional-services {
+  position: relative;
+  overflow: hidden;
+  padding: 6rem 0;
+  color: $color-text;
+
+  &__container {
+    width: min(1120px, calc(100% - 2rem));
+    margin-inline: auto;
+  }
+
+  &__header {
+    max-width: 760px;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+
+  &__title {
+    margin: 0 0 1rem;
+    line-height: 1.2;
+    color: #ffffff;
+    @include section-title;
+
+    span {
+      color: $color-accent;
+    }
+  }
+
+  &__eyebrow {
+    margin: 0 0 1.5rem;
+    color: $color-text-muted;
+    @include section-subtitle;
+  }
+
+  &__lead {
+    max-width: 720px;
+    margin: 0 auto;
+    line-height: 1.7;
+    color: $color-text-muted;
+    @include body-text;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+
+  &__card {
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.35rem 1.1rem 1.1rem;
+    border-radius: 8px;
+
+    @include glass-card(
+      rgba(255, 255, 255, 0.035),
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.055),
+      rgba(111, 208, 255, 0.35)
+    );
+  }
+
+  &__content {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  &__card-title {
+    margin: 0 0 1rem;
+    font-family: $font-heading;
+    font-size: 1.25rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.15;
+    color: #ffffff;
+  }
+
+  &__card-title::after {
+    content: "";
+    display: block;
+    width: 92px;
+    height: 2px;
+    margin: 0.85rem auto 0;
+    border-radius: 999px;
+    background: linear-gradient(
+      90deg,
+      rgba(44, 170, 232, 0),
+      rgba(111, 208, 255, 0.9),
+      rgba(44, 170, 232, 0)
+    );
+  }
+
+  &__card-text {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: $color-text-muted;
+  }
+
+  &__media {
+    width: min(100%, 220px);
+    aspect-ratio: 1;
+    margin: 2rem auto 0;
+    border-radius: 42px;
+
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.96),
+        rgba(220, 243, 255, 0.9)
+      ),
+      radial-gradient(
+        circle at 25% 20%,
+        rgba(44, 170, 232, 0.25),
+        transparent 44%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.55),
+      0 22px 52px rgba(0, 0, 0, 0.22);
+  }
+}
+
+@media (max-width: 900px) {
+  .additional-services {
+    padding: 5rem 0;
+
+    &__header {
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+
+    &__lead {
+      margin: 0;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    &__card {
+      min-height: auto;
+    }
+
+    &__content {
+      max-width: none;
+      margin: 0;
+      text-align: left;
+    }
+
+    &__card-title::after {
+      margin-inline: 0;
+    }
+
+    &__media {
+      width: min(100%, 280px);
+      margin: 2rem 0 0;
+    }
+  }
+}
