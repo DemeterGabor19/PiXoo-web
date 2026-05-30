@@ -9,23 +9,234 @@
   min-height: 720px;
   padding: 8.5rem 0 6rem;
 
-  &__container {
-    position: relative;
-    z-index: 3;
-    width: min(100% - (2 * $container-padding), 1320px);
-  }
-
   &__decor {
     position: absolute;
     inset: 0;
     z-index: 1;
     overflow: hidden;
     pointer-events: none;
+
+    --hero-edge: max(1.5rem, calc((100vw - 1320px) / 2));
+  }
+
+  &__container {
+    position: relative;
+    z-index: 2;
+    width: min(100% - (2 * $container-padding), 1320px);
   }
 
   &__content-wrap {
     max-width: 1280px;
     margin: 0 auto;
+  }
+
+  &__brand-x {
+    position: absolute;
+    top: 50%;
+    right: -230px;
+    transform: translateY(-50%);
+    font-family: "Pulchella", $font-heading;
+    font-size: 620px;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(116, 211, 255, 0.16);
+    text-shadow:
+      0 0 36px rgba(44, 170, 232, 0.28),
+      0 0 96px rgba(44, 170, 232, 0.18);
+    filter: blur(3px);
+    user-select: none;
+    pointer-events: none;
+    mix-blend-mode: screen;
+  }
+
+  &__x {
+    position: absolute;
+    display: block;
+    font-family: "Pulchella", $font-heading;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba(116, 211, 255, var(--x-color-opacity, 0.5));
+    text-shadow:
+      0 0 var(--x-glow-sm, 18px)
+        rgba(44, 170, 232, var(--x-glow-opacity-sm, 0.28)),
+      0 0 var(--x-glow-lg, 48px)
+        rgba(44, 170, 232, var(--x-glow-opacity-lg, 0.14));
+    user-select: none;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: var(--x-opacity, 0.16);
+    filter: blur(var(--x-blur, 1px));
+    transform: rotate(var(--x-rotate, 0deg));
+    animation: hero-x-float var(--x-speed, 9s) ease-in-out infinite;
+    animation-delay: var(--x-delay, 0s);
+  }
+
+  &__x--one {
+    --x-rotate: -18deg;
+    --x-opacity: 0.16;
+    --x-blur: 1.4px;
+    --x-speed: 8s;
+    --x-delay: -1s;
+    --x-move-x: 0.35rem;
+    --x-move-y: -0.7rem;
+    --x-rotate-drift: 4deg;
+    top: 8%;
+    left: 8%;
+    font-size: 42px;
+  }
+
+  &__x--two {
+    --x-rotate: 31deg;
+    --x-opacity: 0.2;
+    --x-blur: 1.8px;
+    --x-speed: 11s;
+    --x-delay: -4s;
+    --x-move-x: -0.8rem;
+    --x-move-y: -1.2rem;
+    --x-rotate-drift: 7deg;
+    top: 18%;
+    left: 44%;
+    font-size: 56px;
+  }
+
+  &__x--three {
+    --x-rotate: -9deg;
+    --x-opacity: 0.11;
+    --x-blur: 2.4px;
+    --x-speed: 13s;
+    --x-delay: -2s;
+    --x-move-x: 0.7rem;
+    --x-move-y: 0.5rem;
+    --x-rotate-drift: 3deg;
+    top: 58%;
+    left: 5%;
+    font-size: 34px;
+  }
+
+  &__x--four {
+    --x-rotate: 42deg;
+    --x-opacity: 0.17;
+    --x-blur: 2px;
+    --x-speed: 9.5s;
+    --x-delay: -5s;
+    --x-move-x: -0.45rem;
+    --x-move-y: -0.9rem;
+    --x-rotate-drift: 6deg;
+    top: 12%;
+    right: 18%;
+    font-size: 48px;
+  }
+
+  &__x--five {
+    --x-rotate: -27deg;
+    --x-opacity: 0.18;
+    --x-blur: 1.5px;
+    --x-speed: 10.5s;
+    --x-delay: -3s;
+    --x-move-x: 0.9rem;
+    --x-move-y: -0.4rem;
+    --x-rotate-drift: 5deg;
+    top: 64%;
+    right: 30%;
+    font-size: 42px;
+  }
+
+  &__x--six {
+    --x-rotate: 13deg;
+    --x-opacity: 0.08;
+    --x-blur: 3px;
+    --x-speed: 12.5s;
+    --x-delay: -6s;
+    --x-move-x: -0.65rem;
+    --x-move-y: 0.75rem;
+    --x-rotate-drift: 4deg;
+    top: 38%;
+    right: 8%;
+    font-size: 30px;
+  }
+
+  &__x--seven {
+    --x-rotate: -41deg;
+    --x-opacity: 0.12;
+    --x-blur: 2px;
+    --x-speed: 14s;
+    --x-delay: -7s;
+    --x-move-x: 0.5rem;
+    --x-move-y: -1.4rem;
+    --x-rotate-drift: 8deg;
+    top: 34%;
+    left: 22%;
+    font-size: 30px;
+  }
+
+  &__x--eight {
+    --x-rotate: 18deg;
+    --x-opacity: 0.14;
+    --x-blur: 1.2px;
+    --x-speed: 8.8s;
+    --x-delay: -2.8s;
+    --x-move-x: -1rem;
+    --x-move-y: -0.45rem;
+    --x-rotate-drift: 5deg;
+    top: 78%;
+    left: 42%;
+    font-size: 38px;
+  }
+
+  &__x--nine {
+    --x-rotate: -12deg;
+    --x-opacity: 0.07;
+    --x-blur: 3.5px;
+    --x-speed: 15s;
+    --x-delay: -8s;
+    --x-move-x: 0.8rem;
+    --x-move-y: 0.9rem;
+    --x-rotate-drift: 3deg;
+    top: 27%;
+    right: 3%;
+    font-size: 26px;
+  }
+
+  &__x--ten {
+    --x-rotate: 56deg;
+    --x-opacity: 0.11;
+    --x-blur: 2.5px;
+    --x-speed: 11.8s;
+    --x-delay: -4.6s;
+    --x-move-x: -0.7rem;
+    --x-move-y: -1rem;
+    --x-rotate-drift: 9deg;
+    top: 84%;
+    right: 14%;
+    font-size: 44px;
+  }
+
+  &__x--eleven {
+    --x-rotate: 24deg;
+    --x-opacity: 0.09;
+    --x-blur: 3px;
+    --x-speed: 13.5s;
+    --x-delay: -5.4s;
+    --x-move-x: 0.7rem;
+    --x-move-y: -0.8rem;
+    --x-rotate-drift: 5deg;
+    top: 76%;
+    left: 18%;
+    font-size: 46px;
+  }
+
+  &__x--twelve {
+    --x-rotate: -33deg;
+    --x-opacity: 0.06;
+    --x-blur: 4px;
+    --x-speed: 16s;
+    --x-delay: -9s;
+    --x-move-x: -0.6rem;
+    --x-move-y: 0.6rem;
+    --x-rotate-drift: 4deg;
+    top: 45%;
+    left: 32%;
+    font-size: 22px;
   }
 
   &__inner {
@@ -118,169 +329,6 @@
     min-height: 520px;
     isolation: isolate;
   }
-
-  &__x,
-  &__brand-x {
-    position: absolute;
-    display: block;
-    font-family: "Pulchella", $font-heading;
-    font-weight: 400;
-    line-height: 1;
-    color: rgba(116, 211, 255, 0.68);
-    text-shadow:
-      0 0 18px rgba(44, 170, 232, 0.42),
-      0 0 54px rgba(44, 170, 232, 0.28);
-    user-select: none;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    transform: rotate(var(--x-rotate, 0deg));
-    will-change: transform;
-  }
-
-  &__x {
-    animation: hero-x-float 9s ease-in-out infinite;
-  }
-
-  &__brand-x {
-    top: 2%;
-    right: -15vw;
-    font-size: 680px;
-    opacity: 0.11;
-    filter: blur(7px);
-    transform: rotate(-12deg);
-  }
-
-  &__x--one {
-    --x-rotate: -17deg;
-    top: 11%;
-    left: 3%;
-    font-size: 56px;
-    opacity: 0.18;
-    filter: blur(5px);
-    animation-duration: 11s;
-    animation-delay: -1s;
-  }
-
-  &__x--two {
-    --x-rotate: 12deg;
-    top: 19%;
-    left: 17%;
-    font-size: 42px;
-    opacity: 0.11;
-    filter: blur(4px);
-    animation-duration: 12s;
-    animation-delay: -6s;
-  }
-
-  &__x--three {
-    --x-rotate: -9deg;
-    top: 5%;
-    left: 36%;
-    font-size: 174px;
-    opacity: 0.28;
-    filter: blur(10px);
-    animation-duration: 15s;
-    animation-delay: -4s;
-  }
-
-  &__x--four {
-    --x-rotate: 18deg;
-    top: 20%;
-    right: 24%;
-    font-size: 118px;
-    opacity: 0.78;
-    filter: blur(0.5px);
-    animation-duration: 8s;
-    animation-delay: -2s;
-  }
-
-  &__x--five {
-    --x-rotate: -24deg;
-    top: 36%;
-    right: 13%;
-    font-size: 96px;
-    opacity: 0.44;
-    filter: blur(3px);
-    animation-duration: 10s;
-    animation-delay: -5s;
-  }
-
-  &__x--six {
-    --x-rotate: 31deg;
-    top: 47%;
-    right: 3%;
-    font-size: 152px;
-    opacity: 0.24;
-    filter: blur(7px);
-    animation-duration: 13s;
-    animation-delay: -8s;
-  }
-
-  &__x--seven {
-    --x-rotate: -13deg;
-    top: 55%;
-    left: 3%;
-    font-size: 72px;
-    opacity: 0.1;
-    filter: blur(6px);
-    animation-duration: 14s;
-    animation-delay: -7s;
-  }
-
-  &__x--eight {
-    --x-rotate: 9deg;
-    top: 61%;
-    left: 30%;
-    font-size: 136px;
-    opacity: 0.54;
-    filter: blur(2px);
-    animation-duration: 9s;
-    animation-delay: -3s;
-  }
-
-  &__x--nine {
-    --x-rotate: -28deg;
-    top: 76%;
-    right: 31%;
-    font-size: 62px;
-    opacity: 0.18;
-    filter: blur(8px);
-    animation-duration: 16s;
-    animation-delay: -11s;
-  }
-
-  &__x--ten {
-    --x-rotate: 7deg;
-    top: 72%;
-    left: 57%;
-    font-size: 190px;
-    opacity: 0.13;
-    filter: blur(15px);
-    animation-duration: 17s;
-    animation-delay: -9s;
-  }
-
-  &__x--eleven {
-    --x-rotate: 28deg;
-    top: 34%;
-    left: 24%;
-    font-size: 34px;
-    opacity: 0.18;
-    filter: blur(3px);
-    animation-duration: 8s;
-    animation-delay: -4.5s;
-  }
-
-  &__x--twelve {
-    --x-rotate: -6deg;
-    top: -5%;
-    right: 1%;
-    font-size: 250px;
-    opacity: 0.12;
-    filter: blur(18px);
-    animation-duration: 18s;
-    animation-delay: -12s;
-  }
 }
 
 @keyframes hero-x-float {
@@ -289,64 +337,21 @@
     transform: translate3d(0, 0, 0) rotate(var(--x-rotate, 0deg));
   }
 
-  50% {
-    transform: translate3d(0.55rem, -1rem, 0)
-      rotate(calc(var(--x-rotate, 0deg) + 4deg));
+  35% {
+    transform: translate3d(
+        var(--x-move-x, 0.45rem),
+        var(--x-move-y, -0.8rem),
+        0
+      )
+      rotate(calc(var(--x-rotate, 0deg) + var(--x-rotate-drift, 4deg)));
   }
-}
 
-@media (max-width: 991.98px) {
-  .hero {
-    min-height: auto;
-    padding: 7rem 0 4rem;
-
-    &__inner {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    &__content {
-      max-width: 100%;
-    }
-
-    &__text {
-      font-size: 15px;
-    }
-
-    &__visual {
-      min-height: 300px;
-    }
-  }
-}
-
-@media (max-width: 575.98px) {
-  .hero {
-    padding: 6rem 0 3.5rem;
-
-    &__badge {
-      padding: 0.7rem 1rem;
-      font-size: 0.7rem;
-    }
-
-    &__eyebrow {
-      font-size: 0.8rem;
-    }
-
-    &__title {
-      font-size: clamp(2.5rem, 11vw, 3.4rem);
-    }
-
-    &__text {
-      font-size: 14px;
-    }
-
-    &__cta {
-      width: 100%;
-      min-width: 100%;
-    }
-
-    &__visual {
-      min-height: 240px;
-    }
+  70% {
+    transform: translate3d(
+        calc(var(--x-move-x, 0.45rem) * -0.6),
+        calc(var(--x-move-y, -0.8rem) * -0.5),
+        0
+      )
+      rotate(calc(var(--x-rotate, 0deg) - var(--x-rotate-drift, 4deg)));
   }
 }
