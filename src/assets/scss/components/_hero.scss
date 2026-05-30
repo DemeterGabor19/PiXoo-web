@@ -2,6 +2,11 @@
 @use "../abstracts/variables" as *;
 
 .hero {
+  --hero-brand-shift-x: 0px;
+  --hero-brand-shift-y: 0px;
+  --hero-glow-x: 72%;
+  --hero-glow-y: 36%;
+
   position: relative;
   overflow: hidden;
   display: flex;
@@ -19,6 +24,26 @@
     --hero-edge: max(1.5rem, calc((100vw - 1320px) / 2));
   }
 
+  &__decor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: radial-gradient(
+      circle at var(--hero-glow-x) var(--hero-glow-y),
+      rgba(44, 170, 232, 0.075) 0%,
+      rgba(44, 170, 232, 0.026) 10%,
+      rgba(44, 170, 232, 0) 24%
+    );
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms ease-out;
+  }
+
+  &.is-pointer-inside &__decor::before {
+    opacity: 0.34;
+  }
+
   &__container {
     position: relative;
     z-index: 2;
@@ -32,8 +57,10 @@
 
   &__brand-x {
     position: absolute;
+    z-index: 1;
     top: 50%;
     right: -230px;
+    translate: var(--hero-brand-shift-x) var(--hero-brand-shift-y);
     transform: translateY(-50%);
     font-family: "Pulchella", $font-heading;
     font-size: 620px;
@@ -51,6 +78,7 @@
 
   &__x {
     position: absolute;
+    z-index: 1;
     display: block;
     font-family: "Pulchella", $font-heading;
     font-weight: 400;
@@ -348,10 +376,11 @@
 
   70% {
     transform: translate3d(
-        calc(var(--x-move-x, 0.45rem) * -0.6),
-        calc(var(--x-move-y, -0.8rem) * -0.5),
+        var(--x-return-x, -0.35rem),
+        var(--x-return-y, 0.45rem),
         0
       )
       rotate(calc(var(--x-rotate, 0deg) - var(--x-rotate-drift, 4deg)));
   }
 }
+
