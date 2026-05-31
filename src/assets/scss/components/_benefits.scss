@@ -2,38 +2,76 @@
 @use "../abstracts/variables" as *;
 
 .benefits {
+  position: relative;
+  overflow: hidden;
   padding-block: 4.5rem;
-  background: #38aaf4;
-  color: #06172d;
+  background:
+    radial-gradient(
+      circle at 50% 12%,
+      rgba(111, 208, 255, 0.16),
+      rgba(111, 208, 255, 0) 34%
+    ),
+    linear-gradient(180deg, #0a5b92 0%, #06406f 48%, #052f5a 100%);
+  color: $color-text;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 20, 46, 0.18) 0%,
+        rgba(2, 20, 46, 0) 28%,
+        rgba(2, 20, 46, 0.22) 100%
+      );
+    pointer-events: none;
+  }
 
   &__container {
+    position: relative;
+    z-index: 1;
     width: min(1120px, calc(100% - 2rem));
     margin-inline: auto;
   }
 
   &__header {
+    --benefit-reveal-opacity: 0.28;
+    --benefit-reveal-y: 24px;
+
     max-width: 760px;
     margin-inline: auto;
     margin-bottom: 2.5rem;
     text-align: center;
+    opacity: var(--benefit-reveal-opacity);
+    transform: translateY(var(--benefit-reveal-y));
+    transition:
+      opacity 0.18s linear,
+      transform 0.18s linear;
   }
 
   &__eyebrow {
     margin: 0 0 0.75rem;
-    opacity: 0.82;
+    color: rgba(255, 255, 255, 0.78);
     @include section-subtitle;
   }
 
   &__title {
     margin: 0 0 1rem;
     line-height: 1.2;
+    background: $gradient-heading-accent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: #ffffff;
+    text-shadow: $shadow-heading-soft;
     @include section-title;
   }
 
   &__lead {
     margin: 0;
-    opacity: 0.88;
     line-height: 1.65;
+    color: rgba(255, 255, 255, 0.84);
     @include body-text;
   }
 
@@ -51,19 +89,50 @@
   }
 
   &__card {
+    --benefit-reveal-opacity: 0.28;
+    --benefit-reveal-y: 24px;
+    --benefit-media-opacity: 0.46;
+    --benefit-media-scale: 0.94;
+
     position: relative;
     overflow: hidden;
     min-width: 0;
     min-height: 100%;
     padding: 1.25rem;
     border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.11) 0%,
+        rgba(255, 255, 255, 0.045) 100%
+      ),
+      radial-gradient(
+        circle at 85% 15%,
+        rgba(255, 255, 255, 0.13),
+        rgba(255, 255, 255, 0) 34%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.13),
+      0 18px 46px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(10px);
+    opacity: var(--benefit-reveal-opacity);
+    transform: translateY(var(--benefit-reveal-y));
+    transition:
+      opacity 0.18s linear,
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
 
-    @include glass-card(
-      rgba(255, 255, 255, 0.04),
-      rgba(255, 255, 255, 0.1),
-      rgba(255, 255, 255, 0.06),
-      rgba(130, 220, 255, 0.35)
-    );
+    &:hover {
+      transform: translateY(calc(var(--benefit-reveal-y) - 4px));
+      border-color: rgba(111, 208, 255, 0.38);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        0 24px 58px rgba(0, 0, 0, 0.23),
+        0 0 30px rgba(44, 170, 232, 0.14);
+    }
   }
 
   &__content {
@@ -85,12 +154,18 @@
     font-family: $font-body;
     font-size: 0.95rem;
     line-height: 1.55;
-    color: $color-text-muted;
+    color: rgba(255, 255, 255, 0.84);
   }
 
   &__media {
     min-width: 0;
     width: 100%;
+    opacity: var(--benefit-media-opacity);
+    transform: scale(var(--benefit-media-scale));
+    transform-origin: center;
+    transition:
+      opacity 0.18s linear,
+      transform 0.18s linear;
   }
 
   &__media img {
@@ -104,7 +179,7 @@
     grid-area: strategy;
     min-height: 190px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 220px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     align-items: center;
     gap: 1rem;
   }
@@ -114,7 +189,7 @@
   }
 
   &__card--strategy .benefits__media {
-    max-width: 210px;
+    max-width: 270px;
     justify-self: end;
     align-self: center;
   }
@@ -132,8 +207,8 @@
 
   &__card--design .benefits__media {
     order: -1;
-    max-width: 120px;
-    margin-bottom: 0.75rem;
+    max-width: 165px;
+    margin-bottom: 0.65rem;
   }
 
   &__card--design .benefits__content {
@@ -153,17 +228,17 @@
   }
 
   &__card--technical .benefits__media {
-    max-width: 185px;
+    max-width: 235px;
     align-self: end;
     justify-self: start;
-    margin-top: 1rem;
+    margin-top: 0.6rem;
   }
 
   &__card--local {
     grid-area: local;
     min-height: 165px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 170px;
+    grid-template-columns: minmax(0, 1fr) 230px;
     align-items: center;
     gap: 1rem;
   }
@@ -173,7 +248,7 @@
   }
 
   &__card--local .benefits__media {
-    max-width: 150px;
+    max-width: 210px;
     justify-self: end;
     align-self: center;
   }
@@ -228,27 +303,27 @@
     }
 
     &__card--strategy {
-      grid-template-columns: minmax(0, 1fr) 180px;
+      grid-template-columns: minmax(0, 1fr) 220px;
     }
 
     &__card--strategy .benefits__media {
-      max-width: 170px;
+      max-width: 210px;
     }
 
     &__card--design .benefits__media {
-      max-width: 110px;
+      max-width: 150px;
     }
 
     &__card--technical .benefits__media {
-      max-width: 160px;
+      max-width: 205px;
     }
 
     &__card--local {
-      grid-template-columns: minmax(0, 1fr) 140px;
+      grid-template-columns: minmax(0, 1fr) 190px;
     }
 
     &__card--local .benefits__media {
-      max-width: 130px;
+      max-width: 180px;
     }
   }
 }
@@ -307,7 +382,7 @@
     &__card--design .benefits__media,
     &__card--technical .benefits__media,
     &__card--local .benefits__media {
-      max-width: 120px;
+      max-width: 180px;
       justify-self: start;
       align-self: start;
       margin: 0;

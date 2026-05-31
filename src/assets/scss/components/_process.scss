@@ -209,7 +209,29 @@
   }
 
   &__cta {
+    --process-cta-opacity: 0.42;
+    --process-cta-y: 18px;
+    --process-cta-glow-size: 0px;
+    --process-cta-glow-alpha: 0;
+
     @include primary-cta;
+    opacity: var(--process-cta-opacity);
+    transform: translateY(var(--process-cta-y));
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 10px 30px rgba(30, 136, 255, 0.28),
+      0 0 var(--process-cta-glow-size)
+        rgba(44, 170, 232, var(--process-cta-glow-alpha));
+
+    &:hover {
+      transform: translateY(calc(var(--process-cta-y) - 2px));
+      color: #ffffff;
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        0 16px 36px rgba(30, 136, 255, 0.34),
+        0 0 var(--process-cta-glow-size)
+          rgba(44, 170, 232, var(--process-cta-glow-alpha));
+    }
   }
 }
 

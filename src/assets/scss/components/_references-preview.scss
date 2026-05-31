@@ -28,6 +28,18 @@
   opacity: 0.8;
 }
 
+.refs__title {
+  @include section-title;
+  margin: 0 0 1rem;
+  line-height: 1.2;
+  background: $gradient-heading-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #ffffff;
+  text-shadow: $shadow-heading-soft;
+}
+
 .refs__cta {
   @include primary-cta;
   gap: 0.5rem;
@@ -79,34 +91,80 @@
   outline-offset: 3px;
 }
 
-.refs__gallery {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-content: start;
-}
-
-.refs__card {
-  display: grid;
-  gap: 0.6rem;
-  text-decoration: none;
-  padding: 0.9rem;
+.refs__showcase {
+  position: relative;
+  min-width: 0;
+  min-height: 360px;
+  padding: 1rem;
   border-radius: 14px;
-
-  @include glass-card;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.075),
+      rgba(255, 255, 255, 0.032)
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(44, 170, 232, 0.1),
+      rgba(44, 170, 232, 0) 58%
+    );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 18px 46px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
 }
 
-.refs__card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(130, 220, 255, 0.35);
-  background: rgba(255, 255, 255, 0.06);
+.refs__showcase::before {
+  content: "";
+  position: absolute;
+  inset: auto 10% -16% 10%;
+  height: 46%;
+  border-radius: 50%;
+  background: rgba(44, 170, 232, 0.18);
+  filter: blur(44px);
+  pointer-events: none;
+}
+
+.refs__stage {
+  position: relative;
+  min-height: 330px;
+}
+
+.refs__slide {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 0.85rem;
+  padding: 0.65rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.045);
+  color: #ffffff;
+  opacity: 0;
+  transform: translate3d(18px, 10px, 0) scale(0.965);
+  animation: refs-showcase-slide 16s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  pointer-events: none;
+}
+
+.refs__slide:nth-child(2) {
+  animation-delay: 4s;
+}
+
+.refs__slide:nth-child(3) {
+  animation-delay: 8s;
+}
+
+.refs__slide:nth-child(4) {
+  animation-delay: 12s;
 }
 
 /* image slot */
 .refs__media {
   display: block;
   border-radius: 10px;
-  aspect-ratio: 16 / 9;
+  min-height: 260px;
   overflow: hidden;
 
   /* látszódjon akkor is, ha még nincs kép */
@@ -141,4 +199,34 @@
   font-size: 0.95rem;
   font-weight: 600;
   opacity: 0.95;
+}
+
+@keyframes refs-showcase-slide {
+  0% {
+    opacity: 0;
+    transform: translate3d(18px, 10px, 0) scale(0.965);
+  }
+
+  7%,
+  22% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+    transform: translate3d(-18px, -8px, 0) scale(0.985);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .refs__slide {
+    animation: none;
+  }
+
+  .refs__slide:first-child {
+    opacity: 1;
+    transform: none;
+  }
 }

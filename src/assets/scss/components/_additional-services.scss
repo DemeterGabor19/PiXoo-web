@@ -7,7 +7,28 @@
   padding: 6rem 0;
   color: $color-text;
 
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    width: min(900px, 88vw);
+    height: 460px;
+    transform: translate(-50%, -50%);
+    background:
+      radial-gradient(
+        circle at 50% 46%,
+        rgba(44, 170, 232, 0.14),
+        rgba(44, 170, 232, 0.055) 38%,
+        rgba(44, 170, 232, 0) 72%
+      );
+    filter: blur(26px);
+    pointer-events: none;
+  }
+
   &__container {
+    position: relative;
+    z-index: 1;
     width: min(1120px, calc(100% - 2rem));
     margin-inline: auto;
   }
@@ -21,11 +42,16 @@
   &__title {
     margin: 0 0 1rem;
     line-height: 1.2;
+    background: $gradient-heading-accent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     color: #ffffff;
+    text-shadow: $shadow-heading-soft;
     @include section-title;
 
     span {
-      color: $color-accent;
+      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -46,23 +72,121 @@
   &__grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
+    gap: 0.9rem;
   }
 
   &__card {
+    --additional-card-opacity: 0.34;
+    --additional-card-y: 18px;
+    --additional-line-white-alpha: 0.78;
+    --additional-line-white-soft-alpha: 0.702;
+    --additional-line-blue-alpha: 0.16;
+    --additional-line-blue-soft-alpha: 0.15;
+    --additional-line-blue-tail-alpha: 0.029;
+    --additional-line-glow-alpha: 0;
+    --additional-line-progress: 0;
+    --additional-media-glow-alpha: 0.08;
+    --additional-media-glow-size: 22px;
+
     min-height: 420px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding: 1.35rem 1.1rem 1.1rem;
     border-radius: 8px;
+    border: 1px solid rgba(111, 208, 255, 0.2);
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.075) 0%,
+        rgba(255, 255, 255, 0.032) 100%
+      ),
+      radial-gradient(
+        circle at 50% 100%,
+        rgba(44, 170, 232, 0.09),
+        rgba(44, 170, 232, 0) 56%
+      );
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 18px 46px rgba(0, 0, 0, 0.22);
+    opacity: var(--additional-card-opacity);
+    transform: translateY(var(--additional-card-y));
+    transition:
+      opacity 0.18s linear,
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
 
-    @include glass-card(
-      rgba(255, 255, 255, 0.035),
-      rgba(255, 255, 255, 0.16),
-      rgba(255, 255, 255, 0.055),
-      rgba(111, 208, 255, 0.35)
-    );
+    &:hover {
+      transform: translateY(calc(var(--additional-card-y) - 4px));
+      border-color: rgba(111, 208, 255, 0.42);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 22px 54px rgba(0, 0, 0, 0.28),
+        0 0 28px rgba(44, 170, 232, 0.14);
+    }
+
+    &:nth-child(2) {
+      border-color: rgba(111, 208, 255, 0.3);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.09) 0%,
+          rgba(255, 255, 255, 0.038) 100%
+        ),
+        radial-gradient(
+          circle at 50% 100%,
+          rgba(44, 170, 232, 0.13),
+          rgba(44, 170, 232, 0) 58%
+        );
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 20px 52px rgba(0, 0, 0, 0.25),
+        0 0 24px rgba(44, 170, 232, 0.1);
+    }
+
+    &:nth-child(2):hover {
+      border-color: rgba(111, 208, 255, 0.52);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.14),
+        0 24px 60px rgba(0, 0, 0, 0.3),
+        0 0 36px rgba(44, 170, 232, 0.18);
+    }
+  }
+
+  &__card:hover &__media {
+    transform: translateY(-4px);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 26px 58px rgba(0, 0, 0, 0.28),
+      0 0 34px rgba(44, 170, 232, 0.2);
+    background:
+      linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 1),
+        rgba(215, 242, 255, 0.94)
+      ),
+      radial-gradient(
+        circle at 30% 24%,
+        rgba(44, 170, 232, 0.35),
+        transparent 46%
+      );
+  }
+
+  &__card:nth-child(2) &__media {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.58),
+      0 24px 56px rgba(0, 0, 0, 0.25),
+      0 0 var(--additional-media-glow-size)
+        rgba(44, 170, 232, var(--additional-media-glow-alpha));
+  }
+
+  &__card:nth-child(2) &__card-title::after {
+    width: 100%;
+    box-shadow:
+      0 0 12px rgba(255, 255, 255, 0.1),
+      0 0 18px rgba(44, 170, 232, var(--additional-line-glow-alpha));
   }
 
   &__content {
@@ -72,6 +196,7 @@
   }
 
   &__card-title {
+    position: relative;
     margin: 0 0 1rem;
     font-family: $font-heading;
     font-size: 1.25rem;
@@ -80,19 +205,44 @@
     color: #ffffff;
   }
 
-  &__card-title::after {
+  &__card-title::before {
     content: "";
-    display: block;
-    width: 92px;
-    height: 2px;
-    margin: 0.85rem auto 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0.25rem;
     border-radius: 999px;
     background: linear-gradient(
       90deg,
-      rgba(44, 170, 232, 0),
-      rgba(111, 208, 255, 0.9),
-      rgba(44, 170, 232, 0)
+      rgba(44, 170, 232, 0) 0%,
+      rgba(44, 170, 232, var(--additional-line-blue-alpha)) 16%,
+      rgba(44, 170, 232, var(--additional-line-blue-soft-alpha)) 58%,
+      rgba(30, 136, 255, var(--additional-line-blue-tail-alpha)) 100%
     );
+    transform: scaleX(var(--additional-line-progress));
+    transform-origin: left;
+    pointer-events: none;
+  }
+
+  &__card-title::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0.25rem;
+    margin: 0.85rem auto 0;
+    border-radius: 999px;
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, var(--additional-line-white-alpha)) 16%,
+        rgba(255, 255, 255, var(--additional-line-white-soft-alpha)) 58%,
+        rgba(255, 255, 255, 0.18) 100%
+      );
+    box-shadow:
+      0 0 12px rgba(255, 255, 255, 0.1),
+      0 0 18px rgba(44, 170, 232, var(--additional-line-glow-alpha));
   }
 
   &__card-text {
@@ -121,7 +271,13 @@
       );
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.55),
-      0 22px 52px rgba(0, 0, 0, 0.22);
+      0 22px 52px rgba(0, 0, 0, 0.22),
+      0 0 var(--additional-media-glow-size)
+        rgba(44, 170, 232, var(--additional-media-glow-alpha));
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
   }
 }
 
