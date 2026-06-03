@@ -8,8 +8,8 @@
   background:
     radial-gradient(
       circle at 50% 12%,
-      rgba(111, 208, 255, 0.16),
-      rgba(111, 208, 255, 0) 34%
+      rgba($color-accent-light, 0.16),
+      rgba($color-accent-light, 0) 34%
     ),
     linear-gradient(180deg, #0a5b92 0%, #06406f 48%, #052f5a 100%);
   color: $color-text;
@@ -21,9 +21,9 @@
     background:
       linear-gradient(
         180deg,
-        rgba(2, 20, 46, 0.18) 0%,
-        rgba(2, 20, 46, 0) 28%,
-        rgba(2, 20, 46, 0.22) 100%
+        rgba($color-bg-start, 0.18) 0%,
+        rgba($color-bg-start, 0) 28%,
+        rgba($color-bg-start, 0.22) 100%
       );
     pointer-events: none;
   }
@@ -31,8 +31,7 @@
   &__container {
     position: relative;
     z-index: 1;
-    width: min(1120px, calc(100% - 2rem));
-    margin-inline: auto;
+    @include page-container;
   }
 
   &__header {
@@ -52,26 +51,19 @@
 
   &__eyebrow {
     margin: 0 0 0.75rem;
-    color: rgba(255, 255, 255, 0.78);
+    color: $color-text-soft;
     @include section-subtitle;
   }
 
   &__title {
     margin: 0 0 1rem;
-    line-height: 1.2;
-    background: $gradient-heading-accent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: #ffffff;
-    text-shadow: $shadow-heading-soft;
-    @include section-title;
+    @include section-heading;
   }
 
   &__lead {
     margin: 0;
     line-height: 1.65;
-    color: rgba(255, 255, 255, 0.84);
+    color: $color-text-muted;
     @include body-text;
   }
 
@@ -99,22 +91,22 @@
     min-width: 0;
     min-height: 100%;
     padding: 1.25rem;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: $radius-card-md;
+    border: 1px solid rgba($color-text, 0.14);
     background:
       linear-gradient(
         180deg,
-        rgba(255, 255, 255, 0.11) 0%,
-        rgba(255, 255, 255, 0.045) 100%
+        rgba($color-text, 0.11) 0%,
+        rgba($color-text, 0.045) 100%
       ),
       radial-gradient(
         circle at 85% 15%,
-        rgba(255, 255, 255, 0.13),
-        rgba(255, 255, 255, 0) 34%
+        rgba($color-text, 0.13),
+        rgba($color-text, 0) 34%
       );
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.13),
-      0 18px 46px rgba(0, 0, 0, 0.18);
+      inset 0 1px 0 rgba($color-text, 0.13),
+      0 18px 46px $color-shadow-dark-soft;
     backdrop-filter: blur(10px);
     opacity: var(--benefit-reveal-opacity);
     transform: translateY(var(--benefit-reveal-y));
@@ -127,11 +119,11 @@
 
     &:hover {
       transform: translateY(calc(var(--benefit-reveal-y) - 4px));
-      border-color: rgba(111, 208, 255, 0.38);
+      border-color: rgba($color-accent-light, 0.38);
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.16),
+        inset 0 1px 0 rgba($color-text, 0.16),
         0 24px 58px rgba(0, 0, 0, 0.23),
-        0 0 30px rgba(44, 170, 232, 0.14);
+        0 0 30px rgba($color-accent, 0.14);
     }
   }
 
@@ -154,7 +146,7 @@
     font-family: $font-body;
     font-size: 0.95rem;
     line-height: 1.55;
-    color: rgba(255, 255, 255, 0.84);
+    color: $color-text-muted;
   }
 
   &__media {
@@ -278,7 +270,7 @@
     min-width: 190px;
     min-height: 48px;
     padding: 0.8rem 1.2rem;
-    border-radius: 14px;
+    border-radius: $radius-card-md;
     font-size: 0.95rem;
   }
 }

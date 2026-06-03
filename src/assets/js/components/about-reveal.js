@@ -13,6 +13,7 @@ export function initAboutReveal() {
     const glowSize = progress * 14;
     const glowAlpha = progress * 0.14;
 
+    item.style.setProperty("--about-reveal-progress", progress.toFixed(3));
     item.style.setProperty("--about-reveal-opacity", opacity.toFixed(3));
     item.style.setProperty("--about-reveal-alpha", alpha.toFixed(3));
     item.style.setProperty("--about-reveal-glow-size", `${glowSize.toFixed(1)}px`);

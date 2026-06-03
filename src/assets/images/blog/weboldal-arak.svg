@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Weboldal arak blog thumbnail</title>
+  <desc id="desc">Absztrakt weboldal ar es projekttervezes illusztracio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#071a3b"/>
+      <stop offset="0.55" stop-color="#0c2147"/>
+      <stop offset="1" stop-color="#00142e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#6fd0ff"/>
+      <stop offset="1" stop-color="#1e88ff"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <path d="M0 455 C155 380 250 528 420 420 C575 320 660 330 960 210 V600 H0 Z" fill="#123b72" opacity=".42"/>
+  <circle cx="755" cy="142" r="125" fill="#2caae8" opacity=".16" filter="url(#glow)"/>
+  <rect x="105" y="92" width="650" height="390" rx="28" fill="#ffffff" opacity=".08" stroke="#6fd0ff" stroke-opacity=".32"/>
+  <rect x="145" y="132" width="580" height="58" rx="16" fill="#ffffff" opacity=".14"/>
+  <rect x="145" y="230" width="210" height="188" rx="22" fill="#ffffff" opacity=".1"/>
+  <rect x="392" y="230" width="300" height="34" rx="17" fill="#6fd0ff" opacity=".75"/>
+  <rect x="392" y="292" width="230" height="22" rx="11" fill="#ffffff" opacity=".18"/>
+  <rect x="392" y="338" width="270" height="22" rx="11" fill="#ffffff" opacity=".18"/>
+  <rect x="392" y="386" width="150" height="44" rx="22" fill="url(#accent)"/>
+  <text x="188" y="350" fill="#ffffff" font-family="Arial, sans-serif" font-size="92" font-weight="700">$</text>
+</svg>

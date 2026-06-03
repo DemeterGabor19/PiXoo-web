@@ -27,11 +27,27 @@ function htmlIncludes() {
   };
 }
 
+function getHtmlInputs() {
+  const srcDir = path.resolve(process.cwd(), "src");
+
+  return fs
+    .readdirSync(srcDir)
+    .filter((fileName) => fileName.endsWith(".html"))
+    .reduce((inputs, fileName) => {
+      const name = fileName.replace(/\.html$/, "");
+      inputs[name] = path.resolve(srcDir, fileName);
+      return inputs;
+    }, {});
+}
+
 export default defineConfig({
   root: "src",
   plugins: [htmlIncludes()],
   build: {
     outDir: "../dist",
     emptyOutDir: true,
+    rollupOptions: {
+      input: getHtmlInputs(),
+    },
   },
 });

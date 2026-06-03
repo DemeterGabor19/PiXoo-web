@@ -1,20 +1,82 @@
 $color-bg-start: #02142e;
 $color-bg-end: #071a3b;
+$color-bg-deep: #00142e;
 $color-surface: #0c2147;
+$color-surface-strong: #123b72;
 $color-text: #ffffff;
-$color-text-muted: rgba(255, 255, 255, 0.82);
+$color-text-muted: rgba($color-text, 0.82);
+$color-text-soft: rgba($color-text, 0.78);
+$color-text-strong: rgba($color-text, 0.92);
 $color-accent: #2caae8;
 $color-accent-strong: #1e88ff;
+$color-accent-light: #6fd0ff;
+$color-accent-soft: #74d3ff;
+
+$color-border-soft: rgba($color-text, 0.12);
+$color-border-medium: rgba($color-text, 0.16);
+$color-border-strong: rgba($color-text, 0.18);
+$color-border-accent: rgba($color-accent-light, 0.35);
+$color-border-accent-strong: rgba($color-accent-light, 0.52);
+
+$color-glass-bg: rgba($color-text, 0.04);
+$color-glass-bg-soft: rgba($color-text, 0.03);
+$color-glass-bg-hover: rgba($color-text, 0.06);
+$color-glass-bg-strong: rgba($color-text, 0.075);
+
+$color-shadow-dark: rgba(0, 0, 0, 0.22);
+$color-shadow-dark-soft: rgba(0, 0, 0, 0.18);
+$color-highlight: rgba($color-text, 0.1);
+$color-highlight-strong: rgba($color-text, 0.55);
+
+$gradient-page-bg: linear-gradient(115deg, $color-bg-start 15%, $color-bg-end 85%);
 $gradient-heading-accent: linear-gradient(
   112deg,
-  rgba(255, 255, 255, 1) 0%,
-  rgba(44, 170, 232, 1) 100%
+  $color-text 0%,
+  $color-accent 100%
+);
+$gradient-cta: linear-gradient(180deg, #3aa9ff 0%, $color-accent-strong 100%);
+$gradient-accent-line: linear-gradient(
+  90deg,
+  rgba($color-accent, 0) 0%,
+  rgba($color-accent, 0.96) 16%,
+  rgba($color-accent, 0.9) 58%,
+  rgba($color-accent-strong, 0.16) 100%
+);
+$gradient-white-line: linear-gradient(
+  90deg,
+  rgba($color-text, 0) 0%,
+  rgba($color-text, 0.86) 16%,
+  rgba($color-text, 0.78) 58%,
+  rgba($color-text, 0.18) 100%
+);
+$gradient-card-surface: linear-gradient(
+  180deg,
+  rgba($color-text, 0.075) 0%,
+  rgba($color-text, 0.032) 100%
+);
+$gradient-card-surface-strong: linear-gradient(
+  180deg,
+  rgba($color-text, 0.09) 0%,
+  rgba($color-text, 0.038) 100%
+);
+$gradient-media-surface: linear-gradient(
+  145deg,
+  rgba($color-text, 0.96),
+  rgba(220, 243, 255, 0.9)
+);
+$gradient-media-surface-hover: linear-gradient(
+  145deg,
+  $color-text,
+  rgba(215, 242, 255, 0.94)
 );
 
 $container-max-width: 1200px;
+$container-content-width: 1120px;
+$container-wide-width: 1320px;
 $container-padding: 1.5rem;
 $font-heading: "Montserrat", sans-serif;
 $font-body: "Inter", sans-serif;
+$font-display: "Pulchella";
 
 $font-size-hero-title: 74px;
 $font-size-section-title: 40px;
@@ -26,3 +88,37 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 $shadow-heading-soft: 0 4px 18px rgba(0, 0, 0, 0.14);
+$shadow-cta: inset 0 1px 0 rgba($color-text, 0.3),
+  0 10px 30px rgba($color-accent-strong, 0.28);
+$shadow-cta-hover: inset 0 1px 0 rgba($color-text, 0.3),
+  0 16px 36px rgba($color-accent-strong, 0.34);
+$shadow-card: inset 0 1px 0 $color-highlight,
+  0 18px 46px $color-shadow-dark;
+$shadow-card-soft: inset 0 1px 0 rgba($color-text, 0.08),
+  0 16px 40px $color-shadow-dark-soft;
+$shadow-card-hover: inset 0 1px 0 rgba($color-text, 0.12),
+  0 22px 54px rgba(0, 0, 0, 0.28),
+  0 0 28px rgba($color-accent, 0.14);
+$shadow-media: inset 0 1px 0 $color-highlight-strong,
+  0 22px 52px $color-shadow-dark,
+  0 0 22px rgba($color-accent, 0.08);
+$shadow-media-hover: inset 0 1px 0 rgba($color-text, 0.6),
+  0 26px 58px rgba(0, 0, 0, 0.28),
+  0 0 34px rgba($color-accent, 0.2);
+$shadow-line: 0 0 12px rgba($color-text, 0.1),
+  0 0 18px rgba($color-accent, 0.2);
+$shadow-accent-glow: 0 0 18px rgba($color-accent, 0.22);
+
+$radius-pill: 999px;
+$radius-card-sm: 8px;
+$radius-card-md: 14px;
+$radius-card-lg: 18px;
+$radius-media: 42px;
+
+$space-section-y: 6rem;
+$space-section-y-lg: 7rem;
+$space-section-y-md: 5rem;
+$space-section-y-sm: 4rem;
+
+$transition-fast: 160ms ease;
+$transition-base: 0.25s ease;

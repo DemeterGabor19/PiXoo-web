@@ -1,3 +1,5 @@
+@use "../abstracts/variables" as *;
+
 .site-header {
   position: absolute;
   top: 0;
@@ -9,7 +11,7 @@
 }
 
 .site-header__content {
-  max-width: 1120px;
+  max-width: $container-content-width;
   margin: 0 auto;
 }
 
@@ -41,7 +43,7 @@
 }
 
 .site-header__menu-item a {
-  color: rgba(255, 255, 255, 0.88);
+  color: rgba($color-text, 0.88);
   text-decoration: none;
   font-size: 0.8rem;
   font-weight: 500;
@@ -60,14 +62,14 @@
   justify-content: center;
   width: 2rem;
   height: 2rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
+  border-radius: $radius-pill;
+  background: rgba($color-text, 0.08);
   text-decoration: none;
-  transition: background 0.25s ease;
+  transition: background $transition-base;
 }
 
 .site-header__social-link:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba($color-text, 0.16);
 }
 
 .site-header__social-icon {

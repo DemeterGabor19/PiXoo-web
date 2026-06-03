@@ -31,53 +31,127 @@
   min-width: 210px;
   min-height: 54px;
   padding: 0.9rem 1.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 18px;
-  background: linear-gradient(180deg, #3aa9ff 0%, #1e88ff 100%);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.3),
-    0 10px 30px rgba(30, 136, 255, 0.28);
+  border: 1px solid $color-border-strong;
+  border-radius: $radius-card-lg;
+  background: $gradient-cta;
+  box-shadow: $shadow-cta;
   font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
+  font-weight: $font-weight-bold;
+  color: $color-text;
   text-decoration: none;
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease;
+    transform $transition-base,
+    box-shadow $transition-base,
+    background $transition-base;
 
   &:hover {
     transform: translateY(-2px);
-    color: #ffffff;
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 16px 36px rgba(30, 136, 255, 0.34);
+    color: $color-text;
+    box-shadow: $shadow-cta-hover;
   }
 }
 
 @mixin glass-surface(
-  $bg: rgba(255, 255, 255, 0.04),
-  $border: rgba(255, 255, 255, 0.12)
+  $bg: $color-glass-bg,
+  $border: $color-border-soft
 ) {
   border: 1px solid $border;
   background: $bg;
 }
 
 @mixin glass-card(
-  $bg: rgba(255, 255, 255, 0.04),
-  $border: rgba(255, 255, 255, 0.12),
-  $hover-bg: rgba(255, 255, 255, 0.06),
-  $hover-border: rgba(130, 220, 255, 0.35)
+  $bg: $color-glass-bg,
+  $border: $color-border-soft,
+  $hover-bg: $color-glass-bg-hover,
+  $hover-border: $color-border-accent
 ) {
   @include glass-surface($bg, $border);
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease;
+    transform $transition-fast,
+    border-color $transition-fast,
+    background $transition-fast;
 
   &:hover {
     transform: translateY(-3px);
     border-color: $hover-border;
     background: $hover-bg;
   }
+}
+
+@mixin page-container($max-width: $container-content-width, $padding: 1rem) {
+  width: min($max-width, calc(100% - (2 * $padding)));
+  margin-inline: auto;
+}
+
+@mixin gradient-text {
+  background: $gradient-heading-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: $color-text;
+  text-shadow: $shadow-heading-soft;
+}
+
+@mixin section-heading {
+  @include section-title;
+  @include gradient-text;
+  line-height: 1.2;
+}
+
+@mixin accent-glow($width: 520px, $height: 520px, $alpha: 0.16) {
+  background: radial-gradient(
+    circle,
+    rgba($color-accent, $alpha) 0%,
+    rgba($color-accent, $alpha * 0.5) 38%,
+    rgba($color-accent, 0) 72%
+  );
+}
+
+@mixin card-surface($radius: $radius-card-lg) {
+  border-radius: $radius;
+  border: 1px solid $color-border-soft;
+  background: $gradient-card-surface;
+  box-shadow: $shadow-card-soft;
+  backdrop-filter: blur(10px);
+}
+
+@mixin card-surface-hover {
+  border-color: rgba($color-accent, 0.34);
+  box-shadow:
+    inset 0 1px 0 rgba($color-text, 0.1),
+    0 18px 44px rgba(0, 0, 0, 0.22);
+}
+
+@mixin luminous-media($radius: $radius-media) {
+  border-radius: $radius;
+  background:
+    $gradient-media-surface,
+    radial-gradient(
+      circle at 25% 20%,
+      rgba($color-accent, 0.25),
+      transparent 44%
+    );
+  box-shadow: $shadow-media;
+}
+
+@mixin luminous-media-hover {
+  background:
+    $gradient-media-surface-hover,
+    radial-gradient(
+      circle at 30% 24%,
+      rgba($color-accent, 0.35),
+      transparent 46%
+    );
+  box-shadow: $shadow-media-hover;
+}
+
+@mixin divider-line {
+  background: $gradient-white-line;
+  box-shadow: $shadow-line;
+}
+
+@mixin divider-line-accent($progress: 1) {
+  background: $gradient-accent-line;
+  transform: scaleX($progress);
+  transform-origin: left;
 }

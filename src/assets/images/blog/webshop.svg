@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">Webshop ajanlatkeres blog thumbnail</title>
+  <desc id="desc">Webshop es ajanlatkeres dontes illusztracio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00142e"/>
+      <stop offset=".58" stop-color="#071a3b"/>
+      <stop offset="1" stop-color="#123b72"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0" stop-color="#6fd0ff"/>
+      <stop offset="1" stop-color="#1e88ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <rect x="142" y="145" width="330" height="265" rx="28" fill="#fff" opacity=".09" stroke="#6fd0ff" stroke-opacity=".25"/>
+  <rect x="530" y="145" width="318" height="265" rx="28" fill="#fff" opacity=".09" stroke="#6fd0ff" stroke-opacity=".25"/>
+  <path d="M218 220 H385 L365 318 H245 Z" fill="none" stroke="#6fd0ff" stroke-width="16" stroke-linejoin="round"/>
+  <circle cx="266" cy="350" r="17" fill="#6fd0ff"/>
+  <circle cx="344" cy="350" r="17" fill="#6fd0ff"/>
+  <rect x="588" y="205" width="190" height="32" rx="16" fill="#fff" opacity=".2"/>
+  <rect x="588" y="274" width="225" height="18" rx="9" fill="#fff" opacity=".18"/>
+  <rect x="588" y="320" width="168" height="44" rx="22" fill="url(#accent)"/>
+  <rect x="286" y="455" width="390" height="28" rx="14" fill="#fff" opacity=".11"/>
+</svg>

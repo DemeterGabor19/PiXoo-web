@@ -8,8 +8,7 @@
   color: $color-text;
 
   &__container {
-    width: min(1120px, calc(100% - 2rem));
-    margin-inline: auto;
+    @include page-container;
   }
 
   &__header {
@@ -26,12 +25,7 @@
 
   &__title {
     margin: 0 0 1rem;
-    line-height: 1.2;
-    background: $gradient-heading-accent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    @include section-title;
+    @include section-heading;
   }
 
   &__lead {
@@ -59,15 +53,15 @@
     transform: translateX(-50%);
     overflow: hidden;
     border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
+    background: $color-border-soft;
   }
 
   &__line-progress {
     width: 100%;
     height: 100%;
     border-radius: inherit;
-    background: linear-gradient(180deg, #6fd0ff 0%, #1e88ff 100%);
-    box-shadow: 0 0 18px rgba(44, 170, 232, 0.75);
+    background: linear-gradient(180deg, $color-accent-light 0%, $color-accent-strong 100%);
+    box-shadow: 0 0 18px rgba($color-accent, 0.75);
     transform: scaleY(var(--process-progress));
     transform-origin: top;
     transition: transform 0.08s linear;
@@ -115,22 +109,8 @@
   &__image-placeholder {
     width: min(100%, 360px);
     aspect-ratio: 16 / 10;
-    border-radius: 42px;
-    clip-path: inset(0 50% 0 50% round 42px);
-    background:
-      linear-gradient(
-        145deg,
-        rgba(255, 255, 255, 0.96),
-        rgba(220, 243, 255, 0.9)
-      ),
-      radial-gradient(
-        circle at 25% 20%,
-        rgba(44, 170, 232, 0.28),
-        transparent 42%
-      );
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.55),
-      0 22px 60px rgba(0, 0, 0, 0.24);
+    @include luminous-media;
+    clip-path: inset(0 50% 0 50% round $radius-media);
     transition:
       clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.25s ease,
@@ -139,15 +119,12 @@
   }
 
   &__step.is-active &__image-placeholder {
-    clip-path: inset(0 0 0 0 round 42px);
+    clip-path: inset(0 0 0 0 round $radius-media);
   }
 
   &__media:hover &__image-placeholder {
     transform: translateY(-6px);
-    box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.55),
-      0 28px 70px rgba(0, 0, 0, 0.3),
-      0 0 34px rgba(44, 170, 232, 0.18);
+    @include luminous-media-hover;
   }
 
   &__point {
@@ -159,13 +136,13 @@
     height: 44px;
     margin-inline: auto;
     border-radius: 50%;
-    border: 1px solid rgba(111, 208, 255, 0.7);
-    background: linear-gradient(180deg, #123b72 0%, #071a3b 100%);
+    border: 1px solid rgba($color-accent-light, 0.7);
+    background: linear-gradient(180deg, $color-surface-strong 0%, $color-bg-end 100%);
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.28),
-      0 0 0 6px rgba(44, 170, 232, 0.1),
-      0 0 26px rgba(44, 170, 232, 0.38);
-    color: #ffffff;
+      inset 0 1px 0 rgba($color-text, 0.28),
+      0 0 0 6px rgba($color-accent, 0.1),
+      0 0 26px rgba($color-accent, 0.38);
+    color: $color-text;
     font-weight: $font-weight-bold;
   }
 
@@ -192,7 +169,7 @@
     font-size: clamp(1.1rem, 1.7vw, 1.45rem);
     font-weight: $font-weight-bold;
     line-height: 1.2;
-    color: #ffffff;
+    color: $color-text;
   }
 
   &__step-text {
@@ -218,19 +195,17 @@
     opacity: var(--process-cta-opacity);
     transform: translateY(var(--process-cta-y));
     box-shadow:
-      inset 0 1px 0 rgba(255, 255, 255, 0.3),
-      0 10px 30px rgba(30, 136, 255, 0.28),
+      $shadow-cta,
       0 0 var(--process-cta-glow-size)
-        rgba(44, 170, 232, var(--process-cta-glow-alpha));
+        rgba($color-accent, var(--process-cta-glow-alpha));
 
     &:hover {
       transform: translateY(calc(var(--process-cta-y) - 2px));
-      color: #ffffff;
+      color: $color-text;
       box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.3),
-        0 16px 36px rgba(30, 136, 255, 0.34),
+        $shadow-cta-hover,
         0 0 var(--process-cta-glow-size)
-          rgba(44, 170, 232, var(--process-cta-glow-alpha));
+          rgba($color-accent, var(--process-cta-glow-alpha));
     }
   }
 }
@@ -318,7 +293,7 @@
 
     &__image-placeholder {
       width: 100%;
-      border-radius: 42px;
+      border-radius: $radius-media;
     }
 
     &__actions {

@@ -31,9 +31,9 @@
     z-index: 0;
     background: radial-gradient(
       circle at var(--hero-glow-x) var(--hero-glow-y),
-      rgba(44, 170, 232, 0.075) 0%,
-      rgba(44, 170, 232, 0.026) 10%,
-      rgba(44, 170, 232, 0) 24%
+      rgba($color-accent, 0.075) 0%,
+      rgba($color-accent, 0.026) 10%,
+      rgba($color-accent, 0) 24%
     );
     opacity: 0;
     pointer-events: none;
@@ -47,11 +47,11 @@
   &__container {
     position: relative;
     z-index: 2;
-    width: min(100% - (2 * $container-padding), 1320px);
+    width: min(100% - (2 * $container-padding), $container-wide-width);
   }
 
   &__content-wrap {
-    max-width: 1280px;
+    max-width: calc($container-wide-width - 40px);
     margin: 0 auto;
   }
 
@@ -62,14 +62,14 @@
     right: -230px;
     translate: var(--hero-brand-shift-x) var(--hero-brand-shift-y);
     transform: translateY(-50%);
-    font-family: "Pulchella", $font-heading;
+    font-family: $font-display, $font-heading;
     font-size: 620px;
     font-weight: 400;
     line-height: 1;
-    color: rgba(116, 211, 255, 0.16);
+    color: rgba($color-accent-soft, 0.16);
     text-shadow:
-      0 0 36px rgba(44, 170, 232, 0.28),
-      0 0 96px rgba(44, 170, 232, 0.18);
+      0 0 36px rgba($color-accent, 0.28),
+      0 0 96px rgba($color-accent, 0.18);
     filter: blur(3px);
     user-select: none;
     pointer-events: none;
@@ -80,15 +80,15 @@
     position: absolute;
     z-index: 1;
     display: block;
-    font-family: "Pulchella", $font-heading;
+    font-family: $font-display, $font-heading;
     font-weight: 400;
     line-height: 1;
-    color: rgba(116, 211, 255, var(--x-color-opacity, 0.5));
+    color: rgba($color-accent-soft, var(--x-color-opacity, 0.5));
     text-shadow:
       0 0 var(--x-glow-sm, 18px)
-        rgba(44, 170, 232, var(--x-glow-opacity-sm, 0.28)),
+        rgba($color-accent, var(--x-glow-opacity-sm, 0.28)),
       0 0 var(--x-glow-lg, 48px)
-        rgba(44, 170, 232, var(--x-glow-opacity-lg, 0.14));
+        rgba($color-accent, var(--x-glow-opacity-lg, 0.14));
     user-select: none;
     pointer-events: none;
     mix-blend-mode: screen;
@@ -276,7 +276,7 @@
 
   &__content {
     max-width: 700px;
-    color: #ffffff;
+    color: $color-text;
   }
 
   &__badge {
@@ -285,13 +285,13 @@
     gap: 0.75rem;
     padding: 0.65rem 1.1rem;
     margin-bottom: 1.5rem;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: $radius-pill;
+    border: 1px solid $color-border-strong;
     background: rgba(95, 160, 255, 0.1);
     backdrop-filter: blur(8px);
     font-size: 0.7rem;
     font-weight: 600;
-    color: #ffffff;
+    color: $color-text;
   }
 
   &__badge-dot {
@@ -299,8 +299,8 @@
     height: 7px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: #2caae8;
-    box-shadow: 0 0 12px rgba(44, 170, 232, 0.8);
+    background: $color-accent;
+    box-shadow: 0 0 12px rgba($color-accent, 0.8);
   }
 
   &__eyebrow {
@@ -309,7 +309,7 @@
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba($color-text, 0.9);
   }
 
   &__title {
@@ -322,12 +322,8 @@
     font-weight: $font-weight-bold;
     line-height: 1.12;
     letter-spacing: -0.03em;
-    background: $gradient-heading-accent;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    @include gradient-text;
     text-fill-color: transparent;
-    text-shadow: $shadow-heading-soft;
   }
 
   &__title span {

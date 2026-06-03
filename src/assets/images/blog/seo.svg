@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" role="img" aria-labelledby="title desc">
+  <title id="title">SEO blog thumbnail</title>
+  <desc id="desc">Kereses, rangsor es novekvo lathatosag illusztracio.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#00142e"/>
+      <stop offset=".65" stop-color="#0c2147"/>
+      <stop offset="1" stop-color="#071a3b"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="600" fill="url(#bg)"/>
+  <circle cx="390" cy="268" r="145" fill="none" stroke="#6fd0ff" stroke-width="26" opacity=".62"/>
+  <path d="M498 378 L635 515" stroke="#6fd0ff" stroke-width="34" stroke-linecap="round" opacity=".62"/>
+  <rect x="188" y="158" width="330" height="62" rx="31" fill="#fff" opacity=".12"/>
+  <rect x="238" y="292" width="185" height="20" rx="10" fill="#fff" opacity=".2"/>
+  <rect x="238" y="338" width="135" height="20" rx="10" fill="#fff" opacity=".16"/>
+  <path d="M630 330 L710 250 L762 298 L842 188" fill="none" stroke="#2caae8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="842" cy="188" r="18" fill="#6fd0ff"/>
+</svg>

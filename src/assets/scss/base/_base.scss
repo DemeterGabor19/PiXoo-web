@@ -2,7 +2,7 @@
 
 body {
   min-width: 320px;
-  background: linear-gradient(115deg, $color-bg-start 15%, $color-bg-end 85%);
+  background: $gradient-page-bg;
   font-family: $font-body;
   color: $color-text;
 }

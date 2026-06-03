@@ -1,0 +1,237 @@
+<section class="blog-index" aria-labelledby="blog-title">
+  <div class="blog-index__container">
+    <header class="blog-index__header">
+      <p class="blog-index__eyebrow">Blog</p>
+      <h1 id="blog-title" class="blog-index__title">
+        Weboldal, WordPress és digitális jelenlét érthetően
+      </h1>
+      <p class="blog-index__lead">
+        Gyakorlati cikkek vállalkozóknak: mikor milyen weboldalra van szükség,
+        hogyan érdemes gondolkodni SEO-ról, WordPressről, designról és online
+        ajánlatkérésről.
+      </p>
+    </header>
+
+    <div class="blog-tools" aria-label="Blog szűrők">
+      <div class="blog-tools__filters" data-blog-filters>
+        <button class="is-active" type="button" data-blog-filter="all">
+          Összes
+        </button>
+        <button type="button" data-blog-filter="weboldal">Weboldal készítés</button>
+        <button type="button" data-blog-filter="wordpress">WordPress</button>
+        <button type="button" data-blog-filter="seo">SEO</button>
+        <button type="button" data-blog-filter="design">Design</button>
+        <button type="button" data-blog-filter="uzlet">Üzleti tippek</button>
+      </div>
+
+      <label class="blog-tools__search">
+        <span>Keresés</span>
+        <input
+          type="search"
+          placeholder="Keresés a cikkek között"
+          data-blog-search
+        />
+      </label>
+    </div>
+
+    <article class="blog-featured" data-blog-card data-blog-category="weboldal uzlet">
+      <a class="blog-featured__media" href="/blog-article.html">
+        <img
+          src="/assets/images/blog/weboldal-arak.svg"
+          alt="Weboldal arak es projekttervezes illusztracio"
+        />
+        <span>Kiemelt cikk</span>
+      </a>
+      <div class="blog-featured__content">
+        <div class="blog-featured__meta">
+          <span>Weboldal készítés</span>
+          <time datetime="2026-06-02">2026. június 2.</time>
+          <span>6 perc olvasás</span>
+        </div>
+        <h2>
+          <a href="/blog-article.html">Mennyibe kerül egy weboldal 2026-ban?</a>
+        </h2>
+        <p>
+          A weboldal ára nem csak a látványtól függ. Megnézzük, milyen tényezők
+          alakítják a költséget: oldalstruktúra, design, funkciók, WordPress,
+          tartalom, SEO és hosszú távú karbantartás.
+        </p>
+        <a class="blog-featured__link" href="/blog-article.html">Elolvasom</a>
+      </div>
+    </article>
+
+    <div class="blog-grid" data-blog-grid>
+      <article class="blog-card" data-blog-card data-blog-category="wordpress weboldal">
+        <a class="blog-card__media" href="/blog-article.html" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/wordpress.svg"
+            alt="WordPress adminfelulet illusztracio"
+            loading="lazy"
+          />
+          <span>WordPress</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>WordPress</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>5 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="/blog-article.html">Mikor érdemes WordPress oldalt választani?</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            Rövid áttekintés arról, milyen projektekhez ideális a WordPress, és
+            mikor lehet jobb egy egyedibb technikai megoldás.
+          </p>
+          <a class="blog-card__link" href="/blog-article.html">Elolvasom</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-blog-card data-blog-category="weboldal design">
+        <a class="blog-card__media" href="#" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/landing.svg"
+            alt="Landing oldal felépítés illusztracio"
+            loading="lazy"
+          />
+          <span>Landing</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>Weboldal készítés</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>4 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="#">Mitől lesz jó egy landing oldal?</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            Egy jó landing oldal nem csak szép, hanem egy célra dolgozik:
+            érthető ajánlat, jó ritmus, erős CTA és kevés felesleges zaj.
+          </p>
+          <a class="blog-card__link" href="#">Elolvasom</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-blog-card data-blog-category="seo uzlet">
+        <a class="blog-card__media" href="#" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/seo.svg"
+            alt="SEO keresesi lathatosag illusztracio"
+            loading="lazy"
+          />
+          <span>SEO</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>SEO</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>7 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="#">SEO alapok kisvállalkozásoknak</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            Mit érdemes már a weboldal tervezésekor jól beállítani, hogy a
+            későbbi keresőoptimalizálás ne nulláról induljon?
+          </p>
+          <a class="blog-card__link" href="#">Elolvasom</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-blog-card data-blog-category="design weboldal">
+        <a class="blog-card__media" href="#" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/mobile-ux.svg"
+            alt="Mobil UX es responsive felulet illusztracio"
+            loading="lazy"
+          />
+          <span>UX</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>Design</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>5 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="#">Miért fontos a mobilos felhasználói élmény?</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            A legtöbb érdeklődő mobilról találkozik először az oldaladdal.
+            Ilyenkor a sebesség, olvashatóság és CTA elérés döntő lehet.
+          </p>
+          <a class="blog-card__link" href="#">Elolvasom</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-blog-card data-blog-category="uzlet weboldal">
+        <a class="blog-card__media" href="#" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/webshop.svg"
+            alt="Webshop es ajanlatkeres illusztracio"
+            loading="lazy"
+          />
+          <span>Webshop</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>Üzleti tippek</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>6 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="#">Webshop vagy ajánlatkérő oldal: melyik kell neked?</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            Nem minden termék vagy szolgáltatás igényel klasszikus webshopot.
+            Néha egy jól felépített ajánlatkérő oldal jobb első lépés.
+          </p>
+          <a class="blog-card__link" href="#">Elolvasom</a>
+        </div>
+      </article>
+
+      <article class="blog-card" data-blog-card data-blog-category="wordpress seo">
+        <a class="blog-card__media" href="#" aria-label="Cikk megnyitása">
+          <img
+            src="/assets/images/blog/tartalom.svg"
+            alt="Szerkesztheto tartalmi blokkok illusztracio"
+            loading="lazy"
+          />
+          <span>Tartalom</span>
+        </a>
+        <div class="blog-card__content">
+          <div class="blog-card__meta">
+            <span>WordPress</span>
+            <time datetime="2026-06-02">2026. június 2.</time>
+            <span>4 perc</span>
+          </div>
+          <h3 class="blog-card__title">
+            <a href="#">Milyen tartalmakat érdemes szerkeszthetővé tenni?</a>
+          </h3>
+          <p class="blog-card__excerpt">
+            WordPress oldalon nem mindent kell adminból szerkeszteni. Megmutatom,
+            mely tartalmaknál ad valódi értéket a dinamikus kezelés.
+          </p>
+          <a class="blog-card__link" href="#">Elolvasom</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="blog-index__empty" hidden data-blog-empty>
+      Nincs találat erre a szűrésre.
+    </p>
+
+    <section class="blog-cta" aria-labelledby="blog-cta-title">
+      <div>
+        <p class="blog-index__eyebrow">Következő lépés</p>
+        <h2 id="blog-cta-title">Nem csak olvasnál róla?</h2>
+        <p>
+          Ha már körvonalazódik, milyen weboldalra lenne szükséged, nézzük meg
+          együtt a lehetőségeket és a következő lépéseket.
+        </p>
+      </div>
+      <a href="/contact.html">Beszéljünk a projektedről</a>
+    </section>
+  </div>
+</section>

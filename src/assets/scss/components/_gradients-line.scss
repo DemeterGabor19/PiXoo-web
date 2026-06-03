@@ -1,66 +1,58 @@
-/* src/scss/components/_gradient-line.scss */
+@use "../abstracts/variables" as *;
 
 .gradient-line {
-  /* paraméterek */
-  --w: 38rem; /* a hossz (állítsd ahol használod) */
-  --h: 0.25rem; /* 4px */
-  --r: 9999px; /* fully rounded */
-  --accent-w: 7.5rem; /* bal “kék szakasz” hossza */
-  --accent: #2caae8; /* kb. a Figma kékje */
-  --white: rgba(255, 255, 255, 0.92);
+  --w: 38rem;
+  --h: 0.25rem;
+  --r: #{$radius-pill};
+  --accent-w: 7.5rem;
+  --accent: #{$color-accent};
+  --white: #{rgba($color-text, 0.92)};
 
-  width: min(100%, var(--w));
-  height: var(--h);
-  border-radius: var(--r);
   position: relative;
   display: block;
   overflow: hidden;
-
-  /* fő vonal (kék → fehéres → kifut) */
+  width: min(100%, var(--w));
+  height: var(--h);
+  border-radius: var(--r);
   background: linear-gradient(
     90deg,
-    rgba(44, 170, 232, 0) 0%,
-    rgba(44, 170, 232, 0) 6%,
-    rgba(44, 170, 232, 0.85) 6%,
-    rgba(44, 170, 232, 0.85) 18%,
+    rgba($color-accent, 0) 0%,
+    rgba($color-accent, 0) 6%,
+    rgba($color-accent, 0.85) 6%,
+    rgba($color-accent, 0.85) 18%,
     var(--white) 58%,
-    rgba(255, 255, 255, 0.35) 86%,
-    rgba(255, 255, 255, 0) 100%
+    rgba($color-text, 0.35) 86%,
+    rgba($color-text, 0) 100%
   );
-
-  /* “fény” érzet */
   box-shadow:
-    0 0 18px rgba(44, 170, 232, 0.22),
-    0 0 10px rgba(255, 255, 255, 0.1);
+    $shadow-accent-glow,
+    0 0 10px rgba($color-text, 0.1);
 }
 
 .gradient-line::before {
   content: "";
   position: absolute;
-  left: 0;
   top: 0;
+  left: 0;
   width: var(--accent-w);
   height: 100%;
   border-radius: inherit;
-
-  /* bal oldali erősebb kék rész + enyhe glow */
   background: linear-gradient(
     90deg,
-    rgba(44, 170, 232, 1) 0%,
-    rgba(44, 170, 232, 1) 55%,
-    rgba(44, 170, 232, 0) 100%
+    rgba($color-accent, 1) 0%,
+    rgba($color-accent, 1) 55%,
+    rgba($color-accent, 0) 100%
   );
-
   box-shadow:
-    0 0 16px rgba(44, 170, 232, 0.55),
-    0 0 26px rgba(44, 170, 232, 0.25);
+    0 0 16px rgba($color-accent, 0.55),
+    0 0 26px rgba($color-accent, 0.25);
   pointer-events: none;
 }
 
-/* opcionális: ha pontosan úgy akarod, mint a képen (balról kicsit “vastagabb” fény) */
 .gradient-line--strong {
-  --h: 0.3125rem; /* 5px */
+  --h: 0.3125rem;
+
   box-shadow:
-    0 0 22px rgba(44, 170, 232, 0.28),
-    0 0 12px rgba(255, 255, 255, 0.12);
+    0 0 22px rgba($color-accent, 0.28),
+    0 0 12px rgba($color-text, 0.12);
 }
