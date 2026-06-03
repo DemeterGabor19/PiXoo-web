@@ -1,0 +1,112 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.not-found {
+  position: relative;
+  display: grid;
+  min-height: 72vh;
+  place-items: center;
+  overflow: hidden;
+  padding: 8.5rem 0 5rem;
+  color: $color-text;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        circle at 76% 18%,
+        rgba($color-accent, 0.13),
+        rgba($color-accent, 0) 30%
+      ),
+      radial-gradient(
+        circle at 14% 68%,
+        rgba($color-accent-light, 0.07),
+        rgba($color-accent-light, 0) 34%
+      );
+    pointer-events: none;
+  }
+}
+
+.not-found__container {
+  @include page-container(760px);
+
+  text-align: center;
+}
+
+.not-found__eyebrow {
+  margin: 0 0 0.75rem;
+  color: $color-accent-light;
+  font-size: 0.82rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.not-found h1 {
+  @include section-heading;
+
+  margin: 0 0 1rem;
+  font-size: clamp(2.45rem, 5vw, 4.8rem);
+  letter-spacing: -0.03em;
+}
+
+.not-found p:not(.not-found__eyebrow) {
+  max-width: 640px;
+  margin: 0 auto;
+  color: $color-text-muted;
+  line-height: 1.72;
+  @include body-text;
+}
+
+.not-found__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.6rem;
+}
+
+.not-found__actions a {
+  @include primary-cta;
+
+  min-width: 170px;
+}
+
+.not-found__actions a:last-child {
+  border-color: $color-border-strong;
+  background: rgba($color-text, 0.06);
+  box-shadow: none;
+}
+
+@media (max-width: 560px) {
+  .not-found {
+    min-height: auto;
+    padding: 7rem 0 4rem;
+  }
+
+  .not-found__container {
+    text-align: left;
+  }
+
+  .not-found h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .not-found p:not(.not-found__eyebrow) {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .not-found__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .not-found__actions a {
+    width: 100%;
+    min-width: 0;
+  }
+}

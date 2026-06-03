@@ -391,3 +391,25 @@
     }
   }
 }
+
+@media (max-width: 520px) {
+  .benefits {
+    padding-block: 3rem;
+
+    &__title {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    &__card-title {
+      font-size: 1.08rem;
+    }
+
+    &__media,
+    &__card--strategy .benefits__media,
+    &__card--design .benefits__media,
+    &__card--technical .benefits__media,
+    &__card--local .benefits__media {
+      max-width: 160px;
+    }
+  }
+}

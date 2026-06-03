@@ -3,7 +3,9 @@
 
 .references-showcase {
   position: relative;
-  min-height: calc(var(--reference-panel-count, 4) * 100vh);
+  --reference-panel-count: 7;
+
+  min-height: calc(var(--reference-panel-count) * 100dvh);
   overflow: clip;
   color: $color-text;
 
@@ -32,7 +34,8 @@
   top: 0;
   display: flex;
   width: max-content;
-  height: 100vh;
+  height: 100dvh;
+  min-height: 640px;
   will-change: transform;
   transform: translate3d(var(--reference-track-x, 0px), 0, 0);
 }
@@ -47,7 +50,9 @@
   grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
-  padding: 7.5rem max(1.5rem, calc((100vw - $container-wide-width) / 2)) 5rem;
+  padding: clamp(6.25rem, 10vh, 7.5rem)
+    max(1.5rem, calc((100vw - $container-wide-width) / 2))
+    clamp(3.25rem, 6vh, 5rem);
   isolation: isolate;
 }
 
@@ -292,6 +297,16 @@
 .reference-browser__screen {
   aspect-ratio: 16 / 10;
   padding: 1rem;
+}
+
+.reference-browser__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba($color-accent-light, 0.22);
+  border-radius: $radius-card-md;
+  object-fit: cover;
+  object-position: top center;
 }
 
 .reference-browser__placeholder {
@@ -668,10 +683,6 @@ body.is-reference-modal-open {
     transform: none;
   }
 
-  .reference-panel__visual {
-    order: -1;
-  }
-
   .reference-browser {
     transform: none;
   }
@@ -680,10 +691,15 @@ body.is-reference-modal-open {
 @media (max-width: 640px) {
   .reference-panel {
     padding-block: 3rem;
+    width: min($container-content-width, calc(100% - 1.5rem));
   }
 
   .reference-panel__title {
     font-size: clamp(1.8rem, 9vw, 2.6rem);
+  }
+
+  .reference-panel--cta .reference-panel__visual {
+    display: none;
   }
 
   .reference-panel__meta {
@@ -732,6 +748,50 @@ body.is-reference-modal-open {
 
   .reference-modal__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .reference-panel:first-child {
+    padding-top: 6.75rem;
+  }
+
+  .reference-panel__summary {
+    font-size: 1rem;
+  }
+
+  .reference-panel__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .reference-panel__cta,
+  .reference-panel__details {
+    min-width: 0;
+  }
+
+  .reference-browser__placeholder {
+    font-size: 0.78rem;
+    text-align: center;
+  }
+
+  .reference-modal {
+    align-items: stretch;
+    padding: 0.5rem;
+  }
+
+  .reference-modal__panel {
+    max-height: calc(100dvh - 1rem);
+    padding-top: 3.6rem;
+  }
+
+  .reference-modal h2 {
+    margin-right: 0;
+    font-size: clamp(1.75rem, 10vw, 2.6rem);
+  }
+
+  .reference-modal__eyebrow {
+    margin-right: 0;
   }
 }
 

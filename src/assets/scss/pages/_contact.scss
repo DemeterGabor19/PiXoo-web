@@ -135,6 +135,17 @@
     background $transition-base;
 }
 
+.contact-form select option {
+  background: $color-bg-start;
+  color: $color-text;
+}
+
+.contact-form select option:checked,
+.contact-form select option:hover {
+  background: $color-surface-strong;
+  color: $color-text;
+}
+
 .contact-form input:-webkit-autofill,
 .contact-form input:-webkit-autofill:hover,
 .contact-form input:-webkit-autofill:focus,
@@ -431,5 +442,30 @@
   .contact-info,
   .contact-faq__grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-start {
+    padding-bottom: 4rem;
+  }
+
+  .contact-start__title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .contact-start__response {
+    width: 100%;
+    border-radius: $radius-card-sm;
+  }
+
+  .contact-form,
+  .contact-info__card,
+  .contact-process {
+    border-radius: $radius-card-md;
+  }
+
+  .contact-form__submit {
+    min-width: 0;
   }
 }

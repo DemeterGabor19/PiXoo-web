@@ -29,18 +29,20 @@ export function initNavbar() {
   });
 
   let lastScrollY = window.scrollY;
+  let isTicking = false;
 
   const updateHeader = () => {
     const currentScrollY = window.scrollY;
     const isScrolled = currentScrollY > 24;
     const isScrollingDown = currentScrollY > lastScrollY;
+    const isMenuOpen = header.classList.contains("is-menu-open");
 
     header.classList.toggle("is-scrolled", isScrolled || isReferencesPage);
 
     if (!isReferencesPage) {
       header.classList.toggle(
         "is-hidden",
-        isScrolled && isScrollingDown && !header.classList.contains("is-menu-open")
+        isScrolled && isScrollingDown && !isMenuOpen
       );
     }
 
@@ -49,10 +51,20 @@ export function initNavbar() {
     }
 
     lastScrollY = currentScrollY;
+    isTicking = false;
+  };
+
+  const scheduleHeaderUpdate = () => {
+    if (isTicking) {
+      return;
+    }
+
+    isTicking = true;
+    window.requestAnimationFrame(updateHeader);
   };
 
   updateHeader();
-  window.addEventListener("scroll", updateHeader, { passive: true });
+  window.addEventListener("scroll", scheduleHeaderUpdate, { passive: true });
   window.addEventListener("resize", closeMenu);
 }
 

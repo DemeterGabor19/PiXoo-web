@@ -279,3 +279,18 @@
     }
   }
 }
+
+@media (max-width: 520px) {
+  .additional-services {
+    padding: 4rem 0;
+
+    &__title {
+      font-size: clamp(2rem, 11vw, 3rem);
+    }
+
+    &__media {
+      width: min(100%, 220px);
+      border-radius: 32px;
+    }
+  }
+}

@@ -188,3 +188,23 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 520px) {
+  .legal-hero {
+    padding-bottom: 2rem;
+  }
+
+  .legal-hero h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .legal-hero span {
+    width: 100%;
+    border-radius: $radius-card-sm;
+  }
+
+  .legal-card--link > a {
+    width: 100%;
+    min-width: 0;
+  }
+}

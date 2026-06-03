@@ -1,3 +1,5 @@
+import { initRevealOnScroll } from "../utils/reveal-on-scroll.js";
+
 export function initBlogFilters() {
   const filterRoot = document.querySelector("[data-blog-filters]");
 
@@ -55,5 +57,8 @@ export function initBlogFilters() {
   });
 
   searchInput?.addEventListener("input", applyFilters);
+  initRevealOnScroll(cards, {
+    delayStep: 55,
+  });
   applyFilters();
 }

@@ -79,6 +79,20 @@
   gap: 1.2rem;
 }
 
+.pricing-reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--pricing-reveal-delay, 0ms);
+}
+
+.pricing-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .pricing-group {
   @include glass-surface(rgba($color-text, 0.025), $color-border-soft);
 
@@ -286,6 +300,7 @@
 
 .pricing-summary__list li {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.75rem;
   padding: 0.55rem 0;
@@ -632,5 +647,51 @@ body.is-pricing-modal-open {
 
   .pricing-request-form {
     grid-template-columns: 1fr;
+  }
+
+  .pricing-reveal {
+    transform: translateY(14px);
+  }
+}
+
+@media (max-width: 520px) {
+  .pricing-configurator {
+    padding-bottom: 4rem;
+  }
+
+  .pricing-configurator__title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .pricing-option__body {
+    padding: 0.9rem 0.9rem 0.9rem 2.75rem;
+  }
+
+  .pricing-summary__inner {
+    padding: 1rem;
+    border-radius: $radius-card-md;
+  }
+
+  .pricing-request-modal {
+    align-items: stretch;
+    padding: 0.5rem;
+  }
+
+  .pricing-request-modal__panel {
+    max-height: calc(100dvh - 1rem);
+    padding-top: 3.6rem;
+  }
+
+  .pricing-request-modal h2 {
+    margin-right: 0;
+    font-size: clamp(1.75rem, 10vw, 2.6rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

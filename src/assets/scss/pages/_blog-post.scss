@@ -293,3 +293,28 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 520px) {
+  .blog-post {
+    padding-bottom: 4rem;
+  }
+
+  .blog-post__intro h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .blog-post__cover {
+    min-height: 220px;
+    border-radius: $radius-card-md;
+  }
+
+  .blog-post__meta span,
+  .blog-post__meta time {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .blog-post__content {
+    font-size: 1rem;
+  }
+}

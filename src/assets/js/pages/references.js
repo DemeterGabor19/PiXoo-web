@@ -1,3 +1,5 @@
+import { initRevealOnScroll } from "../utils/reveal-on-scroll.js";
+
 export function initReferencesShowcase() {
   const showcase = document.querySelector("[data-references-showcase]");
 
@@ -41,7 +43,8 @@ export function initReferencesShowcase() {
 
     maxTranslate = Math.max(0, showcase.scrollWidth - window.innerWidth);
     scrollDistance = Math.max(1, maxTranslate);
-    section.style.height = `${window.innerHeight + scrollDistance}px`;
+    const viewportHeight = window.visualViewport?.height || window.innerHeight;
+    section.style.height = `${viewportHeight + scrollDistance}px`;
   };
 
   const update = () => {
@@ -80,11 +83,28 @@ export function initReferencesShowcase() {
   measure();
   update();
 
+  window.requestAnimationFrame(refresh);
+
   window.addEventListener("scroll", requestUpdate, { passive: true });
   window.addEventListener("resize", refresh);
+  window.addEventListener("load", refresh, { once: true });
   reduceMotionQuery.addEventListener("change", refresh);
   stackedLayoutQuery.addEventListener("change", refresh);
 
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(refresh).catch(() => {});
+  }
+
+  showcase.querySelectorAll("img").forEach((image) => {
+    if (!image.complete) {
+      image.addEventListener("load", refresh, { once: true });
+    }
+  });
+
+  initRevealOnScroll(panels, {
+    delayStep: 70,
+    mediaQuery: "(max-width: 980px)",
+  });
   initReferenceModals(section);
 }
 

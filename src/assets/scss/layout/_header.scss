@@ -261,3 +261,21 @@
     margin-left: auto;
   }
 }
+
+@media (max-width: 420px) {
+  .site-header > .container {
+    width: min(100% - 1rem, calc($container-wide-width - 40px));
+  }
+
+  .site-header__inner {
+    padding-left: 0.2rem;
+  }
+
+  .site-header__socials {
+    display: none;
+  }
+
+  .site-header__nav {
+    top: calc(100% + 0.55rem);
+  }
+}

@@ -216,3 +216,31 @@
     transform: none;
   }
 }
+
+@media (max-width: 560px) {
+  .refs {
+    padding: 3.5rem 0;
+  }
+
+  .refs__title {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .refs__cta {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .refs__showcase {
+    min-height: 300px;
+    padding: 0.75rem;
+  }
+
+  .refs__stage {
+    min-height: 280px;
+  }
+
+  .refs__media {
+    min-height: 210px;
+  }
+}
