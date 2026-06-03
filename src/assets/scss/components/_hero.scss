@@ -267,6 +267,85 @@
     font-size: 22px;
   }
 
+  &__x--soft {
+    --x-color-opacity: 0.34;
+    --x-glow-opacity-sm: 0.12;
+    --x-glow-opacity-lg: 0.08;
+
+    z-index: 0;
+    filter: blur(var(--x-blur, 8px));
+  }
+
+  &__x--thirteen {
+    --x-rotate: 24deg;
+    --x-opacity: 0.045;
+    --x-blur: 9px;
+    --x-speed: 18s;
+    --x-delay: -6s;
+    --x-move-x: 0.9rem;
+    --x-move-y: -0.45rem;
+    --x-rotate-drift: 3deg;
+    top: 4%;
+    left: 18%;
+    font-size: 92px;
+  }
+
+  &__x--fourteen {
+    --x-rotate: -19deg;
+    --x-opacity: 0.055;
+    --x-blur: 11px;
+    --x-speed: 21s;
+    --x-delay: -11s;
+    --x-move-x: -0.8rem;
+    --x-move-y: 0.65rem;
+    --x-rotate-drift: 4deg;
+    top: 26%;
+    right: 22%;
+    font-size: 118px;
+  }
+
+  &__x--fifteen {
+    --x-rotate: 47deg;
+    --x-opacity: 0.035;
+    --x-blur: 12px;
+    --x-speed: 23s;
+    --x-delay: -14s;
+    --x-move-x: 0.65rem;
+    --x-move-y: 0.8rem;
+    --x-rotate-drift: 3deg;
+    top: 47%;
+    left: 34%;
+    font-size: 74px;
+  }
+
+  &__x--sixteen {
+    --x-rotate: -36deg;
+    --x-opacity: 0.05;
+    --x-blur: 10px;
+    --x-speed: 19s;
+    --x-delay: -9s;
+    --x-move-x: -1rem;
+    --x-move-y: -0.55rem;
+    --x-rotate-drift: 5deg;
+    right: 7%;
+    bottom: 16%;
+    font-size: 96px;
+  }
+
+  &__x--seventeen {
+    --x-rotate: 12deg;
+    --x-opacity: 0.038;
+    --x-blur: 8px;
+    --x-speed: 20s;
+    --x-delay: -16s;
+    --x-move-x: 0.75rem;
+    --x-move-y: -0.7rem;
+    --x-rotate-drift: 4deg;
+    bottom: 8%;
+    left: 11%;
+    font-size: 82px;
+  }
+
   &__inner {
     display: grid;
     grid-template-columns: minmax(620px, 1.05fr) minmax(360px, 0.95fr);

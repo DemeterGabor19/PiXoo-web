@@ -9,6 +9,7 @@ export function initBlogFilters() {
   const searchInput = document.querySelector("[data-blog-search]");
   const cards = Array.from(document.querySelectorAll("[data-blog-card]"));
   const emptyState = document.querySelector("[data-blog-empty]");
+  const pagination = document.querySelector("[data-blog-pagination]");
   let activeFilter = "all";
 
   const normalize = (value) => value.toLocaleLowerCase("hu-HU").trim();
@@ -34,6 +35,10 @@ export function initBlogFilters() {
 
     if (emptyState) {
       emptyState.hidden = visibleCount > 0;
+    }
+
+    if (pagination) {
+      pagination.hidden = activeFilter !== "all" || Boolean(query);
     }
   };
 

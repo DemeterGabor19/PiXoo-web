@@ -1,0 +1,190 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.legal-page {
+  position: relative;
+  overflow: hidden;
+  color: $color-text;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        circle at 76% 18%,
+        rgba($color-accent, 0.12),
+        rgba($color-accent, 0) 30%
+      ),
+      radial-gradient(
+        circle at 14% 68%,
+        rgba($color-accent-light, 0.07),
+        rgba($color-accent-light, 0) 34%
+      );
+    pointer-events: none;
+  }
+}
+
+.legal-hero {
+  padding: 8.5rem 0 3rem;
+}
+
+.legal-hero__container,
+.legal-content__container {
+  @include page-container($container-wide-width);
+}
+
+.legal-hero__container {
+  max-width: 900px;
+}
+
+.legal-hero__eyebrow {
+  margin: 0 0 0.75rem;
+  color: $color-accent-light;
+  font-size: 0.82rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.legal-hero h1 {
+  @include section-heading;
+
+  margin: 0 0 1rem;
+  font-size: clamp(2.45rem, 5vw, 4.8rem);
+  letter-spacing: -0.03em;
+}
+
+.legal-hero p {
+  max-width: 760px;
+  margin: 0;
+  color: $color-text-muted;
+  line-height: 1.72;
+  @include body-text;
+}
+
+.legal-hero span {
+  display: inline-flex;
+  margin-top: 1.25rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba($color-accent-light, 0.28);
+  border-radius: $radius-pill;
+  background: rgba($color-accent, 0.08);
+  color: $color-text-strong;
+  font-size: 0.9rem;
+}
+
+.legal-content {
+  padding: 0 0 5rem;
+}
+
+.legal-content__container {
+  display: grid;
+  gap: 1rem;
+}
+
+.legal-content__container--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.legal-card {
+  border: 1px solid rgba($color-accent-light, 0.22);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba($color-text, 0.07), rgba($color-text, 0.028)),
+    rgba($color-bg-start, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba($color-text, 0.08),
+    0 18px 46px rgba(0, 0, 0, 0.18);
+  padding: clamp(1rem, 2.2vw, 1.5rem);
+}
+
+.legal-card h2 {
+  margin: 0 0 0.85rem;
+  font-family: $font-heading;
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  line-height: 1.18;
+}
+
+.legal-card p,
+.legal-card li,
+.legal-card dd {
+  color: $color-text-muted;
+  line-height: 1.7;
+}
+
+.legal-card p {
+  margin: 0 0 0.85rem;
+}
+
+.legal-card p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-card ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.legal-card dl {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.legal-card dl div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.legal-card dt {
+  color: $color-accent-light;
+  font-size: 0.78rem;
+  font-weight: $font-weight-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.legal-card dd {
+  margin: 0;
+}
+
+.legal-card a {
+  color: $color-accent-light;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+}
+
+.legal-card a:hover,
+.legal-card a:focus-visible {
+  text-decoration: underline;
+}
+
+.legal-card--link {
+  display: grid;
+  align-content: start;
+}
+
+.legal-card--link > a {
+  @include primary-cta;
+
+  width: fit-content;
+  min-height: 48px;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1.25rem;
+  color: $color-text;
+  text-decoration: none;
+}
+
+@media (max-width: 760px) {
+  .legal-hero {
+    padding-top: 7rem;
+  }
+
+  .legal-content__container--compact {
+    grid-template-columns: 1fr;
+  }
+}

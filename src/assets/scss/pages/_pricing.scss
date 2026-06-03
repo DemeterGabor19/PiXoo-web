@@ -3,7 +3,7 @@
 
 .pricing-configurator {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 8.5rem 0 5rem;
   color: $color-text;
 
@@ -53,6 +53,10 @@
   margin: 0 0 1rem;
   font-size: clamp(2.45rem, 5vw, 4.8rem);
   letter-spacing: -0.03em;
+}
+
+.pricing-configurator__title span {
+  display: block;
 }
 
 .pricing-configurator__lead {
@@ -121,6 +125,17 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.75rem;
+}
+
+.pricing-group__note {
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid rgba($color-accent-light, 0.22);
+  border-radius: $radius-card-sm;
+  background: rgba($color-accent, 0.07);
+  color: $color-text-muted;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .pricing-option {
@@ -235,7 +250,7 @@
 
 .pricing-summary {
   position: sticky;
-  top: 1.5rem;
+  top: 7rem;
 }
 
 .pricing-summary__inner {
@@ -434,6 +449,7 @@ body.is-pricing-modal-open {
 }
 
 .pricing-request-form {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0.85rem;
@@ -464,10 +480,23 @@ body.is-pricing-modal-open {
   font: inherit;
   padding: 0.85rem 0.9rem;
   outline: none;
+  appearance: none;
   transition:
     border-color $transition-base,
     box-shadow $transition-base,
     background $transition-base;
+}
+
+.pricing-request-form input:-webkit-autofill,
+.pricing-request-form input:-webkit-autofill:hover,
+.pricing-request-form input:-webkit-autofill:focus,
+.pricing-request-form textarea:-webkit-autofill,
+.pricing-request-form textarea:-webkit-autofill:hover,
+.pricing-request-form textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: $color-text;
+  caret-color: $color-text;
+  box-shadow: 0 0 0 1000px rgba($color-bg-start, 0.9) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 .pricing-request-form input:focus,
@@ -483,6 +512,14 @@ body.is-pricing-modal-open {
 
 .pricing-request-form__wide {
   grid-column: 1 / -1;
+}
+
+.pricing-request-form__trap {
+  position: absolute;
+  left: -100vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 .pricing-request-form__selection pre {
@@ -502,6 +539,49 @@ body.is-pricing-modal-open {
 
 .pricing-request-form__submit {
   grid-column: 1 / -1;
+}
+
+.pricing-request-form__security {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.pricing-request-form__consent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+  color: $color-text-muted;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.pricing-request-form__consent input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.18rem;
+  appearance: auto;
+  accent-color: $color-accent;
+}
+
+.pricing-request-form__consent span {
+  color: $color-text-muted;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.pricing-request-form__consent a {
+  color: $color-accent-light;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+}
+
+.pricing-request-form__consent a:hover,
+.pricing-request-form__consent a:focus-visible {
+  text-decoration: underline;
 }
 
 .pricing-request-form__success {

@@ -260,6 +260,56 @@
   text-align: center;
 }
 
+.blog-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.55rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.blog-pagination[hidden] {
+  display: none;
+}
+
+.blog-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.7rem;
+  min-height: 2.7rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid $color-border-soft;
+  border-radius: $radius-pill;
+  background: rgba($color-text, 0.045);
+  color: $color-text-muted;
+  font-weight: $font-weight-semibold;
+  text-decoration: none;
+  transition:
+    border-color $transition-base,
+    background $transition-base,
+    color $transition-base,
+    transform $transition-base;
+}
+
+.blog-pagination .page-numbers:hover,
+.blog-pagination .page-numbers:focus-visible,
+.blog-pagination .page-numbers.current {
+  transform: translateY(-2px);
+  border-color: $color-border-accent;
+  background: rgba($color-accent, 0.1);
+  color: $color-text;
+}
+
+.blog-pagination .page-numbers.current {
+  box-shadow: 0 0 22px rgba($color-accent, 0.14);
+}
+
+.blog-pagination .page-numbers.is-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
 .blog-cta {
   display: flex;
   justify-content: space-between;

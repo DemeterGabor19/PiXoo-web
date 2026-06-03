@@ -3,7 +3,8 @@
     <header class="pricing-configurator__header">
       <p class="pricing-configurator__eyebrow">Árkalkulátor</p>
       <h1 id="pricing-title" class="pricing-configurator__title">
-        Állítsd össze, mire van szükséged
+        <span>Állítsd össze,</span>
+        <span>mire van szükséged</span>
       </h1>
       <p class="pricing-configurator__lead">
         Válaszd ki a weboldal típusát, a design szintjét és a szükséges
@@ -46,7 +47,7 @@
                 type="radio"
                 name="site-type"
                 value="Céges weboldal"
-                data-price="260000"
+                data-price="290000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
@@ -55,7 +56,7 @@
                   Bemutatkozó oldal több szekcióval, szolgáltatásblokkokkal és
                   kapcsolatfelvételi pontokkal.
                 </span>
-                <span class="pricing-option__price">260 000 Ft-tól</span>
+                <span class="pricing-option__price">290 000 Ft-tól</span>
               </span>
             </label>
 
@@ -64,7 +65,7 @@
                 type="radio"
                 name="site-type"
                 value="Többoldalas weboldal"
-                data-price="380000"
+                data-price="350000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
@@ -73,7 +74,7 @@
                   Strukturált weboldal külön aloldalakkal, bővebb tartalommal
                   és skálázható felépítéssel.
                 </span>
-                <span class="pricing-option__price">380 000 Ft-tól</span>
+                <span class="pricing-option__price">350 000 Ft-tól</span>
               </span>
             </label>
 
@@ -82,7 +83,7 @@
                 type="radio"
                 name="site-type"
                 value="Webshop"
-                data-price="520000"
+                data-price="500000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
@@ -91,17 +92,21 @@
                   Online értékesítés termékoldalakkal, kosárral, pénztárral és
                   alap webshop struktúrával.
                 </span>
-                <span class="pricing-option__price">520 000 Ft-tól</span>
+                <span class="pricing-option__price">500 000 Ft-tól</span>
               </span>
             </label>
           </div>
+
+          <p class="pricing-group__note">
+            A kapcsolatfelvételi űrlap minden weboldal csomag része.
+          </p>
         </section>
 
         <section class="pricing-group" aria-labelledby="pricing-design-title">
           <div class="pricing-group__header">
             <p class="pricing-group__step">02</p>
             <h2 id="pricing-design-title">Design szint</h2>
-            <p>A vizuális kidolgozottság és az animációk mélysége.</p>
+            <p>A vizuális kidolgozottság és az arculati mélység.</p>
           </div>
 
           <div class="pricing-group__grid">
@@ -109,13 +114,15 @@
               <input
                 type="radio"
                 name="design-level"
-                value="Alap arculathoz igazítás"
+                value="Arculathoz igazított alap design"
                 data-price="0"
                 data-pricing-option
                 checked
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Alap arculathoz igazítás</span>
+                <span class="pricing-option__title">
+                  Arculathoz igazított alap design
+                </span>
                 <span class="pricing-option__text">
                   Letisztult, egységes felület meglévő színekhez, logóhoz és
                   tartalomhoz igazítva.
@@ -128,17 +135,17 @@
               <input
                 type="radio"
                 name="design-level"
-                value="Egyedi UI design"
-                data-price="90000"
+                value="Egyedi design"
+                data-price="60000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Egyedi UI design</span>
+                <span class="pricing-option__title">Egyedi design</span>
                 <span class="pricing-option__text">
                   Részletesebb vizuális rendszer, egyedi szekciók és finomabb
                   komponensstílusok.
                 </span>
-                <span class="pricing-option__price">+90 000 Ft-tól</span>
+                <span class="pricing-option__price">+60 000 Ft-tól</span>
               </span>
             </label>
 
@@ -146,17 +153,17 @@
               <input
                 type="radio"
                 name="design-level"
-                value="Prémium animációk"
-                data-price="140000"
+                value="Prémium vizuális rendszer"
+                data-price="150000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Prémium animációk</span>
+                <span class="pricing-option__title">Prémium vizuális rendszer</span>
                 <span class="pricing-option__text">
-                  Látványosabb scroll, belépő és interakciós animációk modern
-                  IT arculathoz.
+                  Részletesebb vizuális irány, erősebb komponensrendszer és
+                  prémiumabb oldalélmény.
                 </span>
-                <span class="pricing-option__price">+140 000 Ft-tól</span>
+                <span class="pricing-option__price">+150 000 Ft-tól</span>
               </span>
             </label>
           </div>
@@ -174,16 +181,33 @@
               <input
                 type="checkbox"
                 value="Szövegírás"
-                data-price="60000"
+                data-price="40000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
                 <span class="pricing-option__title">Szövegírás</span>
                 <span class="pricing-option__text">
-                  Weboldalra optimalizált szövegek, érthető struktúrával és
-                  szolgáltatásfókusszal.
+                  Rövidebb szövegek, szövegfinomítás vagy egy-egy oldal
+                  kommunikációs kidolgozása.
                 </span>
-                <span class="pricing-option__price">+60 000 Ft-tól</span>
+                <span class="pricing-option__price">+40 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Teljes weboldal szövegírás"
+                data-price="90000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Teljes weboldal szövegírás</span>
+                <span class="pricing-option__text">
+                  Több aloldalra kiterjedő, egységes hangú és célorientált
+                  weboldalszöveg.
+                </span>
+                <span class="pricing-option__price">+90 000 Ft-tól</span>
               </span>
             </label>
 
@@ -191,7 +215,7 @@
               <input
                 type="checkbox"
                 value="SEO alapbeállítás"
-                data-price="45000"
+                data-price="25000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
@@ -200,82 +224,49 @@
                   Meta adatok, címsorhierarchia, alap technikai SEO és
                   indexelési előkészítés.
                 </span>
-                <span class="pricing-option__price">+45 000 Ft-tól</span>
+                <span class="pricing-option__price">+25 000 Ft-tól</span>
               </span>
             </label>
 
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Blog struktúra"
-                data-price="70000"
+                value="Blog rendszer"
+                data-price="40000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Blog struktúra</span>
+                <span class="pricing-option__title">Blog rendszer</span>
                 <span class="pricing-option__text">
                   Bloglista, bejegyzésnézet és kategória alapú tartalmi
                   felépítés.
                 </span>
-                <span class="pricing-option__price">+70 000 Ft-tól</span>
+                <span class="pricing-option__price">+40 000 Ft-tól</span>
               </span>
             </label>
           </div>
         </section>
 
-        <section class="pricing-group" aria-labelledby="pricing-features-title">
+        <section class="pricing-group" aria-labelledby="pricing-photo-title">
           <div class="pricing-group__header">
             <p class="pricing-group__step">04</p>
-            <h2 id="pricing-features-title">Funkciók és extrák</h2>
-            <p>Válaszd ki, milyen működésre lesz szükség az oldalon.</p>
+            <h2 id="pricing-photo-title">Fotózás</h2>
+            <p>Képek, amelyek hitelesebbé és személyesebbé teszik az oldalt.</p>
           </div>
 
           <div class="pricing-group__grid">
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Kapcsolati űrlap"
-                data-price="35000"
-                data-pricing-option
-              />
-              <span class="pricing-option__body">
-                <span class="pricing-option__title">Kapcsolati űrlap</span>
-                <span class="pricing-option__text">
-                  Üzenetküldő űrlap validációval és e-mail értesítéssel.
-                </span>
-                <span class="pricing-option__price">+35 000 Ft-tól</span>
-              </span>
-            </label>
-
-            <label class="pricing-option">
-              <input
-                type="checkbox"
-                value="Ajánlatkérő űrlap"
-                data-price="55000"
-                data-pricing-option
-              />
-              <span class="pricing-option__body">
-                <span class="pricing-option__title">Ajánlatkérő űrlap</span>
-                <span class="pricing-option__text">
-                  Részletesebb igényfelmérő űrlap szolgáltatásokhoz vagy
-                  termékekhez.
-                </span>
-                <span class="pricing-option__price">+55 000 Ft-tól</span>
-              </span>
-            </label>
-
-            <label class="pricing-option">
-              <input
-                type="checkbox"
-                value="Galéria"
+                value="Céges portréfotózás"
                 data-price="50000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Galéria</span>
+                <span class="pricing-option__title">Céges portréfotózás</span>
                 <span class="pricing-option__text">
-                  Referenciákhoz, termékekhez vagy képes bemutatókhoz igazított
-                  galéria.
+                  Rólad vagy a csapatról készült profi képek bemutatkozó
+                  oldalakhoz.
                 </span>
                 <span class="pricing-option__price">+50 000 Ft-tól</span>
               </span>
@@ -284,17 +275,189 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Többnyelvűség előkészítés"
+                value="Helyszíni fotózás"
+                data-price="80000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Helyszíni fotózás</span>
+                <span class="pricing-option__text">
+                  Üzlet, iroda, műhely vagy szolgáltatási környezet bemutatása
+                  saját képekkel.
+                </span>
+                <span class="pricing-option__price">+80 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Referenciafotózás"
+                data-price="60000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Referenciafotózás</span>
+                <span class="pricing-option__text">
+                  Elkészült munkák, projektek vagy ügyfélreferenciák vizuális
+                  bemutatása.
+                </span>
+                <span class="pricing-option__price">+60 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Termékfotózás"
+                data-price="50000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Termékfotózás</span>
+                <span class="pricing-option__text">
+                  Termékek weboldalhoz, webshophoz vagy ajánlatkérő oldalhoz
+                  igazított fotózása.
+                </span>
+                <span class="pricing-option__price">+50 000 Ft-tól</span>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="pricing-group" aria-labelledby="pricing-branding-title">
+          <div class="pricing-group__header">
+            <p class="pricing-group__step">05</p>
+            <h2 id="pricing-branding-title">Branding</h2>
+            <p>Arculati alapok, hogy az oldal egységesebb márkaképet mutasson.</p>
+          </div>
+
+          <div class="pricing-group__grid">
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Logófrissítés"
+                data-price="40000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Logófrissítés</span>
+                <span class="pricing-option__text">
+                  Meglévő logó finomítása, webes használatra előkészítése.
+                </span>
+                <span class="pricing-option__price">+40 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Logótervezés"
                 data-price="90000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Többnyelvűség előkészítés</span>
+                <span class="pricing-option__title">Logótervezés</span>
+                <span class="pricing-option__text">
+                  Új logó tervezése a webes megjelenéshez és alap arculathoz.
+                </span>
+                <span class="pricing-option__price">+90 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Arculati csomag"
+                data-price="150000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Arculati csomag</span>
+                <span class="pricing-option__text">
+                  Színek, tipográfia, logóhasználat és alap vizuális irány
+                  összerendezése.
+                </span>
+                <span class="pricing-option__price">+150 000 Ft-tól</span>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="pricing-group" aria-labelledby="pricing-features-title">
+          <div class="pricing-group__header">
+            <p class="pricing-group__step">06</p>
+            <h2 id="pricing-features-title">Funkciók és extrák</h2>
+            <p>Válaszd ki, milyen működésre lesz szükség az oldalon.</p>
+          </div>
+
+          <div class="pricing-group__grid">
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Képgaléria"
+                data-price="20000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Képgaléria</span>
+                <span class="pricing-option__text">
+                  Referenciákhoz, termékekhez vagy szolgáltatásbemutatáshoz
+                  igazított képgaléria.
+                </span>
+                <span class="pricing-option__price">+20 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Többnyelvű weboldal"
+                data-price="80000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Többnyelvű weboldal</span>
                 <span class="pricing-option__text">
                   Többnyelvű struktúra előkészítése menükkel, URL-ekkel és
                   tartalmi logikával.
                 </span>
-                <span class="pricing-option__price">+90 000 Ft-tól</span>
+                <span class="pricing-option__price">+80 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Időpontfoglaló rendszer"
+                data-price="50000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Időpontfoglaló rendszer</span>
+                <span class="pricing-option__text">
+                  Egyeztetéshez, konzultációhoz vagy szolgáltatásokhoz illesztett
+                  foglalási folyamat.
+                </span>
+                <span class="pricing-option__price">+50 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Analytics és látogatottságmérés"
+                data-price="20000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">
+                  Analytics és látogatottságmérés
+                </span>
+                <span class="pricing-option__text">
+                  Alap mérőkódok, események és konverziós célok előkészítése.
+                </span>
+                <span class="pricing-option__price">+20 000 Ft-tól</span>
               </span>
             </label>
 
@@ -318,33 +481,121 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Analytics és mérés"
-                data-price="35000"
+                value="Domain és tárhely ügyintézés"
+                data-price="15000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Analytics és mérés</span>
-                <span class="pricing-option__text">
-                  Alap mérőkódok, események és konverziós célok előkészítése.
+                <span class="pricing-option__title">
+                  Domain és tárhely ügyintézés
                 </span>
-                <span class="pricing-option__price">+35 000 Ft-tól</span>
+                <span class="pricing-option__text">
+                  Domain, tárhely és induláshoz szükséges technikai alapok
+                  egyeztetése.
+                </span>
+                <span class="pricing-option__price">+15 000 Ft-tól</span>
               </span>
             </label>
 
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Karbantartás"
+                value="Tartalomfeltöltés (10+ oldal)"
                 data-price="30000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Karbantartás</span>
+                <span class="pricing-option__title">Tartalomfeltöltés (10+ oldal)</span>
                 <span class="pricing-option__text">
-                  Frissítések, alap ellenőrzések és technikai támogatás havi
-                  konstrukcióban.
+                  Meglévő szövegek és képek feltöltése nagyobb, többoldalas
+                  weboldalhoz.
                 </span>
-                <span class="pricing-option__price">+30 000 Ft/hó-tól</span>
+                <span class="pricing-option__price">+30 000 Ft-tól</span>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="pricing-group" aria-labelledby="pricing-maintenance-title">
+          <div class="pricing-group__header">
+            <p class="pricing-group__step">07</p>
+            <h2 id="pricing-maintenance-title">Karbantartás</h2>
+            <p>Havi támogatási szintek az oldal indulása utáni időszakra.</p>
+          </div>
+
+          <div class="pricing-group__grid">
+            <label class="pricing-option">
+              <input
+                type="radio"
+                name="maintenance"
+                value="Karbantartás nélkül"
+                data-price="0"
+                data-pricing-option
+                data-pricing-summary="false"
+                checked
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Nem kérek most</span>
+                <span class="pricing-option__text">
+                  A karbantartást később, külön egyeztetés alapján is
+                  kérheted.
+                </span>
+                <span class="pricing-option__price">Opcionális</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="radio"
+                name="maintenance"
+                value="Alap karbantartás"
+                data-price="15000"
+                data-pricing-option
+                data-recurring="true"
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Alap karbantartás</span>
+                <span class="pricing-option__text">
+                  Alap frissítések és időszakos technikai ellenőrzés.
+                </span>
+                <span class="pricing-option__price">15 000 Ft/hó-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="radio"
+                name="maintenance"
+                value="Standard karbantartás"
+                data-price="25000"
+                data-pricing-option
+                data-recurring="true"
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Standard karbantartás</span>
+                <span class="pricing-option__text">
+                  Frissítések, ellenőrzések és kisebb tartalmi módosítások.
+                </span>
+                <span class="pricing-option__price">25 000 Ft/hó-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="radio"
+                name="maintenance"
+                value="Prémium támogatás"
+                data-price="40000"
+                data-pricing-option
+                data-recurring="true"
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Prémium támogatás</span>
+                <span class="pricing-option__text">
+                  Aktívabb támogatás, gyorsabb reakció és bővebb havi
+                  rendelkezésre állás.
+                </span>
+                <span class="pricing-option__price">40 000 Ft/hó-tól</span>
               </span>
             </label>
           </div>
@@ -376,7 +627,8 @@
 
           <p class="pricing-summary__note">
             Az ár tájékoztató jellegű. A pontos ajánlatot a projekt részletei
-            alapján egyeztetjük.
+            alapján egyeztetjük. A havi karbantartás külön tételként jelenik
+            meg.
           </p>
         </div>
       </aside>
@@ -441,7 +693,38 @@
           <pre data-pricing-request-summary></pre>
         </div>
 
+        <label class="pricing-request-form__trap" aria-hidden="true">
+          <span>Weboldal</span>
+          <input
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+          />
+        </label>
+
         <input type="hidden" name="selected_services" data-pricing-request-hidden />
+
+        <div class="pricing-request-form__security pricing-request-form__wide">
+          <div
+            class="cf-turnstile"
+            data-sitekey="1x00000000000000000000AA"
+            data-size="invisible"
+            data-theme="dark"
+          ></div>
+        </div>
+
+        <label class="pricing-request-form__consent pricing-request-form__wide">
+          <input type="checkbox" name="privacy_consent" required />
+          <span>
+            Elolvastam az
+            <a href="/privacy-policy.html" target="_blank" rel="noopener">
+              adatkezelési tájékoztatót
+            </a>
+            , és hozzájárulok az adataim kezeléséhez a megkeresésem
+            megválaszolása céljából.
+          </span>
+        </label>
 
         <button class="pricing-request-form__submit" type="submit">
           Megrendelés elküldése

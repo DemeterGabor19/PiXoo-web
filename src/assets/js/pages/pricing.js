@@ -35,18 +35,34 @@ export function initPricingConfigurator() {
       .map((option) => ({
         label: option.value,
         price: Number(option.dataset.price || 0),
+        isRecurring: option.dataset.recurring === "true",
+        isVisibleInSummary: option.dataset.pricingSummary !== "false",
       }));
 
   const render = () => {
-    const selectedOptions = getSelectedOptions();
-    const total = selectedOptions.reduce((sum, option) => sum + option.price, 0);
+    const selectedOptions = getSelectedOptions().filter(
+      (option) => option.isVisibleInSummary
+    );
+    const total = selectedOptions.reduce(
+      (sum, option) => (option.isRecurring ? sum : sum + option.price),
+      0
+    );
+    const formatOptionPrice = (option) => {
+      if (!option.price) {
+        return "Alapár";
+      }
+
+      return option.isRecurring
+        ? `+${formatPrice(option.price)}/hó-tól`
+        : `+${formatPrice(option.price)}`;
+    };
 
     summaryList.innerHTML = selectedOptions
       .map(
         (option) => `
           <li>
             <span>${option.label}</span>
-            <strong>${option.price ? `+${formatPrice(option.price)}` : "Alapár"}</strong>
+            <strong>${formatOptionPrice(option)}</strong>
           </li>
         `
       )
@@ -57,8 +73,7 @@ export function initPricingConfigurator() {
 
     const summaryText = [
       ...selectedOptions.map(
-        (option) =>
-          `- ${option.label}: ${option.price ? `+${formatPrice(option.price)}` : "alapár része"}`
+        (option) => `- ${option.label}: ${formatOptionPrice(option)}`
       ),
       "",
       `Becsült induló ár: ${formatPrice(total)}-tól`,
@@ -119,6 +134,11 @@ export function initPricingConfigurator() {
 
   form?.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (form.elements.website?.value) {
+      return;
+    }
+
     successMessage.hidden = false;
   });
 

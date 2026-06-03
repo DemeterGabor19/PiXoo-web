@@ -9,6 +9,11 @@ export function initContactForm() {
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (form.elements.website?.value) {
+      return;
+    }
+
     successMessage.hidden = false;
   });
 }
