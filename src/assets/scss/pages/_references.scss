@@ -4,8 +4,12 @@
 .references-showcase {
   position: relative;
   --reference-panel-count: 7;
+  --reference-sticky-offset: clamp(92px, 10vh, 124px);
 
-  min-height: calc(var(--reference-panel-count) * 100dvh);
+  min-height: calc(
+    var(--reference-panel-count) *
+      (100dvh - var(--reference-sticky-offset))
+  );
   overflow: clip;
   color: $color-text;
 
@@ -31,11 +35,10 @@
 
 .references-showcase__track {
   position: sticky;
-  top: 0;
+  top: var(--reference-sticky-offset);
   display: flex;
   width: max-content;
-  height: 100dvh;
-  min-height: 640px;
+  height: calc(100dvh - var(--reference-sticky-offset));
   will-change: transform;
   transform: translate3d(var(--reference-track-x, 0px), 0, 0);
 }
@@ -48,16 +51,17 @@
   min-height: 100%;
   display: grid;
   grid-template-columns: minmax(0, 0.86fr) minmax(420px, 1.14fr);
+  grid-template-areas: "content visual";
   align-items: center;
   gap: clamp(2rem, 5vw, 5rem);
-  padding: clamp(6.25rem, 10vh, 7.5rem)
+  padding: clamp(2.5rem, 5vh, 4rem)
     max(1.5rem, calc((100vw - $container-wide-width) / 2))
-    clamp(3.25rem, 6vh, 5rem);
+    clamp(2.5rem, 5vh, 4rem);
   isolation: isolate;
 }
 
 .reference-panel:first-child {
-  padding-top: 7.5rem;
+  padding-top: clamp(2.5rem, 5vh, 4rem);
 }
 
 .reference-panel::before {
@@ -82,7 +86,8 @@
 }
 
 .reference-panel__content,
-.reference-panel__visual {
+.reference-panel__visual,
+.reference-panel__actions {
   opacity: 0.28;
   transition:
     opacity 0.45s ease,
@@ -90,15 +95,19 @@
 }
 
 .reference-panel__content {
+  grid-area: content;
   transform: translateX(3rem);
 }
 
 .reference-panel__visual {
+  grid-area: visual;
+  align-self: center;
   transform: translateX(5rem) scale(0.96);
 }
 
 .reference-panel.is-active .reference-panel__content,
-.reference-panel.is-active .reference-panel__visual {
+.reference-panel.is-active .reference-panel__visual,
+.reference-panel.is-active .reference-panel__actions {
   opacity: 1;
   transform: translateX(0) scale(1);
 }
@@ -186,7 +195,7 @@
   flex-wrap: wrap;
   gap: 0.55rem;
   max-width: 620px;
-  margin: 0 0 1.75rem;
+  margin: 0;
   padding: 0;
   list-style: none;
 }
@@ -205,10 +214,19 @@
 }
 
 .reference-panel__actions {
+  grid-area: visual;
+  align-self: end;
+  justify-self: stretch;
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
   align-items: center;
+  justify-content: center;
+  width: min(100%, 680px);
+  margin-left: auto;
+  transform: translateX(5rem);
 }
 
 .reference-panel__details {
@@ -249,6 +267,9 @@
 .reference-browser {
   position: relative;
   overflow: hidden;
+  width: min(100%, 680px);
+  margin-left: auto;
+  contain: layout paint;
   border: 1px solid rgba($color-accent-light, 0.28);
   border-radius: 22px;
   background:
@@ -296,13 +317,16 @@
 
 .reference-browser__screen {
   aspect-ratio: 16 / 10;
+  box-sizing: border-box;
   padding: 1rem;
 }
 
 .reference-browser__image {
   display: block;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
+  min-width: 0;
   border: 1px solid rgba($color-accent-light, 0.22);
   border-radius: $radius-card-md;
   object-fit: cover;
@@ -665,6 +689,10 @@ body.is-reference-modal-open {
   }
 
   .reference-panel {
+    grid-template-areas:
+      "content"
+      "visual"
+      "actions";
     grid-template-columns: 1fr;
     width: min($container-content-width, calc(100% - 2rem));
     min-height: auto;
@@ -678,9 +706,15 @@ body.is-reference-modal-open {
   }
 
   .reference-panel__content,
-  .reference-panel__visual {
+  .reference-panel__visual,
+  .reference-panel__actions {
     opacity: 1;
     transform: none;
+  }
+
+  .reference-panel__actions {
+    width: 100%;
+    margin-left: 0;
   }
 
   .reference-browser {
@@ -810,6 +844,10 @@ body.is-reference-modal-open {
   }
 
   .reference-panel {
+    grid-template-areas:
+      "content"
+      "visual"
+      "actions";
     width: min($container-content-width, calc(100% - 2rem));
     min-height: auto;
     margin-inline: auto;
@@ -818,6 +856,7 @@ body.is-reference-modal-open {
 
   .reference-panel__content,
   .reference-panel__visual,
+  .reference-panel__actions,
   .reference-browser,
   .reference-panel::before {
     transition: none;

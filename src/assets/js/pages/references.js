@@ -43,8 +43,8 @@ export function initReferencesShowcase() {
 
     maxTranslate = Math.max(0, showcase.scrollWidth - window.innerWidth);
     scrollDistance = Math.max(1, maxTranslate);
-    const viewportHeight = window.visualViewport?.height || window.innerHeight;
-    section.style.height = `${viewportHeight + scrollDistance}px`;
+    const trackHeight = showcase.getBoundingClientRect().height;
+    section.style.height = `${trackHeight + scrollDistance}px`;
   };
 
   const update = () => {
@@ -80,8 +80,7 @@ export function initReferencesShowcase() {
     update();
   };
 
-  measure();
-  update();
+  refresh();
 
   window.requestAnimationFrame(refresh);
 
