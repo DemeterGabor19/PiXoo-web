@@ -40,9 +40,35 @@ function getHtmlInputs() {
     }, {});
 }
 
+function copyStaticAssets() {
+  const assetDirs = ["images", "icons"];
+
+  return {
+    name: "copy-static-assets",
+    writeBundle() {
+      const srcAssetsDir = path.resolve(process.cwd(), "src/assets");
+      const distAssetsDir = path.resolve(process.cwd(), "dist/assets");
+
+      for (const dirName of assetDirs) {
+        const from = path.join(srcAssetsDir, dirName);
+        const to = path.join(distAssetsDir, dirName);
+
+        if (!fs.existsSync(from)) {
+          continue;
+        }
+
+        fs.cpSync(from, to, {
+          recursive: true,
+          force: true,
+        });
+      }
+    },
+  };
+}
+
 export default defineConfig({
   root: "src",
-  plugins: [htmlIncludes()],
+  plugins: [htmlIncludes(), copyStaticAssets()],
   build: {
     outDir: "../dist",
     emptyOutDir: true,

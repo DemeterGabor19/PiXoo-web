@@ -32,6 +32,71 @@
     @include page-container;
   }
 
+  &__decor {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &__x {
+    position: absolute;
+    display: block;
+    font-family: $font-display, $font-heading;
+    font-weight: 400;
+    line-height: 1;
+    color: rgba($color-accent-soft, 0.36);
+    text-shadow:
+      0 0 22px rgba($color-accent, 0.18),
+      0 0 58px rgba($color-accent, 0.1);
+    user-select: none;
+    mix-blend-mode: screen;
+  }
+
+  &__x--large {
+    left: -7rem;
+    top: 8%;
+    font-size: clamp(13rem, 20vw, 21rem);
+    opacity: 0.085;
+    filter: blur(6px);
+  }
+
+  &__x--one,
+  &__x--two,
+  &__x--three {
+    opacity: 0.09;
+    filter: blur(2.5px);
+    animation: additional-services-x-float 14s ease-in-out infinite;
+  }
+
+  &__x--one {
+    left: 7%;
+    top: 17%;
+    font-size: 2.65rem;
+    opacity: 0.13;
+    transform: rotate(24deg);
+    animation-delay: -3s;
+  }
+
+  &__x--two {
+    left: 15%;
+    top: 27%;
+    font-size: 1.75rem;
+    opacity: 0.09;
+    transform: rotate(-18deg);
+    animation-delay: -7s;
+  }
+
+  &__x--three {
+    left: 4%;
+    top: 36%;
+    font-size: 3rem;
+    opacity: 0.1;
+    transform: rotate(38deg);
+    animation-delay: -5s;
+  }
+
   &__header {
     max-width: 760px;
     margin: 0 auto 3rem;
@@ -241,6 +306,21 @@
   }
 }
 
+@keyframes additional-services-x-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  40% {
+    translate: 0.35rem -0.55rem;
+  }
+
+  72% {
+    translate: -0.25rem 0.35rem;
+  }
+}
+
 @media (max-width: 900px) {
   .additional-services {
     padding: 5rem 0;
@@ -277,6 +357,19 @@
       width: min(100%, 280px);
       margin: 2rem 0 0;
     }
+
+    &__x--large {
+      left: -6rem;
+      top: 7%;
+      font-size: 14rem;
+      opacity: 0.06;
+    }
+
+    &__x--one,
+    &__x--two,
+    &__x--three {
+      opacity: 0.06;
+    }
   }
 }
 
@@ -292,5 +385,17 @@
       width: min(100%, 220px);
       border-radius: 32px;
     }
+
+    &__x--one,
+    &__x--two,
+    &__x--three {
+      display: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .additional-services__x {
+    animation: none;
   }
 }

@@ -221,8 +221,8 @@
 
   &__card--technical .benefits__media {
     max-width: 235px;
-    align-self: end;
-    justify-self: start;
+    align-self: center;
+    justify-self: center;
     margin-top: 0.6rem;
   }
 
@@ -308,6 +308,8 @@
 
     &__card--technical .benefits__media {
       max-width: 205px;
+      justify-self: center;
+      align-self: center;
     }
 
     &__card--local {

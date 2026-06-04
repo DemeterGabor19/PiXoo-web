@@ -267,6 +267,48 @@
     font-size: 22px;
   }
 
+  &__x--eighteen {
+    --x-rotate: 28deg;
+    --x-opacity: 0.1;
+    --x-blur: 2.3px;
+    --x-speed: 13s;
+    --x-delay: -3.5s;
+    --x-move-x: -0.55rem;
+    --x-move-y: -0.85rem;
+    --x-rotate-drift: 5deg;
+    top: 33%;
+    right: 39%;
+    font-size: 34px;
+  }
+
+  &__x--nineteen {
+    --x-rotate: -22deg;
+    --x-opacity: 0.075;
+    --x-blur: 2.8px;
+    --x-speed: 15s;
+    --x-delay: -7s;
+    --x-move-x: 0.65rem;
+    --x-move-y: 0.55rem;
+    --x-rotate-drift: 4deg;
+    top: 52%;
+    right: 43%;
+    font-size: 28px;
+  }
+
+  &__x--twenty {
+    --x-rotate: 39deg;
+    --x-opacity: 0.085;
+    --x-blur: 2.5px;
+    --x-speed: 14.5s;
+    --x-delay: -5.5s;
+    --x-move-x: -0.75rem;
+    --x-move-y: 0.7rem;
+    --x-rotate-drift: 6deg;
+    top: 68%;
+    right: 35%;
+    font-size: 36px;
+  }
+
   &__x--soft {
     --x-color-opacity: 0.34;
     --x-glow-opacity-sm: 0.12;
@@ -493,8 +535,8 @@
     }
 
     &__title {
-      font-size: clamp(2.25rem, 13vw, 3.35rem);
-      line-height: 1.08;
+      font-size: clamp(2.05rem, 10.5vw, 2.75rem);
+      line-height: 1.1;
     }
 
     &__text {
