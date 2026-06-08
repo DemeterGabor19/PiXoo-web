@@ -7,9 +7,12 @@ export function initNavbar() {
 
   const toggle = header.querySelector(".site-header__toggle");
   const links = [...header.querySelectorAll(".site-header__menu a")];
-  const isReferencesPage = normalizePath(window.location.pathname).endsWith(
-    "/references.html"
-  );
+  const currentPath = normalizePath(window.location.pathname);
+  const isReferencesPage = [
+    "/references.html",
+    "/references",
+    "/referenciak",
+  ].some((path) => currentPath.endsWith(path));
 
   header.classList.toggle("is-pinned", isReferencesPage);
   setActiveNavLink(links);
