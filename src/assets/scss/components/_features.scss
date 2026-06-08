@@ -25,7 +25,7 @@
   }
 
   &__inner {
-    max-width: 860px;
+    max-width: 1120px;
     margin: 0 auto;
     text-align: center;
   }
@@ -92,10 +92,11 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(2, 260px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     column-gap: 1rem;
     row-gap: 1rem;
     justify-content: center;
+    max-width: 1120px;
     margin: 0 auto;
   }
 

@@ -64,15 +64,17 @@
 
   &__x--one,
   &__x--two,
-  &__x--three {
+  &__x--three,
+  &__x--four,
+  &__x--five {
     opacity: 0.09;
     filter: blur(2.5px);
     animation: additional-services-x-float 14s ease-in-out infinite;
   }
 
   &__x--one {
-    left: 7%;
-    top: 17%;
+    left: 10%;
+    top: 5%;
     font-size: 2.65rem;
     opacity: 0.13;
     transform: rotate(24deg);
@@ -80,8 +82,8 @@
   }
 
   &__x--two {
-    left: 15%;
-    top: 27%;
+    left: 21%;
+    top: 34%;
     font-size: 1.75rem;
     opacity: 0.09;
     transform: rotate(-18deg);
@@ -89,12 +91,30 @@
   }
 
   &__x--three {
-    left: 4%;
-    top: 36%;
+    left: 8%;
+    top: 50%;
     font-size: 3rem;
     opacity: 0.1;
     transform: rotate(38deg);
     animation-delay: -5s;
+  }
+
+  &__x--four {
+    left: 17%;
+    top: 14%;
+    font-size: 1.35rem;
+    opacity: 0.08;
+    transform: rotate(-32deg);
+    animation-delay: -9s;
+  }
+
+  &__x--five {
+    left: 13%;
+    top: 32%;
+    font-size: 2.15rem;
+    opacity: 0.075;
+    transform: rotate(18deg);
+    animation-delay: -11s;
   }
 
   &__header {
@@ -367,7 +387,9 @@
 
     &__x--one,
     &__x--two,
-    &__x--three {
+    &__x--three,
+    &__x--four,
+    &__x--five {
       opacity: 0.06;
     }
   }
@@ -388,7 +410,9 @@
 
     &__x--one,
     &__x--two,
-    &__x--three {
+    &__x--three,
+    &__x--four,
+    &__x--five {
       display: none;
     }
   }
