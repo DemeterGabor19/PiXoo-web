@@ -101,6 +101,7 @@ export function initReferencesShowcase() {
   });
 
   initRevealOnScroll(panels, {
+    className: "mobile-card-reveal",
     delayStep: 70,
     mediaQuery: "(max-width: 980px)",
   });

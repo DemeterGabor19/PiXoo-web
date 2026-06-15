@@ -68,6 +68,7 @@ function copyStaticAssets() {
 
 export default defineConfig({
   root: "src",
+  base: "./",
   plugins: [htmlIncludes(), copyStaticAssets()],
   build: {
     outDir: "../dist",

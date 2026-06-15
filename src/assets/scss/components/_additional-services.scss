@@ -171,15 +171,30 @@
     justify-content: space-between;
     padding: 1.35rem 1.1rem 1.1rem;
     border-radius: $radius-card-sm;
-    border: 1px solid rgba($color-accent-light, 0.2);
+    border: 1px solid rgba($color-accent-light, 0.24);
     background:
-      $gradient-card-surface,
+      linear-gradient(
+        180deg,
+        rgba($color-text, 0.078) 0%,
+        rgba($color-text, 0.026) 100%
+      ),
+      linear-gradient(
+        145deg,
+        rgba($color-accent, 0.08),
+        rgba($color-bg-deep, 0.16) 44%,
+        rgba($color-text, 0.035)
+      ),
       radial-gradient(
         circle at 50% 100%,
         rgba($color-accent, 0.09),
         rgba($color-accent, 0) 56%
-      );
-    box-shadow: $shadow-card;
+      ),
+      rgba($color-bg-deep, 0.34);
+    box-shadow:
+      inset 0 1px 0 rgba($color-text, 0.12),
+      0 22px 54px rgba(0, 0, 0, 0.24),
+      0 0 26px rgba($color-accent, 0.06);
+    backdrop-filter: blur(18px);
     opacity: var(--additional-card-opacity);
     transform: translateY(var(--additional-card-y));
     transition:
@@ -191,19 +206,33 @@
 
     &:hover {
       transform: translateY(calc(var(--additional-card-y) - 4px));
-      border-color: rgba($color-accent-light, 0.42);
-      box-shadow: $shadow-card-hover;
+      border-color: rgba($color-accent-light, 0.44);
+      box-shadow:
+        inset 0 1px 0 rgba($color-text, 0.16),
+        0 26px 62px rgba(0, 0, 0, 0.3),
+        0 0 34px rgba($color-accent, 0.16);
     }
 
     &:nth-child(2) {
-      border-color: rgba($color-accent-light, 0.3);
+      border-color: rgba($color-accent-light, 0.34);
       background:
-        $gradient-card-surface-strong,
+        linear-gradient(
+          180deg,
+          rgba($color-text, 0.095) 0%,
+          rgba($color-text, 0.034) 100%
+        ),
+        linear-gradient(
+          145deg,
+          rgba($color-accent, 0.12),
+          rgba($color-bg-deep, 0.18) 44%,
+          rgba($color-text, 0.045)
+        ),
         radial-gradient(
           circle at 50% 100%,
           rgba($color-accent, 0.13),
           rgba($color-accent, 0) 58%
-        );
+        ),
+        rgba($color-bg-deep, 0.38);
       box-shadow:
         inset 0 1px 0 rgba($color-text, 0.12),
         0 20px 52px rgba(0, 0, 0, 0.25),
@@ -220,16 +249,19 @@
   }
 
   &__card:hover &__media {
-    transform: translateY(-4px);
-    @include luminous-media-hover;
+    transform: translateY(-6px) scale(1.025);
+    filter:
+      drop-shadow(0 22px 30px rgba(0, 0, 0, 0.28))
+      drop-shadow(0 0 26px rgba($color-accent, 0.28));
   }
 
   &__card:nth-child(2) &__media {
-    box-shadow:
-      inset 0 1px 0 rgba($color-text, 0.58),
-      0 24px 56px rgba(0, 0, 0, 0.25),
-      0 0 var(--additional-media-glow-size)
-        rgba($color-accent, var(--additional-media-glow-alpha));
+    filter:
+      drop-shadow(0 24px 34px rgba(0, 0, 0, 0.28))
+      drop-shadow(
+        0 0 var(--additional-media-glow-size)
+          rgba($color-accent, calc(var(--additional-media-glow-alpha) + 0.04))
+      );
   }
 
   &__card:nth-child(2) &__card-title::after {
@@ -303,26 +335,82 @@
   }
 
   &__media {
+    position: relative;
     width: min(100%, 220px);
     aspect-ratio: 1;
     margin: 2rem auto 0;
-    border-radius: $radius-media;
+    display: grid;
+    place-items: center;
+    border-radius: 28px;
+    isolation: isolate;
     background:
-      $gradient-media-surface,
-      radial-gradient(
-        circle at 25% 20%,
-        rgba($color-accent, 0.25),
-        transparent 44%
+      radial-gradient(circle at 50% 84%, rgba($color-accent, 0.18), transparent 46%),
+      linear-gradient(180deg, rgba($color-text, 0.08), rgba($color-text, 0.018));
+    filter:
+      drop-shadow(0 20px 28px rgba(0, 0, 0, 0.26))
+      drop-shadow(
+        0 0 var(--additional-media-glow-size)
+          rgba($color-accent, var(--additional-media-glow-alpha))
       );
-    box-shadow:
-      inset 0 1px 0 $color-highlight-strong,
-      0 22px 52px $color-shadow-dark,
-      0 0 var(--additional-media-glow-size)
-        rgba($color-accent, var(--additional-media-glow-alpha));
     transition:
       transform 0.25s ease,
-      box-shadow 0.25s ease,
-      background 0.25s ease;
+      filter 0.25s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 11%;
+      z-index: -2;
+      border-radius: inherit;
+      background:
+        radial-gradient(circle at 50% 74%, rgba($color-accent-light, 0.24), transparent 48%),
+        linear-gradient(180deg, rgba($color-accent, 0.12), rgba($color-bg-deep, 0.22));
+      filter: blur(18px);
+      opacity: 0.78;
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border: 1px solid rgba($color-accent-light, 0.18);
+      border-radius: inherit;
+      background:
+        linear-gradient(180deg, rgba($color-text, 0.06), rgba($color-text, 0.015)),
+        radial-gradient(circle at 50% 0%, rgba($color-accent-light, 0.12), transparent 62%);
+      box-shadow:
+        inset 0 1px 0 rgba($color-text, 0.08),
+        0 16px 34px rgba(0, 0, 0, 0.18);
+      opacity: 0.72;
+    }
+
+    img,
+    picture,
+    svg {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 88%;
+      height: 88%;
+    }
+
+    img,
+    svg {
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow:
+        0 20px 36px rgba(0, 0, 0, 0.28),
+        0 0 24px rgba($color-accent, 0.16);
+    }
+  }
+
+  &__card:hover &__media::before {
+    opacity: 1;
+    transform: scale(1.08);
   }
 }
 

@@ -213,12 +213,31 @@
 @media (max-width: 1040px) {
   .site-footer__main {
     grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .site-footer__brand,
+  .site-footer__cta,
+  .site-footer__nav > div {
+    justify-items: center;
+    text-align: center;
+  }
+
+  .site-footer__nav {
+    justify-items: center;
+  }
+
+  .site-footer__cta a {
+    justify-self: center;
   }
 }
 
 @media (max-width: 680px) {
   .site-footer__nav {
     grid-template-columns: 1fr;
+    width: 100%;
+    text-align: center;
   }
 
   .site-footer__cta a {
@@ -226,7 +245,12 @@
   }
 
   .site-footer__bottom {
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
+    text-align: center;
+  }
+
+  .site-footer__bottom div {
+    justify-content: center;
   }
 }

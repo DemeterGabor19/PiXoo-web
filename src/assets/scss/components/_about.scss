@@ -33,8 +33,8 @@
   }
 
   &__lead {
-    --about-reveal-opacity: 0.34;
-    --about-reveal-alpha: 0.42;
+    --about-reveal-opacity: 0.72;
+    --about-reveal-alpha: 0.76;
     --about-reveal-glow-size: 0px;
     --about-reveal-glow-alpha: 0;
 
@@ -53,19 +53,57 @@
   }
 
   &__portrait {
+    position: relative;
     display: grid;
     place-items: center;
-    margin: 0 auto 3rem;
+    margin: -0.75rem auto 1.55rem;
+    isolation: isolate;
+  }
+
+  &__portrait::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    width: min(52vw, 360px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background:
+      radial-gradient(circle, rgba($color-accent, 0.22), rgba($color-accent, 0.07) 36%, transparent 68%),
+      radial-gradient(circle at 42% 30%, rgba($color-text, 0.12), transparent 42%);
+    filter: blur(22px);
+    opacity: 0.82;
+  }
+
+  &__portrait::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: min(100%, 250px);
+    aspect-ratio: 1;
+    border: 1px solid rgba($color-accent, 0.22);
+    border-radius: 34px;
+    transform: rotate(6deg);
+    opacity: 0.42;
   }
 
   &__portrait-inner {
-    width: min(100%, 220px);
+    position: relative;
+    width: min(100%, 240px);
     aspect-ratio: 1;
     display: grid;
     place-items: center;
     overflow: hidden;
-    border: 1px solid $color-border-medium;
-    @include luminous-media;
+    border: 1px solid rgba($color-accent, 0.26);
+    border-radius: 30px;
+    background:
+      linear-gradient(180deg, rgba($color-text, 0.14), rgba($color-text, 0.035)),
+      radial-gradient(circle at 50% 0%, rgba($color-accent, 0.16), transparent 58%),
+      rgba($color-bg-deep, 0.46);
+    box-shadow:
+      inset 0 1px 0 rgba($color-text, 0.16),
+      0 22px 58px rgba($color-bg-deep, 0.42),
+      0 0 30px rgba($color-accent, 0.15);
+    backdrop-filter: blur(12px);
   }
 
   &__portrait-image {
@@ -77,7 +115,7 @@
   &__card {
     width: min(100%, 720px);
     margin: 0 auto;
-    padding: 2rem 2rem 2.25rem;
+    padding: 2rem 2.1rem 2.25rem;
     border-radius: 8px;
     text-align: center;
 
@@ -131,8 +169,8 @@
   }
 
   &__text p {
-    --about-reveal-opacity: 0.34;
-    --about-reveal-alpha: 0.42;
+    --about-reveal-opacity: 0.7;
+    --about-reveal-alpha: 0.78;
     --about-reveal-glow-size: 0px;
     --about-reveal-glow-alpha: 0;
 
@@ -195,7 +233,13 @@
     }
 
     &__portrait-inner {
-      width: 180px;
+      width: 198px;
+      border-radius: 24px;
+    }
+
+    &__portrait::after {
+      width: 208px;
+      border-radius: 26px;
     }
 
     &__card {

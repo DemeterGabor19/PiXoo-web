@@ -8,10 +8,10 @@ export function initAboutReveal() {
   if (!items.length) return;
 
   const setProgress = (item, progress) => {
-    const opacity = 0.34 + progress * 0.66;
-    const alpha = 0.42 + progress * 0.48;
-    const glowSize = progress * 14;
-    const glowAlpha = progress * 0.14;
+    const opacity = 0.7 + progress * 0.3;
+    const alpha = 0.76 + progress * 0.2;
+    const glowSize = progress * 10;
+    const glowAlpha = progress * 0.1;
 
     item.style.setProperty("--about-reveal-progress", progress.toFixed(3));
     item.style.setProperty("--about-reveal-opacity", opacity.toFixed(3));

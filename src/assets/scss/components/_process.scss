@@ -107,15 +107,68 @@
   }
 
   &__image-placeholder {
+    position: relative;
+    display: grid;
+    place-items: center;
+    isolation: isolate;
+    overflow: hidden;
     width: min(100%, 360px);
     aspect-ratio: 16 / 10;
-    @include luminous-media;
+    padding: 0.8rem;
+    border-radius: $radius-media;
+    background:
+      radial-gradient(
+        circle at 28% 24%,
+        rgba($color-accent, 0.2),
+        rgba($color-accent, 0.075) 42%,
+        rgba($color-accent, 0) 68%
+      ),
+      linear-gradient(145deg, rgba($color-surface, 0.92), rgba($color-bg-deep, 0.96));
+    box-shadow:
+      inset 0 1px 0 rgba($color-text, 0.14),
+      0 22px 52px $color-shadow-dark,
+      0 0 22px rgba($color-accent, 0.08);
     clip-path: inset(0 50% 0 50% round $radius-media);
     transition:
       clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.25s ease,
       box-shadow 0.25s ease,
       background 0.25s ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 12%;
+      z-index: -1;
+      border-radius: inherit;
+      background: rgba($color-accent, 0.18);
+      filter: blur(22px);
+      opacity: 0.72;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: inherit;
+      box-shadow:
+        inset 0 0 0 1px rgba($color-accent-light, 0.14),
+        inset 0 0 18px rgba($color-bg-deep, 0.72);
+      pointer-events: none;
+    }
+
+    img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      clip-path: inset(1px round 32px);
+      filter:
+        drop-shadow(0 16px 24px rgba(0, 0, 0, 0.28))
+        drop-shadow(0 0 16px rgba($color-accent, 0.18));
+    }
   }
 
   &__step.is-active &__image-placeholder {
@@ -124,7 +177,18 @@
 
   &__media:hover &__image-placeholder {
     transform: translateY(-6px);
-    @include luminous-media-hover;
+    background:
+      radial-gradient(
+        circle at 30% 24%,
+        rgba($color-accent, 0.26),
+        rgba($color-accent, 0.1) 44%,
+        rgba($color-accent, 0) 70%
+      ),
+      linear-gradient(145deg, rgba($color-surface-strong, 0.9), rgba($color-bg-deep, 0.98));
+    box-shadow:
+      inset 0 1px 0 rgba($color-text, 0.16),
+      0 26px 58px rgba(0, 0, 0, 0.28),
+      0 0 34px rgba($color-accent, 0.2);
   }
 
   &__point {

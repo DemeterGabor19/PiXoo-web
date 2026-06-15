@@ -89,7 +89,7 @@
               <span class="pricing-option__body">
                 <span class="pricing-option__title">Webshop</span>
                 <span class="pricing-option__text">
-                  Online értékesítés WooCommerce vagy Shopify alapon,
+                  Online értékesítés WooCommerce- vagy Shopify-alapon,
                   termékoldalakkal, kosárral, pénztárral és alap fizetési
                   előkészítéssel.
                 </span>
@@ -215,14 +215,14 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="SEO alapbeállítás"
+                value="SEO-alapbeállítás"
                 data-price="25000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">SEO alapbeállítás</span>
+                <span class="pricing-option__title">SEO-alapbeállítás</span>
                 <span class="pricing-option__text">
-                  Meta adatok, címsorhierarchia, alap technikai SEO és
+                  Metaadatok, címsorhierarchia, technikai SEO-alapok és
                   indexelési előkészítés.
                 </span>
                 <span class="pricing-option__price">+25 000 Ft-tól</span>
@@ -232,14 +232,14 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Blog rendszer"
+                value="Blogrendszer"
                 data-price="40000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Blog rendszer</span>
+                <span class="pricing-option__title">Blogrendszer</span>
                 <span class="pricing-option__text">
-                  Bloglista, bejegyzésnézet és kategória alapú tartalmi
+                  Bloglista, bejegyzésnézet és kategóriaalapú tartalmi
                   felépítés.
                 </span>
                 <span class="pricing-option__price">+40 000 Ft-tól</span>
@@ -661,8 +661,7 @@
       <h2 id="pricing-request-title">Kérek pontos ajánlatot</h2>
       <p class="pricing-request-modal__lead">
         A kiválasztott szolgáltatásokat automatikusan hozzácsatoljuk az
-        üzenethez. WordPressben ez majd rejtett mezőként mehet tovább az
-        űrlapkezelőnek.
+        üzenethez, így pontosabb ajánlatot tudok küldeni.
       </p>
 
       <form class="pricing-request-form" data-pricing-request-form>
@@ -714,6 +713,8 @@
             data-sitekey="1x00000000000000000000AA"
             data-size="invisible"
             data-theme="dark"
+            data-callback="pixooPricingTurnstileCallback"
+            data-error-callback="pixooPricingTurnstileErrorCallback"
           ></div>
         </div>
 
@@ -730,11 +731,11 @@
         </label>
 
         <button class="pricing-request-form__submit" type="submit">
-          Megrendelés elküldése
+          Ajánlatkérés elküldése
         </button>
         <p class="pricing-request-form__success" hidden data-pricing-request-success>
-          Köszönöm, az igényt összeállítottuk. Éles WordPress oldalon innen
-          menne tovább az e-mail küldés.
+          Köszönöm, megkaptam az ajánlatkérést. Átnézem az összeállítást, és
+          jellemzően 1 munkanapon belül válaszolok.
         </p>
       </form>
     </div>
