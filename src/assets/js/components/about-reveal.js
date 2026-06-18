@@ -12,10 +12,14 @@ export function initAboutReveal() {
     const alpha = 0.76 + progress * 0.2;
     const glowSize = progress * 10;
     const glowAlpha = progress * 0.1;
+    const y = 24 - progress * 24;
+    const clip = (1 - progress) * 50;
 
     item.style.setProperty("--about-reveal-progress", progress.toFixed(3));
     item.style.setProperty("--about-reveal-opacity", opacity.toFixed(3));
     item.style.setProperty("--about-reveal-alpha", alpha.toFixed(3));
+    item.style.setProperty("--about-reveal-y", `${y.toFixed(1)}px`);
+    item.style.setProperty("--about-reveal-clip", `${clip.toFixed(1)}%`);
     item.style.setProperty("--about-reveal-glow-size", `${glowSize.toFixed(1)}px`);
     item.style.setProperty("--about-reveal-glow-alpha", glowAlpha.toFixed(3));
   };

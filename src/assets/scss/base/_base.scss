@@ -48,12 +48,12 @@ button {
 
 .mobile-card-reveal {
   opacity: 0;
-  transform: translateY(18px) scale(0.985);
-  filter: blur(3px);
+  transform: translateY(34px) scale(0.96);
+  filter: blur(10px);
   transition:
-    opacity 0.55s ease,
-    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.55s ease;
+    opacity 0.65s ease,
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.65s ease;
   transition-delay: var(--mobile-reveal-delay, 0ms);
 }
 

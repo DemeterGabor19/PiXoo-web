@@ -53,11 +53,21 @@
   }
 
   &__portrait {
+    --about-reveal-opacity: 0.72;
+    --about-reveal-y: 24px;
+    --about-reveal-clip: 50%;
+    --about-reveal-glow-alpha: 0;
+
     position: relative;
     display: grid;
     place-items: center;
     margin: -0.75rem auto 1.55rem;
     isolation: isolate;
+    opacity: var(--about-reveal-opacity);
+    transform: translateY(var(--about-reveal-y));
+    transition:
+      opacity 0.18s linear,
+      transform 0.18s linear;
   }
 
   &__portrait::before {
@@ -71,7 +81,7 @@
       radial-gradient(circle, rgba($color-accent, 0.22), rgba($color-accent, 0.07) 36%, transparent 68%),
       radial-gradient(circle at 42% 30%, rgba($color-text, 0.12), transparent 42%);
     filter: blur(22px);
-    opacity: 0.82;
+    opacity: calc(0.52 + var(--about-reveal-glow-alpha));
   }
 
   &__portrait::after {
@@ -104,12 +114,19 @@
       0 22px 58px rgba($color-bg-deep, 0.42),
       0 0 30px rgba($color-accent, 0.15);
     backdrop-filter: blur(12px);
+    clip-path: inset(0 var(--about-reveal-clip) 0 var(--about-reveal-clip) round 30px);
+    transition:
+      clip-path 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.25s ease,
+      transform 0.25s ease;
   }
 
   &__portrait-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transform: scale(calc(1.05 - var(--about-reveal-progress, 0) * 0.05));
+    transition: transform 0.18s linear;
   }
 
   &__card {

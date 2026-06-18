@@ -152,6 +152,8 @@
   &__media {
     min-width: 0;
     width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
     opacity: var(--benefit-media-opacity);
     transform: scale(var(--benefit-media-scale));
     transform-origin: center;
@@ -162,8 +164,11 @@
 
   &__media img {
     display: block;
-    width: 100%;
+    width: 112%;
+    max-width: none;
     height: auto;
+    margin: -4% -6%;
+    border-radius: inherit;
     object-fit: contain;
   }
 
@@ -171,7 +176,7 @@
     grid-area: strategy;
     min-height: 190px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 280px;
+    grid-template-columns: minmax(0, 1fr) 330px;
     align-items: center;
     gap: 1rem;
   }
@@ -181,7 +186,7 @@
   }
 
   &__card--strategy .benefits__media {
-    max-width: 270px;
+    max-width: 320px;
     justify-self: end;
     align-self: center;
   }
@@ -199,8 +204,8 @@
 
   &__card--design .benefits__media {
     order: -1;
-    max-width: 165px;
-    margin-bottom: 0.65rem;
+    max-width: 250px;
+    margin-bottom: 0.85rem;
   }
 
   &__card--design .benefits__content {
@@ -220,7 +225,7 @@
   }
 
   &__card--technical .benefits__media {
-    max-width: 235px;
+    max-width: 285px;
     align-self: center;
     justify-self: center;
     margin-top: 0.6rem;
@@ -230,7 +235,7 @@
     grid-area: local;
     min-height: 165px;
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 230px;
+    grid-template-columns: minmax(0, 1fr) 280px;
     align-items: center;
     gap: 1rem;
   }
@@ -240,7 +245,7 @@
   }
 
   &__card--local .benefits__media {
-    max-width: 210px;
+    max-width: 270px;
     justify-self: end;
     align-self: center;
   }
@@ -295,29 +300,29 @@
     }
 
     &__card--strategy {
-      grid-template-columns: minmax(0, 1fr) 220px;
+      grid-template-columns: minmax(0, 1fr) 270px;
     }
 
     &__card--strategy .benefits__media {
-      max-width: 210px;
+      max-width: 260px;
     }
 
     &__card--design .benefits__media {
-      max-width: 150px;
+      max-width: 230px;
     }
 
     &__card--technical .benefits__media {
-      max-width: 205px;
+      max-width: 245px;
       justify-self: center;
       align-self: center;
     }
 
     &__card--local {
-      grid-template-columns: minmax(0, 1fr) 190px;
+      grid-template-columns: minmax(0, 1fr) 250px;
     }
 
     &__card--local .benefits__media {
-      max-width: 180px;
+      max-width: 240px;
     }
   }
 }
@@ -376,8 +381,8 @@
     &__card--design .benefits__media,
     &__card--technical .benefits__media,
     &__card--local .benefits__media {
-      max-width: 180px;
-      justify-self: start;
+      max-width: 250px;
+      justify-self: center;
       align-self: start;
       margin: 0;
     }
@@ -411,7 +416,7 @@
     &__card--design .benefits__media,
     &__card--technical .benefits__media,
     &__card--local .benefits__media {
-      max-width: 160px;
+      max-width: 230px;
     }
   }
 }
