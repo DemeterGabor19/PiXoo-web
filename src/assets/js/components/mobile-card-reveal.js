@@ -7,6 +7,14 @@ export function initMobileCardReveal() {
     ".benefits__card",
     ".process__step",
     ".refs__showcase",
+    ".website-audit__preview",
+    ".website-audit__impression",
+    ".website-audit__check-grid article",
+    ".website-audit__feature-panel",
+    ".website-audit__note",
+    ".website-audit__process-visual",
+    ".website-audit__truth",
+    ".website-audit__request",
   ];
 
   const cards = selectors.flatMap((selector) =>

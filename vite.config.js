@@ -42,12 +42,16 @@ function getHtmlInputs() {
 
 function copyStaticAssets() {
   const assetDirs = ["images", "icons"];
+  let resolvedOutDir = path.resolve(process.cwd(), "dist");
 
   return {
     name: "copy-static-assets",
+    configResolved(config) {
+      resolvedOutDir = path.resolve(config.root, config.build.outDir);
+    },
     writeBundle() {
       const srcAssetsDir = path.resolve(process.cwd(), "src/assets");
-      const distAssetsDir = path.resolve(process.cwd(), "dist/assets");
+      const distAssetsDir = path.resolve(resolvedOutDir, "assets");
 
       for (const dirName of assetDirs) {
         const from = path.join(srcAssetsDir, dirName);

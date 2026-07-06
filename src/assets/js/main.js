@@ -29,6 +29,7 @@ runWhenIdle(async () => {
     { initContactForm },
     { initPricingConfigurator },
     { initMobileCardReveal },
+    { initWebsiteAuditReveal },
   ] = await Promise.all([
     import("./components/additional-services-reveal.js"),
     import("./components/about-reveal.js"),
@@ -39,6 +40,7 @@ runWhenIdle(async () => {
     import("./pages/contact.js"),
     import("./pages/pricing.js"),
     import("./components/mobile-card-reveal.js"),
+    import("./pages/website-audit-reveal.js"),
   ]);
 
   initFeaturesReveal();
@@ -49,5 +51,6 @@ runWhenIdle(async () => {
   initPricingConfigurator();
   initContactForm();
   initBlogFilters();
+  initWebsiteAuditReveal();
   initMobileCardReveal();
 });
