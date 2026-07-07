@@ -25,12 +25,15 @@ export function initWebsiteAuditReveal() {
   const checkCards = [
     ...section.querySelectorAll(".website-audit__check-grid article"),
   ];
+  const heroStats = [
+    ...section.querySelectorAll(".website-audit__hero-stats article"),
+  ];
   const listItems = [
     ...section.querySelectorAll(
       ".website-audit__deliverables-list article, .website-audit__process-list li"
     ),
   ];
-  const items = [...revealItems, ...checkCards, ...listItems];
+  const items = [...revealItems, ...heroStats, ...checkCards, ...listItems];
 
   if (!items.length) return;
 

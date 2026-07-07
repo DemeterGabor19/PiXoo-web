@@ -31,6 +31,24 @@ export function initNavbar() {
     link.addEventListener("click", closeMenu);
   });
 
+  document.addEventListener("click", (event) => {
+    if (!header.classList.contains("is-menu-open")) {
+      return;
+    }
+
+    if (header.contains(event.target)) {
+      return;
+    }
+
+    closeMenu();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
   let lastScrollY = window.scrollY;
   let isTicking = false;
 

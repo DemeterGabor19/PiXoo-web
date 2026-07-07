@@ -222,8 +222,7 @@
       transform $transition-fast;
   }
 
-  .site-header.is-menu-open .site-header__nav,
-  .site-header:focus-within .site-header__nav {
+  .site-header.is-menu-open .site-header__nav {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;

@@ -469,6 +469,15 @@
     @include primary-cta;
   }
 
+  &__service-line {
+    max-width: 520px;
+    margin: 1rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba($color-text, 0.78);
+  }
+
   &__visual {
     position: relative;
     min-height: 520px;
@@ -546,6 +555,11 @@
     &__cta {
       width: 100%;
       min-width: 0;
+    }
+
+    &__service-line {
+      font-size: 0.8125rem;
+      text-align: center;
     }
 
     &__brand-x {
