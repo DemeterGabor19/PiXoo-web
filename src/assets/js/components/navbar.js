@@ -15,6 +15,7 @@ export function initNavbar() {
   ].some((path) => currentPath.endsWith(path));
 
   header.classList.toggle("is-pinned", isReferencesPage);
+  header.dataset.pixooNavbarReady = "true";
   setActiveNavLink(links);
 
   const closeMenu = () => {
@@ -22,10 +23,12 @@ export function initNavbar() {
     toggle?.setAttribute("aria-expanded", "false");
   };
 
-  toggle?.addEventListener("click", () => {
-    const isOpen = header.classList.toggle("is-menu-open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
+  if (toggle && !toggle.hasAttribute("data-inline-navbar-toggle")) {
+    toggle.addEventListener("click", () => {
+      const isOpen = header.classList.toggle("is-menu-open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
 
   links.forEach((link) => {
     link.addEventListener("click", closeMenu);
