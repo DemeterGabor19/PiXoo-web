@@ -976,12 +976,31 @@
   border: 1px solid $color-border-soft;
   border-radius: $radius-card-sm;
   background: rgba($color-text, 0.045);
+  cursor: pointer;
+  transition:
+    border-color $transition-base,
+    background $transition-base,
+    box-shadow $transition-base;
 }
 
 .website-audit-form__choices input {
   width: 1rem;
   height: 1rem;
+  flex: 0 0 auto;
+  appearance: auto;
   accent-color: $color-accent;
+  cursor: pointer;
+}
+
+.website-audit-form__choices label:has(input:checked) {
+  border-color: rgba($color-accent-light, 0.52);
+  background: rgba($color-accent, 0.12);
+  box-shadow: 0 0 0 3px rgba($color-accent, 0.08);
+}
+
+.website-audit-form__choices label:has(input:focus-visible) {
+  border-color: $color-border-accent;
+  box-shadow: 0 0 0 3px rgba($color-accent, 0.12);
 }
 
 .website-audit-form__choices span {
