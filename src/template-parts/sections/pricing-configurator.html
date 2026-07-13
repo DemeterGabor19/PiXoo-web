@@ -1,15 +1,19 @@
 <section class="pricing-configurator" aria-labelledby="pricing-title">
   <div class="pricing-configurator__container" data-pricing-configurator>
     <header class="pricing-configurator__header">
-      <p class="pricing-configurator__eyebrow">Árkalkulátor</p>
+      <p class="pricing-configurator__eyebrow">Árak és projektérték</p>
       <h1 id="pricing-title" class="pricing-configurator__title">
         <span>Állítsd össze,</span>
         <span>mire van szükséged</span>
       </h1>
       <p class="pricing-configurator__lead">
-        Válaszd ki a projekt típusát, a design szintjét és a szükséges
-        funkciókat. A kalkulátor becsült induló árat ad, a pontos ajánlatot
-        pedig az elküldött igény alapján véglegesítjük.
+        Válaszd ki a projekt típusát, a vizuális kidolgozottságot és a szükséges
+        kiegészítőket. A kalkulátor becsült projektértéket mutat, a pontos
+        ajánlatot pedig mindig a célok, a tartalom és a funkciók alapján
+        véglegesítjük.
+        Nem kell előre tudnod, mire lesz szükséged: az ajánlatkérés után együtt
+        állítjuk össze a vállalkozásodhoz legjobban illő megoldást. Az itt
+        látható elemek a lehetőségeket mutatják be.
       </p>
     </header>
 
@@ -19,7 +23,7 @@
           <div class="pricing-group__header">
             <p class="pricing-group__step">01</p>
             <h2 id="pricing-type-title">Projekt típusa</h2>
-            <p>Egyszerre egy alapcsomag választható.</p>
+            <p>Egyszerre egy projektalap választható.</p>
           </div>
 
           <div class="pricing-group__grid">
@@ -47,7 +51,7 @@
                 type="radio"
                 name="site-type"
                 value="Céges weboldal"
-                data-price="290000"
+                data-price="250000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
@@ -56,7 +60,7 @@
                   Bemutatkozó oldal több szekcióval, szolgáltatásblokkokkal és
                   kapcsolatfelvételi pontokkal.
                 </span>
-                <span class="pricing-option__price">290 000 Ft-tól</span>
+                <span class="pricing-option__price">250 000 Ft-tól</span>
               </span>
             </label>
 
@@ -98,16 +102,26 @@
             </label>
           </div>
 
-          <p class="pricing-group__note">
-            A kapcsolatfelvételi űrlap minden alapcsomag része.
-          </p>
+          <div class="pricing-included" aria-label="Minden projekt része">
+            <p class="pricing-included__title">Minden projekt része</p>
+            <ul>
+              <li><span aria-hidden="true">✓</span>Reszponzív kialakítás</li>
+              <li><span aria-hidden="true">✓</span>Technikai SEO alapok</li>
+              <li><span aria-hidden="true">✓</span>GA4 + GTM előkészítés</li>
+              <li><span aria-hidden="true">✓</span>Kapcsolatfelvételi űrlap</li>
+              <li><span aria-hidden="true">✓</span>Biztonsági alapbeállítások</li>
+              <li><span aria-hidden="true">✓</span>Alap sebességoptimalizálás</li>
+              <li><span aria-hidden="true">✓</span>Rövid betanítás</li>
+              <li><span aria-hidden="true">✓</span>30 nap indulási támogatás</li>
+            </ul>
+          </div>
         </section>
 
         <section class="pricing-group" aria-labelledby="pricing-design-title">
           <div class="pricing-group__header">
             <p class="pricing-group__step">02</p>
-            <h2 id="pricing-design-title">Design szint</h2>
-            <p>A vizuális kidolgozottság és az arculati mélység.</p>
+            <h2 id="pricing-design-title">Vizuális irány</h2>
+            <p>A megjelenés karaktere és kidolgozottsága.</p>
           </div>
 
           <div class="pricing-group__grid">
@@ -115,20 +129,21 @@
               <input
                 type="radio"
                 name="design-level"
-                value="Arculathoz igazított alap design"
+                value="Alap vizuális irány"
                 data-price="0"
                 data-pricing-option
                 checked
               />
               <span class="pricing-option__body">
                 <span class="pricing-option__title">
-                  Arculathoz igazított alap design
+                  Alap
                 </span>
                 <span class="pricing-option__text">
-                  Letisztult, egységes felület meglévő színekhez, logóhoz és
-                  tartalomhoz igazítva.
+                  Letisztult, egységes weboldal meglévő arculathoz, színekhez
+                  és tartalomhoz igazítva. Nem sablonos, hanem a projekt
+                  céljaihoz rendezett alap.
                 </span>
-                <span class="pricing-option__price">Az alapár része</span>
+                <span class="pricing-option__price">A projektalap része</span>
               </span>
             </label>
 
@@ -136,15 +151,15 @@
               <input
                 type="radio"
                 name="design-level"
-                value="Egyedi design"
+                value="Haladó vizuális irány"
                 data-price="60000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Egyedi design</span>
+                <span class="pricing-option__title">Haladó</span>
                 <span class="pricing-option__text">
-                  Részletesebb vizuális rendszer, egyedi szekciók és finomabb
-                  komponensstílusok.
+                  Erősebb márkakarakter, egyedibb szekciók, finomabb
+                  komponensstílusok és tudatosabb vizuális ritmus.
                 </span>
                 <span class="pricing-option__price">+60 000 Ft-tól</span>
               </span>
@@ -159,10 +174,10 @@
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Prémium vizuális rendszer</span>
+                <span class="pricing-option__title">Prémium</span>
                 <span class="pricing-option__text">
-                  Részletesebb vizuális irány, erősebb komponensrendszer és
-                  prémiumabb oldalélmény.
+                  Részletesebb vizuális rendszer, erősebb komponenskészlet,
+                  prémium oldalélmény és több egyedi interakció.
                 </span>
                 <span class="pricing-option__price">+150 000 Ft-tól</span>
               </span>
@@ -173,8 +188,11 @@
         <section class="pricing-group" aria-labelledby="pricing-content-title">
           <div class="pricing-group__header">
             <p class="pricing-group__step">03</p>
-            <h2 id="pricing-content-title">Tartalom és SEO</h2>
-            <p>Kiegészítők, amelyek segítik a kommunikációt és a kereshetőséget.</p>
+            <h2 id="pricing-content-title">Tartalom, SEO és konverzió</h2>
+            <p>
+              Kiegészítők, amelyek nem az alap működést, hanem az üzleti
+              eredményességet erősítik.
+            </p>
           </div>
 
           <div class="pricing-group__grid">
@@ -215,34 +233,76 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="SEO-alapbeállítás"
-                data-price="25000"
+                value="Kulcsszókutatás és SEO tartalomirány"
+                data-price="60000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">SEO-alapbeállítás</span>
-                <span class="pricing-option__text">
-                  Metaadatok, címsorhierarchia, technikai SEO-alapok és
-                  indexelési előkészítés.
+                <span class="pricing-option__title">
+                  Kulcsszókutatás és SEO tartalomirány
                 </span>
-                <span class="pricing-option__price">+25 000 Ft-tól</span>
+                <span class="pricing-option__text">
+                  Keresési szándékok, fő kulcskifejezések és oldalstruktúrához
+                  illesztett tartalmi javaslatok.
+                </span>
+                <span class="pricing-option__price">+60 000 Ft-tól</span>
               </span>
             </label>
 
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Blogrendszer"
-                data-price="40000"
+                value="Egyedi blogfelület és cikkstruktúra"
+                data-price="60000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
-                <span class="pricing-option__title">Blogrendszer</span>
-                <span class="pricing-option__text">
-                  Bloglista, bejegyzésnézet és kategóriaalapú tartalmi
-                  felépítés.
+                <span class="pricing-option__title">
+                  Egyedi blogfelület és cikkstruktúra
                 </span>
-                <span class="pricing-option__price">+40 000 Ft-tól</span>
+                <span class="pricing-option__text">
+                  Tervezett bloglista, bejegyzésnézet, kategóriaoldalak és
+                  SEO-barát tartalmi felépítés.
+                </span>
+                <span class="pricing-option__price">+60 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Ajánlatkérési folyamat optimalizálása"
+                data-price="50000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">
+                  Ajánlatkérési folyamat optimalizálása
+                </span>
+                <span class="pricing-option__text">
+                  CTA-k, ajánlatkérési pontok, bizalomépítő elemek és
+                  érdeklődőszerző oldalritmus átgondolása.
+                </span>
+                <span class="pricing-option__price">+50 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Google Cégprofil és helyi keresőoptimalizálás"
+                data-price="45000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">
+                  Google Cégprofil és helyi keresőoptimalizálás
+                </span>
+                <span class="pricing-option__text">
+                  Helyi keresésekhez kapcsolódó alapok, profilstruktúra és
+                  megjelenési javaslatok.
+                </span>
+                <span class="pricing-option__price">+45 000 Ft-tól</span>
               </span>
             </label>
           </div>
@@ -252,7 +312,11 @@
           <div class="pricing-group__header">
             <p class="pricing-group__step">04</p>
             <h2 id="pricing-photo-title">Fotózás</h2>
-            <p>Képek, amelyek hitelesebbé és személyesebbé teszik az oldalt.</p>
+            <p>
+              Saját fotók jelentősen növelik a weboldal hitelességét és bizalmi
+              szintjét. A legtöbb vállalkozásnál ez nagyobb hatással van a
+              konverzióra, mint egy látványos grafikai elem.
+            </p>
           </div>
 
           <div class="pricing-group__grid">
@@ -447,18 +511,19 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Analytics és látogatottságmérés"
-                data-price="20000"
+                value="Látogatói viselkedéselemzés (Microsoft Clarity)"
+                data-price="25000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
                 <span class="pricing-option__title">
-                  Analytics és látogatottságmérés
+                  Látogatói viselkedéselemzés (Microsoft Clarity)
                 </span>
                 <span class="pricing-option__text">
-                  Alap mérőkódok, események és konverziós célok előkészítése.
+                  Microsoft Clarity bekötés, alap események és visszanézhető
+                  látogatói viselkedés a fejlesztési döntésekhez.
                 </span>
-                <span class="pricing-option__price">+20 000 Ft-tól</span>
+                <span class="pricing-option__price">+25 000 Ft-tól</span>
               </span>
             </label>
 
@@ -482,19 +547,20 @@
             <label class="pricing-option">
               <input
                 type="checkbox"
-                value="Domain és tárhely ügyintézés"
-                data-price="15000"
+                value="Core Web Vitals optimalizálás"
+                data-price="60000"
                 data-pricing-option
               />
               <span class="pricing-option__body">
                 <span class="pricing-option__title">
-                  Domain és tárhely ügyintézés
+                  Core Web Vitals optimalizálás
                 </span>
                 <span class="pricing-option__text">
-                  Domain, tárhely és induláshoz szükséges technikai alapok
-                  egyeztetése.
+                  Haladó teljesítményoptimalizálás, mérési szempontokkal,
+                  betöltési finomhangolással és Core Web Vitals fókuszú
+                  javításokkal.
                 </span>
-                <span class="pricing-option__price">+15 000 Ft-tól</span>
+                <span class="pricing-option__price">+60 000 Ft-tól</span>
               </span>
             </label>
 
@@ -519,9 +585,90 @@
           </div>
         </section>
 
-        <section class="pricing-group" aria-labelledby="pricing-maintenance-title">
+        <section class="pricing-group" aria-labelledby="pricing-integrations-title">
           <div class="pricing-group__header">
             <p class="pricing-group__step">07</p>
+            <h2 id="pricing-integrations-title">Integrációk</h2>
+            <p>
+              Külső rendszerek és automatizmusok, amelyek összekötik a
+              weboldalt a vállalkozásod napi működésével.
+            </p>
+          </div>
+
+          <div class="pricing-group__grid">
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Google Reviews megjelenítés"
+                data-price="30000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Google Reviews megjelenítés</span>
+                <span class="pricing-option__text">
+                  Ügyfélvélemények beépítése bizalomépítő elemként a weboldal
+                  megfelelő pontjaira.
+                </span>
+                <span class="pricing-option__price">+30 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Social feed integráció"
+                data-price="30000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Instagram / Facebook feed</span>
+                <span class="pricing-option__text">
+                  Közösségi média tartalmak megjelenítése az oldal vizuális
+                  világához igazítva.
+                </span>
+                <span class="pricing-option__price">+30 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="Hírlevél rendszer bekötése"
+                data-price="40000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">Hírlevél rendszer bekötése</span>
+                <span class="pricing-option__text">
+                  Mailchimp, Brevo vagy más hírlevél rendszer kapcsolása
+                  feliratkozó űrlaphoz.
+                </span>
+                <span class="pricing-option__price">+40 000 Ft-tól</span>
+              </span>
+            </label>
+
+            <label class="pricing-option">
+              <input
+                type="checkbox"
+                value="CRM, ERP vagy számlázó integráció"
+                data-price="80000"
+                data-pricing-option
+              />
+              <span class="pricing-option__body">
+                <span class="pricing-option__title">CRM, ERP vagy számlázó integráció</span>
+                <span class="pricing-option__text">
+                  Ügyviteli, számlázó vagy egyedi rendszer kapcsolása
+                  űrlapokhoz, rendelésekhez vagy ajánlatkérésekhez.
+                </span>
+                <span class="pricing-option__price">+80 000 Ft-tól</span>
+              </span>
+            </label>
+          </div>
+        </section>
+
+        <section class="pricing-group" aria-labelledby="pricing-maintenance-title">
+          <div class="pricing-group__header">
+            <p class="pricing-group__step">08</p>
             <h2 id="pricing-maintenance-title">Karbantartás</h2>
             <p>Havi támogatási szintek az oldal indulása utáni időszakra.</p>
           </div>
@@ -603,20 +750,36 @@
             </label>
           </div>
         </section>
+
+        <section class="pricing-audit-cta" aria-labelledby="pricing-audit-title">
+          <div>
+            <p class="pricing-audit-cta__eyebrow">Még nem vagy biztos benne?</p>
+            <h2 id="pricing-audit-title">
+              Kezdjük egy díjmentes Weboldal Állapotfelméréssel.
+            </h2>
+            <p>
+              Megnézzük, hogy a jelenlegi weboldaladnál elég-e néhány javítás,
+              vagy érdemes új weboldalban gondolkodni. Így könnyebb eldönteni,
+              milyen fejlesztésre és mekkora projektértékre számíts.
+            </p>
+          </div>
+          <a href="/weboldal-allapotfelmeres.html">
+            Kérek állapotfelmérést
+          </a>
+        </section>
       </div>
 
       <aside class="pricing-summary" aria-labelledby="pricing-summary-title">
         <div class="pricing-summary__inner">
           <p class="pricing-summary__eyebrow">Összesítő</p>
-          <h2 id="pricing-summary-title">Ajánlatod</h2>
+          <h2 id="pricing-summary-title">Becslésed</h2>
           <ul class="pricing-summary__list" data-pricing-summary-list></ul>
           <p class="pricing-summary__empty" data-pricing-empty>
-            Válassz szolgáltatásokat, és itt megjelenik az összeállított
-            ajánlat.
+            Válassz szolgáltatásokat, és itt megjelenik a becsült projektérték.
           </p>
 
           <div class="pricing-summary__price">
-            <span>Becsült induló ár</span>
+            <span>Becsült projektérték</span>
             <strong data-pricing-total>0 Ft-tól</strong>
           </div>
 
@@ -629,9 +792,9 @@
           </button>
 
           <p class="pricing-summary__note">
-            Az ár tájékoztató jellegű. A pontos ajánlatot a projekt részletei
-            alapján egyeztetjük. A havi karbantartás külön tételként jelenik
-            meg.
+            A becslés tájékoztató jellegű. A pontos ajánlatot a projekt céljai,
+            tartalma és funkciói alapján egyeztetjük. A havi karbantartás külön
+            tételként jelenik meg.
           </p>
         </div>
       </aside>

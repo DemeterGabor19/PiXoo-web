@@ -21,6 +21,7 @@ export function initPricingConfigurator() {
     : [];
   const revealItems = [
     ...Array.from(root.querySelectorAll(".pricing-group")),
+    ...Array.from(root.querySelectorAll(".pricing-audit-cta")),
     ...Array.from(root.querySelectorAll(".pricing-option")),
     root.querySelector(".pricing-summary"),
   ].filter(Boolean);
@@ -131,7 +132,7 @@ export function initPricingConfigurator() {
     );
     const formatOptionPrice = (option) => {
       if (!option.price) {
-        return "Alapár";
+        return "Projektalap";
       }
 
       return option.isRecurring
@@ -158,7 +159,7 @@ export function initPricingConfigurator() {
         (option) => `- ${option.label}: ${formatOptionPrice(option)}`
       ),
       "",
-      `Becsült induló ár: ${formatPrice(total)}-tól`,
+      `Becsült projektérték: ${formatPrice(total)}-tól`,
     ].join("\n");
 
     if (requestSummary) {

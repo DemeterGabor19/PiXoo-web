@@ -39,6 +39,7 @@
 .website-audit__section-head,
 .website-audit__check-grid article,
 .website-audit__result,
+.website-audit__inline-cta,
 .website-audit__deliverables-copy,
 .website-audit__feature-panel,
 .website-audit__note,
@@ -66,6 +67,7 @@
 }
 
 .website-audit__check-grid article:hover,
+.website-audit__inline-cta:hover,
 .website-audit__feature-panel:hover,
 .website-audit__process-visual:hover,
 .website-audit__note:hover,
@@ -91,6 +93,7 @@
   .website-audit__section-head,
   .website-audit__check-grid article,
   .website-audit__result,
+  .website-audit__inline-cta,
   .website-audit__deliverables-copy,
   .website-audit__feature-panel,
   .website-audit__note,
@@ -334,6 +337,7 @@
 .website-audit__preview,
 .website-audit__check-grid article,
 .website-audit__result,
+.website-audit__inline-cta,
 .website-audit__note,
 .website-audit__truth,
 .website-audit__request {
@@ -691,6 +695,27 @@
   margin: 0;
   color: $color-text-muted;
   line-height: 1.62;
+}
+
+.website-audit__inline-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.website-audit__inline-cta p {
+  margin: 0;
+  color: $color-text-muted;
+  line-height: 1.62;
+}
+
+.website-audit__inline-cta a {
+  @include primary-cta;
+  min-height: 48px;
 }
 
 .website-audit__contrast-band {
@@ -1181,6 +1206,11 @@
   .website-audit-form .contact-form__grid {
     grid-template-columns: 1fr;
   }
+
+  .website-audit__inline-cta a {
+    width: 100%;
+    min-width: 0;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1284,6 +1314,7 @@
   .website-audit__browser,
   .website-audit__check-grid article,
   .website-audit__result,
+  .website-audit__inline-cta,
   .website-audit__note,
   .website-audit__truth,
   .website-audit__request {

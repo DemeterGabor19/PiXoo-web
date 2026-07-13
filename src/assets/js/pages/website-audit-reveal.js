@@ -12,6 +12,7 @@ export function initWebsiteAuditReveal() {
         ".website-audit__impression",
         ".website-audit__section-head",
         ".website-audit__result",
+        ".website-audit__inline-cta",
         ".website-audit__deliverables-copy",
         ".website-audit__feature-panel",
         ".website-audit__note",

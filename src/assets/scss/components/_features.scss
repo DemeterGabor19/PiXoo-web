@@ -90,6 +90,79 @@
     }
   }
 
+  &__audit-cta {
+    max-width: 760px;
+    margin: 0 auto 2.75rem;
+    padding: clamp(1rem, 2.6vw, 1.35rem);
+    border: 1px solid rgba($color-accent-light, 0.24);
+    border-radius: $radius-card-md;
+    background:
+      radial-gradient(
+        circle at 100% 0,
+        rgba($color-accent-light, 0.13),
+        rgba($color-accent-light, 0) 42%
+      ),
+      linear-gradient(180deg, rgba($color-text, 0.075), rgba($color-text, 0.03));
+    box-shadow:
+      inset 0 1px 0 rgba($color-text, 0.1),
+      0 18px 44px rgba(0, 0, 0, 0.18);
+  }
+
+  &__audit-cta p {
+    margin: 0;
+    color: $color-text-muted;
+    line-height: 1.65;
+  }
+
+  &__decision-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0 0 2.75rem;
+  }
+
+  &__decision-button,
+  &__audit-cta a {
+    @include primary-cta;
+    min-height: 48px;
+  }
+
+  &__decision-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid rgba($color-accent-light, 0.26);
+    border-radius: $radius-pill;
+    background: rgba($color-text, 0.055);
+    color: $color-text;
+    font-weight: $font-weight-semibold;
+    text-decoration: none;
+    transition:
+      transform $transition-fast,
+      border-color $transition-fast,
+      background $transition-fast;
+
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba($color-accent-light, 0.48);
+      background: rgba($color-text, 0.09);
+    }
+  }
+
+  &__audit-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -203,6 +276,10 @@
       line-height: 1.7;
     }
 
+    &__audit-cta {
+      max-width: 100%;
+    }
+
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -222,6 +299,20 @@
 
     &__grid {
       gap: 1rem;
+    }
+
+    &__decision-actions,
+    &__audit-cta {
+      flex-direction: column;
+      align-items: stretch;
+      text-align: center;
+    }
+
+    &__decision-button,
+    &__decision-link,
+    &__audit-cta a {
+      width: 100%;
+      min-width: 0;
     }
 
     &__card {
